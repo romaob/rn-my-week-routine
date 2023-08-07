@@ -1,0 +1,114 @@
+import React from 'react';
+import {Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {sizes} from '../values/sizes';
+import {colors} from '../values/colors';
+
+export enum ButtonColorType {
+  PRIMARY = 'primary',
+  SECONDARY = 'secondary',
+  ACCENT = 'accent',
+  SUCCESS = 'success',
+  DANGER = 'danger',
+  WARNING = 'warning',
+  INFO = 'info',
+}
+
+export enum ButtonSize {
+  SMALL = 'sm',
+  MEDIUM = 'md',
+  LARGE = 'lg',
+  EXTRA_LARGE = 'xl',
+}
+
+export interface ButtonProps {
+  label?: string;
+  rounded?: true;
+  colorType?: ButtonColorType;
+  prefixIcon?: string;
+  suffixIcon?: string;
+  disabled?: boolean;
+  contentVertical?: boolean;
+  size?: ButtonSize;
+  flex?: boolean;
+  onPress: () => void;
+  children?: React.ReactNode;
+}
+
+const pallete = colors.light;
+
+export default function Button({
+  label,
+  rounded,
+  colorType,
+  disabled,
+  contentVertical,
+  size,
+  flex,
+  onPress,
+  children,
+}: ButtonProps): JSX.Element {
+  return (
+    <TouchableOpacity
+      style={[
+        styles.container,
+        styles[colorType || ButtonColorType.PRIMARY],
+        rounded && styles.rounded,
+        disabled && styles.disabled,
+        contentVertical && styles.contentVertical,
+        flex && styles.flex,
+      ]}
+      onPress={onPress}>
+      {children}
+      {label && (
+        <Text style={[styles.text, size && styles[`text-${size}`]]}>
+          {label}
+        </Text>
+      )}
+    </TouchableOpacity>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    display: 'flex',
+    alignSelf: 'flex-start',
+    padding: sizes.padding.small,
+    margin: sizes.margin.small,
+    borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  rounded: {
+    borderRadius: 50,
+    aspectRatio: 1,
+  },
+  contentVertical: {flexDirection: 'column'},
+  primary: {backgroundColor: pallete.primary},
+  secondary: {backgroundColor: pallete.secondary},
+  accent: {backgroundColor: pallete.accent},
+  success: {backgroundColor: pallete.success},
+  danger: {backgroundColor: pallete.danger},
+  warning: {backgroundColor: pallete.warning},
+  info: {backgroundColor: pallete.info},
+  'text-sm': {
+    fontSize: sizes.font.small,
+  },
+  'text-md': {
+    fontSize: sizes.font.medium,
+  },
+  'text-lg': {
+    fontSize: sizes.font.large,
+  },
+  'text-xl': {
+    fontSize: sizes.font.xlarge,
+  },
+  disabled: {
+    opacity: 0.5,
+  },
+  flex: {
+    flex: 1,
+  },
+  text: {
+    color: pallete.textContrast,
+  },
+});
