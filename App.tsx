@@ -21,7 +21,6 @@ function App(): JSX.Element {
     <SafeAreaView style={styles.appContainer}>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Splash" component={Splash} />
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Profile" component={Profile} />
         </Stack.Navigator>

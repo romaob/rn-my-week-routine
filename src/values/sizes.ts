@@ -2,21 +2,21 @@
 export const sizes = {
   // Font sizes
   font: {
-    small: 12,
-    medium: 14,
-    large: 16,
-    xlarge: 20,
+    sm: 12,
+    md: 14,
+    lg: 16,
+    xl: 20,
   },
   // Padding sizes
   padding: {
-    small: 8,
-    medium: 16,
-    large: 24,
+    sm: 8,
+    md: 16,
+    lg: 24,
   },
   // Margin sizes
   margin: {
-    small: 8,
-    medium: 16,
-    large: 24,
+    sm: 8,
+    md: 16,
+    lg: 24,
   },
 };

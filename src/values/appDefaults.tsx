@@ -5,6 +5,14 @@ export enum APP_KEYS {
   EVENTS = '@myweekroutine.events',
 }
 
+export type LanguageSring = {
+  [key: string]: {
+    en: string;
+    pt: string;
+    es: string;
+  };
+};
+
 export interface Event {
   id: string;
   name: string;

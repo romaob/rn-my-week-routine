@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {Text, TouchableOpacity, StyleSheet, View} from 'react-native';
 import {sizes} from '../values/sizes';
 import {colors} from '../values/colors';
 
@@ -27,6 +27,7 @@ export interface ButtonProps {
   prefixIcon?: string;
   suffixIcon?: string;
   disabled?: boolean;
+  inactive?: boolean;
   contentVertical?: boolean;
   size?: ButtonSize;
   flex?: boolean;
@@ -41,39 +42,61 @@ export default function Button({
   rounded,
   colorType,
   disabled,
+  inactive,
   contentVertical,
   size,
   flex,
   onPress,
   children,
+  ...props
 }: ButtonProps): JSX.Element {
-  return (
-    <TouchableOpacity
-      style={[
+  function getProps() {
+    return {
+      ...props,
+      style: [
         styles.container,
         styles[colorType || ButtonColorType.PRIMARY],
         rounded && styles.rounded,
         disabled && styles.disabled,
         contentVertical && styles.contentVertical,
         flex && styles.flex,
-      ]}
-      onPress={onPress}>
-      {children}
-      {label && (
-        <Text style={[styles.text, size && styles[`text-${size}`]]}>
-          {label}
-        </Text>
-      )}
-    </TouchableOpacity>
-  );
+      ],
+    };
+  }
+
+  function getChildren() {
+    return (
+      <>
+        {children}
+        {label && (
+          <Text style={[styles.text, size && styles[`text-${size}`]]}>
+            {label}
+          </Text>
+        )}
+      </>
+    );
+  }
+
+  if (inactive) {
+    return (
+      <View testID="buttonInactive" {...getProps()}>
+        {getChildren()}
+      </View>
+    );
+  } else {
+    return (
+      <TouchableOpacity testID="button" {...getProps()} onPress={onPress}>
+        {getChildren()}
+      </TouchableOpacity>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
     alignSelf: 'flex-start',
-    padding: sizes.padding.small,
-    margin: sizes.margin.small,
+    padding: sizes.padding.sm,
     borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',
@@ -91,16 +114,16 @@ const styles = StyleSheet.create({
   warning: {backgroundColor: pallete.warning},
   info: {backgroundColor: pallete.info},
   'text-sm': {
-    fontSize: sizes.font.small,
+    fontSize: sizes.font.sm,
   },
   'text-md': {
-    fontSize: sizes.font.medium,
+    fontSize: sizes.font.md,
   },
   'text-lg': {
-    fontSize: sizes.font.large,
+    fontSize: sizes.font.lg,
   },
   'text-xl': {
-    fontSize: sizes.font.xlarge,
+    fontSize: sizes.font.xl,
   },
   disabled: {
     opacity: 0.5,

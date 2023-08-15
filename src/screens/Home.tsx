@@ -1,25 +1,28 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import Button from '../components/Button';
-import {useNavigation} from '@react-navigation/native';
+import {View, StyleSheet} from 'react-native';
+import useEvents from '../hooks/useEvents';
+import RoutineList from '../components/RoutineList';
+import useSetup from '../hooks/useSetup';
+import WeekDaysMenu from '../components/WeekDaysMenu';
 
 export default function Home(): JSX.Element {
-  const navigation = useNavigation();
+  const {events} = useEvents();
+  const {loading: setupLoading} = useSetup();
+
   return (
     <View style={styles.container}>
-      <Text>Home</Text>
-      <Button
-        label="Go to Profile"
-        onPress={() => navigation.navigate('Profile')}
-      />
-    </View>
+      <WeekDaysMenu />
+      {/* 
+      <RoutineList events={events} />
+    */}
+      </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
+    alignItems: 'center',
     flex: 1,
-    gap: 10,
   },
 });

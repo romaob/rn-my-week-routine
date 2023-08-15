@@ -19,4 +19,39 @@
         "es": "Português",
         "pt": "Português"
     },
+    "week_day_mon": {
+        "en": "Monday",
+        "es": "Lunes",
+        "pt": "Segunda"
+    },
+    "week_day_tue": {
+        "en": "Tuesday",
+        "es": "Martes",
+        "pt": "Terça"
+    },
+    "week_day_wed": {
+        "en": "Wednesday",
+        "es": "Miércoles",
+        "pt": "Quarta"
+    },
+    "week_day_thu": {
+        "en": "Thursday",
+        "es": "Jueves",
+        "pt": "Quinta"
+    },
+    "week_day_fri": {
+        "en": "Friday",
+        "es": "Viernes",
+        "pt": "Sexta"
+    },
+    "week_day_sat": {
+        "en": "Saturday",
+        "es": "Sábado",
+        "pt": "Sábado"
+    },
+    "week_day_sun": {
+        "en": "Sunday",
+        "es": "Domingo",
+        "pt": "Domingo"
+    }
 }
