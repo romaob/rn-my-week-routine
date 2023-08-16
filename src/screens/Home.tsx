@@ -4,6 +4,7 @@ import useEvents from '../hooks/useEvents';
 import RoutineList from '../components/RoutineList';
 import useSetup from '../hooks/useSetup';
 import WeekDaysMenu from '../components/WeekDaysMenu';
+import Label from '../components/Label';
 
 export default function Home(): JSX.Element {
   const {events} = useEvents();
@@ -12,10 +13,10 @@ export default function Home(): JSX.Element {
   return (
     <View style={styles.container}>
       <WeekDaysMenu />
-      {/* 
+      {/*
       <RoutineList events={events} />
     */}
-      </View>
+    </View>
   );
 }
 

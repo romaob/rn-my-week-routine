@@ -44,7 +44,7 @@ export default function Button({
   disabled,
   inactive,
   contentVertical,
-  size,
+  size = ButtonSize.MEDIUM,
   flex,
   onPress,
   children,
@@ -53,14 +53,14 @@ export default function Button({
   function getProps() {
     return {
       ...props,
-      style: [
-        styles.container,
-        styles[colorType || ButtonColorType.PRIMARY],
-        rounded && styles.rounded,
-        disabled && styles.disabled,
-        contentVertical && styles.contentVertical,
-        flex && styles.flex,
-      ],
+      style: {
+        ...styles.container,
+        ...styles[colorType || ButtonColorType.PRIMARY],
+        ...(rounded ? styles.rounded : {}),
+        ...(disabled ? styles.disabled : {}),
+        ...(contentVertical ? styles.contentVertical : {}),
+        ...(flex ? styles.flex : {}),
+      },
     };
   }
 
@@ -69,7 +69,9 @@ export default function Button({
       <>
         {children}
         {label && (
-          <Text style={[styles.text, size && styles[`text-${size}`]]}>
+          <Text
+            testID="buttonLabel"
+            style={[styles.text, size && styles[`text-${size}`]]}>
             {label}
           </Text>
         )}
@@ -77,7 +79,7 @@ export default function Button({
     );
   }
 
-  if (inactive) {
+  if (inactive || disabled) {
     return (
       <View testID="buttonInactive" {...getProps()}>
         {getChildren()}
@@ -102,7 +104,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   rounded: {
-    borderRadius: 50,
+    borderRadius: 999,
     aspectRatio: 1,
   },
   contentVertical: {flexDirection: 'column'},

@@ -1,9 +1,14 @@
 import {Text, StyleSheet} from 'react-native';
 import React from 'react';
 import {sizes} from '../values/sizes';
-import { colors } from '../values/colors';
+import {colors} from '../values/colors';
 
-export type FontSize = 'sm' | 'md' | 'lg' | 'xl';
+export enum FontSize {
+  SMALL = 'sm',
+  MEDIUM = 'md',
+  LARGE = 'lg',
+  EXTRA_LARGE = 'xl',
+}
 
 export interface LabelProps {
   text: string;
@@ -15,13 +20,15 @@ export interface LabelProps {
 
 export default function Label({
   text,
-  size = 'md',
+  size = FontSize.MEDIUM,
   children,
-  childrenBefore,
+  childrenBefore = true,
   childrenAfter,
 }: LabelProps) {
   return (
-    <Text style={{...styles.container, ...{fontSize: sizes.font[size]}}}>
+    <Text
+      testID="label"
+      style={{...styles.container, ...{fontSize: sizes.font[size]}}}>
       {childrenBefore && children}
       {text}
       {childrenAfter && children}

@@ -33,7 +33,7 @@ export default function WeekDaysMenu({onPress}: WeekDaysMenuProps) {
 }
 
   return (
-    <View style={styles.container}>
+    <View testID="weekdays-menu" style={styles.container}>
       {weekDays.map((day, index) => (
         <Button
           key={index}
