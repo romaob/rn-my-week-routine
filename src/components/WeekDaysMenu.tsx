@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
     width: 400,
     flexDirection: 'row',
     gap: sizes.margin.sm,
-    padding: sizes.padding.sm,
+    paddingHorizontal: sizes.padding.sm,
+    paddingVertical: sizes.padding.md,
   },
 });

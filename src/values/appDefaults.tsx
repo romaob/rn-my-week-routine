@@ -13,8 +13,10 @@ export type LanguageSring = {
   };
 };
 
+export const ITEM_MINUTES = 30;
+
 export interface Event {
-  id: string;
+  id: string | null;
   name: string;
   indexes: number[];
   description: string;
@@ -25,4 +27,20 @@ export interface Event {
   alertConfirmed: boolean;
   added: string;
   updated: string;
+}
+
+export function getEmptyEvent(): Event {
+  return {
+    id: null,
+    name: '',
+    indexes: [],
+    description: '',
+    startAt: '',
+    endAt: '',
+    alertEnabled: false,
+    alertSent: false,
+    alertConfirmed: false,
+    added: '',
+    updated: '',
+  };
 }

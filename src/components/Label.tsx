@@ -16,6 +16,7 @@ export interface LabelProps {
   children?: React.ReactNode;
   childrenBefore?: boolean;
   childrenAfter?: boolean;
+  testID?: string;
 }
 
 export default function Label({
@@ -24,10 +25,11 @@ export default function Label({
   children,
   childrenBefore = true,
   childrenAfter,
+  testID,
 }: LabelProps) {
   return (
     <Text
-      testID="label"
+      testID={testID || 'label'}
       style={{...styles.container, ...{fontSize: sizes.font[size]}}}>
       {childrenBefore && children}
       {text}
