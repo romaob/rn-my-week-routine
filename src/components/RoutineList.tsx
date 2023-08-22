@@ -1,18 +1,29 @@
-import {View, Text, StyleSheet, FlatList} from 'react-native';
+import {View, Text, StyleSheet, FlatList, Touchable, TouchableOpacity} from 'react-native';
 import React, {useEffect, useState} from 'react';
-import {Event, ITEM_MINUTES} from '../values/appDefaults';
+import {Event, ITEM_MINUTES, getEmptyEvent} from '../values/appDefaults';
 import Label from './Label';
 import {sizes} from '../values/sizes';
 import {colors} from '../values/colors';
 import {getDayTimesForMinutes} from '../utils/dateUtils';
+import {checkIsActive} from './TimeLabels';
 
 export type TimeSlot = {
   date: Date;
   events: Event[];
+  active?: boolean;
 };
 export interface EventListItemProps {
   event: Event;
-  onPress: () => void;
+  onPress?: () => void;
+}
+
+export function EventItem({event}: EventListItemProps) {
+  return (
+    <TouchableOpacity
+      style={{...styles.eventItem, ...(event.id ? styles.eventItemSet : {})}}>
+      <Label text={event?.name} />
+    </TouchableOpacity>
+  );
 }
 export interface SlotListItemProps {
   timeSlot: TimeSlot;
@@ -20,11 +31,18 @@ export interface SlotListItemProps {
 }
 
 export function SlotListItem({timeSlot}: SlotListItemProps) {
-
-
+  const index =
+    timeSlot.date.getHours() * 2 + (timeSlot.date.getMinutes() >= 30 ? 1 : 0);
   return (
-    <View style={styles.eventItem}>
-      <Label text={(timeSlot?.events?.length || 0) + ''} />
+    <View
+      style={{
+        ...styles.slotItem,
+        ...(timeSlot?.active ? styles.slotItemActive : {}),
+        ...(index % 2 !== 0 ? styles.slotItemContrast : {}),
+      }}>
+      {timeSlot.events.map((event, index) => (
+        <EventItem event={event} key={index + '' + (event?.id || 0)} />
+      ))}
     </View>
   );
 }
@@ -44,17 +62,17 @@ export default function RoutineList({
     console.log(event);
   }
   useEffect(() => {
-    const slotsSize = getDayTimesForMinutes(ITEM_MINUTES).length;
     // Array of slots
     const newTimeSlots: TimeSlot[] = [];
-
-    for (let i = 0; i < slotsSize; i++) {
-      const date = new Date(
-        new Date().setHours(Math.floor(i / 2), i % 2 === 0 ? 0 : 30),
-      );
-      newTimeSlots.push({date, events: []});
+    const timeOptions = getDayTimesForMinutes(ITEM_MINUTES);
+    for (const option of timeOptions) {
+      newTimeSlots.push({
+        date: option,
+        events: [getEmptyEvent()],
+        active: checkIsActive(option),
+      });
     }
-
+    /*
     if (events?.length > 0) {
       for (let i = 0; i < events.length; i++) {
         const event = events[i];
@@ -75,7 +93,21 @@ export default function RoutineList({
         }
       }
     }
-    setTimeSlots(Array.from(newTimeSlots.values()));
+    */
+    newTimeSlots[12].events.push({
+      id: '1',
+      name: 'Teste',
+      indexes: [0, 1, 2, 3, 4, 5, 6],
+      description: 'Teste',
+      startAt: '2021-08-10T06:00:00.000Z',
+      endAt: '2021-08-10T06:30:00.000Z',
+      alertEnabled: false,
+      alertSent: false,
+      alertConfirmed: false,
+      added: '2021-08-10T06:00:00.000Z',
+      updated: '2021-08-10T06:00:00.000Z',
+    });
+    setTimeSlots(newTimeSlots);
   }, [dayIndex, events]);
 
   return (
@@ -110,7 +142,25 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  slotItem: {
+    display: 'flex',
+    flexDirection: 'row',
+    paddingHorizontal: sizes.padding.sm,
+  },
+  slotItemContrast: {
+    backgroundColor: colors.light.grey + 20,
+  },
+  slotItemActive: {
+    backgroundColor: colors.light.accent + 33,
+  },
   eventItem: {
     padding: sizes.padding.sm,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  eventItemSet: {
+    backgroundColor: colors.light.accent,
+    borderRadius: 10,
   },
 });

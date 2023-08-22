@@ -48,6 +48,91 @@ export default function useSetup(): useSetupReturn {
 
           */
           const events = [];
+          events.push(
+            {
+              id: 1,
+              name: 'Work',
+              indexes: [0, 1, 2, 3, 4, 5, 6],
+              description: 'Working time',
+              startAt: new Date(new Date().setHours(8)).toISOString(),
+              endAt: new Date(new Date().setHours(16)).toISOString(),
+              alertEnabled: true,
+              alertSent: false,
+              alertConfirmed: false,
+              added: new Date().toISOString(),
+              updated: new Date().toISOString(),
+            },
+            {
+              id: 2,
+              name: 'Exercise Break',
+              indexes: [0, 1, 2, 3, 4, 5, 6],
+              description: 'Small break for exercises',
+              startAt: new Date(new Date().setHours(12)).toISOString(),
+              endAt: new Date(new Date().setHours(12, 30, 0, 0)).toISOString(),
+              alertEnabled: true,
+              alertSent: false,
+              alertConfirmed: false,
+              added: new Date().toISOString(),
+              updated: new Date().toISOString(),
+            },
+            {
+              id: 3,
+              name: 'Test Break',
+              indexes: [0, 1, 2, 3, 4, 5, 6],
+              description: 'Testing > 2 events',
+              startAt: new Date(new Date().setHours(13)).toISOString(),
+              endAt: new Date(new Date().setHours(15, 0, 0, 0)).toISOString(),
+              alertEnabled: true,
+              alertSent: false,
+              alertConfirmed: false,
+              added: new Date().toISOString(),
+              updated: new Date().toISOString(),
+            },
+            {
+              id: 3,
+              name: 'Test Break 2',
+              indexes: [0, 1, 2, 3, 4, 5, 6],
+              description: 'Testing > 2 events',
+              startAt: new Date(
+                new Date().setHours(12, 30, 0, 0),
+              ).toISOString(),
+              endAt: new Date(new Date().setHours(16, 30, 0, 0)).toISOString(),
+              alertEnabled: true,
+              alertSent: false,
+              alertConfirmed: false,
+              added: new Date().toISOString(),
+              updated: new Date().toISOString(),
+            },
+            {
+              id: 5,
+              name: 'Projects',
+              indexes: [0, 1, 2, 3, 4, 5, 6],
+              description: 'Projects time',
+              startAt: new Date(
+                new Date().setHours(16, 30, 0, 0),
+              ).toISOString(),
+              endAt: new Date(new Date().setHours(21, 30, 0, 0)).toISOString(),
+              alertEnabled: true,
+              alertSent: false,
+              alertConfirmed: false,
+              added: new Date().toISOString(),
+              updated: new Date().toISOString(),
+            },
+            {
+              id: 8,
+              name: 'Sleep',
+              indexes: [0, 1, 2, 3, 4, 5, 6],
+              description: 'Sleeping time',
+              startAt: new Date(new Date().setHours(22)).toISOString(),
+              endAt: new Date(new Date().setHours(6)).toISOString(),
+              alertEnabled: true,
+              alertSent: false,
+              alertConfirmed: false,
+              added: new Date().toISOString(),
+              updated: new Date().toISOString(),
+            },
+          );
+          /*
           const date = new Date().setHours(0, 0, 0, 0);
           for (let i = 0; i < 48; i++) {
             events.push({
@@ -78,6 +163,7 @@ export default function useSetup(): useSetupReturn {
               updated: new Date(date).toISOString(),
             });
           }
+          */
           await AsyncStorage.setItem(APP_KEYS.EVENTS, JSON.stringify(events));
         }
       } catch (error) {

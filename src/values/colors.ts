@@ -15,5 +15,6 @@ export const colors = {
     textContrast: '#ffffff',
     textSecondary: '#757575',
     textDisabled: '#bdbdbd',
+    grey: '#9e9e9e',
   },
 };
