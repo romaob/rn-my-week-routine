@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     width: 30,
   },
   itemContainer: {
-    flex: 1,
+    height: sizes.appValues.timeSlotHeight,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-start',

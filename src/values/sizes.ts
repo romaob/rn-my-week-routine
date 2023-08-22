@@ -19,4 +19,8 @@ export const sizes = {
     md: 16,
     lg: 24,
   },
+  // App values
+  appValues: {
+    timeSlotHeight: 30,
+  },
 };

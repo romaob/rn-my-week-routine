@@ -4,6 +4,7 @@ import {WEEK_DAYS, getWeekDays} from '../utils/dateUtils';
 import Button, {ButtonColorType, ButtonSize} from './Button';
 import {sizes} from '../values/sizes';
 import useString from '../hooks/useString';
+import { colors } from '../values/colors';
 
 export interface WeekDaysMenuProps {
   onPress?: (day: string, index: number) => void;

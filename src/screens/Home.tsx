@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, StyleSheet, ScrollView} from 'react-native';
 import useEvents from '../hooks/useEvents';
 import RoutineList from '../components/RoutineList';
@@ -20,24 +20,13 @@ export default function Home(): JSX.Element {
   const scrollRef = React.useRef<ScrollView>(null);
 
   useEffect(() => {
-    const timerToUpdateIndex = setInterval(() => {
-      setCurrentIndex(getCurrentIndex());
-    }, 1000 * 60);
-    return () => {
-      clearInterval(timerToUpdateIndex);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTo({
-        x: 0,
-        y: currentIndex > 10 ? currentIndex * 20 : 0,
-        animated: true,
-      });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    console.log('scrolling to: ', currentIndex);
+    scrollRef?.current?.scrollTo({
+      x: 0,
+      y: currentIndex * 20,
+      animated: true,
+    });
+  }, [currentIndex, scrollRef]);
 
   return (
     <View style={styles.container}>

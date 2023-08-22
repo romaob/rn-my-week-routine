@@ -1,4 +1,11 @@
-import {View, Text, StyleSheet, FlatList, Touchable, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  Touchable,
+  TouchableOpacity,
+} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {Event, ITEM_MINUTES, getEmptyEvent} from '../values/appDefaults';
 import Label from './Label';
@@ -63,57 +70,42 @@ export default function RoutineList({
   }
   useEffect(() => {
     // Array of slots
-    const newTimeSlots: TimeSlot[] = [];
+    const newTimeSlots = new Map<number, TimeSlot>();
     const timeOptions = getDayTimesForMinutes(ITEM_MINUTES);
     for (const option of timeOptions) {
-      newTimeSlots.push({
+      const optionIndex =
+        option.getHours() * 2 + (option.getMinutes() >= 30 ? 1 : 0);
+      newTimeSlots.set(optionIndex, {
         date: option,
-        events: [getEmptyEvent()],
+        events: [],
         active: checkIsActive(option),
       });
     }
-    /*
-    if (events?.length > 0) {
-      for (let i = 0; i < events.length; i++) {
-        const event = events[i];
-        const eventDayIndex = event.indexes.some(index => index === dayIndex);
-        if (eventDayIndex) {
-          //Find the initial slot, using the startAt time (e.g. 8:00, the slot key is 8*2 and if the minutes are > 30, the slot key is 8*2+1)
-          const initialSlot =
-            new Date(event.startAt).getHours() * 2 +
-            (new Date(event.startAt).getMinutes() > 30 ? 1 : 0);
-          //Find the end slot based on the endAt time, following the same logic as above
-          const endSlot =
-            new Date(event.endAt).getHours() * 2 +
-            (new Date(event.endAt).getMinutes() > 30 ? 1 : 0);
-          //Add the event to the slots between the initial and end slot
-          for (let j = initialSlot; j <= endSlot; j++) {
-            newTimeSlots[j].events.push(event);
-          }
+
+    for (const event of events) {
+      const eventStartIndex =
+        new Date(event.startAt).getHours() * 2 +
+        (new Date(event.startAt).getMinutes() >= 30 ? 1 : 0) -
+        1;
+      const eventEndIndex =
+        new Date(event.endAt).getHours() * 2 +
+        (new Date(event.endAt).getMinutes() >= 30 ? 1 : 0) -
+        1;
+      for (let i = eventStartIndex; i <= eventEndIndex; i++) {
+        const slot = newTimeSlots.get(i);
+        if (slot) {
+          slot.events.push(event);
         }
       }
     }
-    */
-    newTimeSlots[12].events.push({
-      id: '1',
-      name: 'Teste',
-      indexes: [0, 1, 2, 3, 4, 5, 6],
-      description: 'Teste',
-      startAt: '2021-08-10T06:00:00.000Z',
-      endAt: '2021-08-10T06:30:00.000Z',
-      alertEnabled: false,
-      alertSent: false,
-      alertConfirmed: false,
-      added: '2021-08-10T06:00:00.000Z',
-      updated: '2021-08-10T06:00:00.000Z',
-    });
-    setTimeSlots(newTimeSlots);
+
+    setTimeSlots(Array.from(newTimeSlots.values()));
   }, [dayIndex, events]);
 
   return (
-    <>
+    <View style={styles.container}>
       {events.length > 0 ? (
-        <View style={styles.container}>
+        <View style={styles.itemsContainer}>
           {timeSlots.map((slot, i) => (
             <SlotListItem
               key={i}
@@ -127,12 +119,16 @@ export default function RoutineList({
           <Label text="No events" />
         </View>
       )}
-    </>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    display: 'flex',
+    flex: 1,
+  },
+  itemsContainer: {
     flex: 1,
     borderTopColor: colors.light.textSecondary,
     borderTopWidth: 2,
@@ -144,8 +140,9 @@ const styles = StyleSheet.create({
   },
   slotItem: {
     display: 'flex',
+    flex: 1,
     flexDirection: 'row',
-    paddingHorizontal: sizes.padding.sm,
+    minHeight: sizes.appValues.timeSlotHeight,
   },
   slotItemContrast: {
     backgroundColor: colors.light.grey + 20,
@@ -154,13 +151,11 @@ const styles = StyleSheet.create({
     backgroundColor: colors.light.accent + 33,
   },
   eventItem: {
-    padding: sizes.padding.sm,
-    flex: 1,
+    width: 100,
+    marginHorizontal: 2,
     justifyContent: 'center',
-    alignItems: 'center',
   },
   eventItemSet: {
-    backgroundColor: colors.light.accent,
-    borderRadius: 10,
+    backgroundColor: colors.light.primary + 33,
   },
 });
