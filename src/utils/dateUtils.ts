@@ -30,3 +30,10 @@ export function getDayTimesForMinutes(minutes: number): Date[] {
   }
   return result;
 }
+
+export function getSlotIndexOfDate(date: Date, minutes: number): number {
+  return (
+    new Date(date).getHours() * 2 +
+    (new Date(date).getMinutes() >= minutes ? 1 : 0)
+  );
+}

@@ -8,7 +8,7 @@ export const colors = {
     warning: '#ff9800',
     success: '#4caf50',
     info: '#2196f3',
-    background: '#ffffff',
+    background: '#f2f2f2',
     cardBackground: '#ffffff',
     disabled: '#bdbdbd',
     text: '#000000',

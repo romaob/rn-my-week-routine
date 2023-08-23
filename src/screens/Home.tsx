@@ -6,6 +6,7 @@ import useSetup from '../hooks/useSetup';
 import WeekDaysMenu from '../components/WeekDaysMenu';
 import Label from '../components/Label';
 import TimeLabels from '../components/TimeLabels';
+import { colors } from '../values/colors';
 
 function getCurrentIndex(): number {
   const now = new Date();
@@ -20,7 +21,7 @@ export default function Home(): JSX.Element {
   const scrollRef = React.useRef<ScrollView>(null);
 
   useEffect(() => {
-    console.log('scrolling to: ', currentIndex);
+    //console.log('scrolling to: ', currentIndex);
     scrollRef?.current?.scrollTo({
       x: 0,
       y: currentIndex * 20,
@@ -46,6 +47,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     flex: 1,
+    backgroundColor: colors.light.background,
   },
   timesScrollContainer: {
     width: '100%',
