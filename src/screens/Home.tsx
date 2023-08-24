@@ -22,11 +22,13 @@ export default function Home(): JSX.Element {
 
   useEffect(() => {
     //console.log('scrolling to: ', currentIndex);
+    /*
     scrollRef?.current?.scrollTo({
       x: 0,
       y: currentIndex * 20,
       animated: true,
     });
+    */
   }, [currentIndex, scrollRef]);
 
   return (

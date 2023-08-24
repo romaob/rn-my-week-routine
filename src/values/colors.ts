@@ -1,9 +1,9 @@
 // App color palette
 export const colors = {
   light: {
-    primary: '#3F51B5',
-    secondary: '#536DFE',
-    accent: '#FF4081',
+    primary: '#3a59db',
+    secondary: '#4791cb',
+    accent: '#f75747',
     danger: '#f44336',
     warning: '#ff9800',
     success: '#4caf50',

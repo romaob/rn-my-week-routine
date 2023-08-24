@@ -1,5 +1,5 @@
 import {Event, ITEM_MINUTES, getEmptyEvent} from '../values/appDefaults';
-import {getDayTimesForMinutes} from './dateUtils';
+import {getDayTimesForMinutes, getSlotIndexOfDate} from './dateUtils';
 import {checkIsActive} from '../components/TimeLabels';
 
 export type EventSlot = {
@@ -69,20 +69,21 @@ export default function routineListBuilder(events: Event[]): RoutineList {
   const eventProcessedMap = new Map<string, boolean>();
   for (const event of events) {
     eventProcessedMap.set(event.id || '', false);
-    const eventStartIndex =
-      new Date(event.startAt).getHours() * 2 +
-      (new Date(event.startAt).getMinutes() >= 30 ? 1 : 0);
-    const eventEndIndex =
-      new Date(event.endAt).getHours() * 2 +
-      (new Date(event.endAt).getMinutes() >= 30 ? 1 : 0);
-    for (let i = eventStartIndex; i <= eventEndIndex; i++) {
+    const eventStartIndex = getSlotIndexOfDate(
+      new Date(event.startAt),
+      ITEM_MINUTES,
+    );
+    const eventEndIndex = getSlotIndexOfDate(
+      new Date(event.endAt),
+      ITEM_MINUTES,
+    );
+    for (let i = eventStartIndex; i < eventEndIndex; i++) {
       const slot = timeSlotsMap.get(i);
       if (slot) {
         slot.events.push(event);
       }
     }
   }
-
   //Process the data creating matrix, going over every time slot
   const generatedMatrixes: BlockMatrix[] = [];
   const timeSlots = Array.from(timeSlotsMap.values());
@@ -115,6 +116,7 @@ export default function routineListBuilder(events: Event[]): RoutineList {
       if (currentMatrix.xSize === 0) {
         currentMatrix?.matrix?.push(['']);
         currentMatrix.xSize++;
+        currentMatrix.ySize++;
       } else {
         //If it exists Add a new row
         currentMatrix.matrix?.[0].push('');
@@ -246,6 +248,5 @@ export default function routineListBuilder(events: Event[]): RoutineList {
 
     routineList.timeBlocks.push(timeBlock);
   }
-
   return routineList;
 }

@@ -1,7 +1,7 @@
 import {View, Text, StyleSheet} from 'react-native';
 import React, {useState} from 'react';
-import {getDayTimesForMinutes} from '../utils/dateUtils';
-import Label from './Label';
+import {getDayTimesForMinutes, getSlotIndexOfDate} from '../utils/dateUtils';
+import Label, { ColorType } from './Label';
 import {sizes} from '../values/sizes';
 import {colors} from '../values/colors';
 import {ITEM_MINUTES} from '../values/appDefaults';
@@ -11,11 +11,12 @@ export interface TimeLabelItemProps {
   active?: boolean;
 }
 
+export const TEST_INDEX = 16;
+
 export function checkIsActive(date: Date): boolean {
-  const now = new Date();
-  return (
-    now.getHours() === date.getHours() && now.getMinutes() >= date.getMinutes()
-  );
+  const now = getSlotIndexOfDate(new Date(), ITEM_MINUTES);
+  const dateIx = getSlotIndexOfDate(date, ITEM_MINUTES);
+  return TEST_INDEX === dateIx;
 }
 
 export function TimeLabelItem({date, active}: TimeLabelItemProps): JSX.Element {
@@ -34,7 +35,13 @@ export function TimeLabelItem({date, active}: TimeLabelItemProps): JSX.Element {
     );
   } else {
     return (
-      <View testID="time-labels-item" style={styles.itemContainer}>
+      <View
+        testID="time-labels-item"
+        style={
+          active
+            ? [styles.itemContainer, styles.itemContainerActive]
+            : styles.itemContainer
+        }>
         <View style={styles.timeLabelHalf} />
         <Label text={''} />
       </View>
@@ -61,7 +68,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    borderColor: colors.light.textSecondary,
+    borderColor: colors.light.textSecondary + 80,
     borderRightWidth: 1,
   },
   itemContainerActive: {
@@ -70,12 +77,12 @@ const styles = StyleSheet.create({
   timeLabelFull: {
     width: '100%',
     height: 2,
-    backgroundColor: colors.light.textSecondary,
+    backgroundColor: colors.light.textSecondary + 80,
   },
   timeLabelHalf: {
     width: 10,
     height: 2,
-    backgroundColor: colors.light.textSecondary,
+    backgroundColor: colors.light.textSecondary + 80,
     alignSelf: 'flex-end',
   },
 });
