@@ -7,23 +7,26 @@ import useString from '../hooks/useString';
 import {colors} from '../values/colors';
 
 export interface WeekDaysMenuProps {
-  selectedIndex: number;
+  selectedIndexes: number[];
+  disabled?: boolean;
   onPress?: (day: string, index: number) => void;
+  highlightToday?: boolean;
 }
 
 export default function WeekDaysMenu({
-  selectedIndex,
+  selectedIndexes = [],
+  disabled,
   onPress,
+  highlightToday = false,
 }: WeekDaysMenuProps) {
   const {language} = useString();
   const weekDays = getWeekDays(language);
-  const [selected, setSelected] = useState(weekDays[selectedIndex]);
   function isToday(index: number): boolean {
-    return new Date().getDay() === index;
+    return new Date().getDay() === index && highlightToday;
   }
 
   function getColorType(day: string, index: number) {
-    if (selected === day) {
+    if (selectedIndexes.includes(index)) {
       return ButtonColorType.ACCENT;
     }
     if (isToday(index)) {
@@ -36,10 +39,6 @@ export default function WeekDaysMenu({
     onPress && onPress(day, index);
   }
 
-  useEffect(() => {
-    setSelected(weekDays[selectedIndex]);
-  }, [selectedIndex, weekDays]);
-
   return (
     <View testID="weekdays-menu" style={styles.container}>
       {weekDays.map((day, index) => (
@@ -51,6 +50,7 @@ export default function WeekDaysMenu({
           flex
           rounded
           onPress={() => handleOnPress(day, index)}
+          disabled={disabled}
         />
       ))}
     </View>
@@ -60,7 +60,7 @@ export default function WeekDaysMenu({
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    width: 400,
+    maxWidth: 400,
     flexDirection: 'row',
     gap: sizes.margin.sm,
     paddingHorizontal: sizes.padding.sm,

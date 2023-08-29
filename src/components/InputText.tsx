@@ -1,17 +1,19 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, TextInput, StyleSheet, TextInputProps} from 'react-native';
-import Label, {ColorType, FontSize} from './Label';
+import {View, TextInput, StyleSheet, TextInputProps} from 'react-native';
+import Label, {FontSize} from './Label';
 import {colors} from '../values/colors';
 import {sizes} from '../values/sizes';
 
 export interface InputTextProps {
   text: string;
   onTextChange?: (text: string) => void;
+  disabled?: boolean;
   size?: FontSize;
   label?: string;
   info?: string;
   error?: string;
   limit?: number;
+  textArea?: boolean;
   required?: boolean;
   childrenBefore?: boolean;
   childrenAfter?: boolean;
@@ -22,11 +24,13 @@ export interface InputTextProps {
 export default function InputText({
   text,
   onTextChange,
+  disabled,
   size = FontSize.MEDIUM,
   label = '',
   info = '',
   error = '',
   limit,
+  textArea,
   required,
   childrenBefore,
   childrenAfter,
@@ -57,7 +61,7 @@ export default function InputText({
             size={size}
             color={colors.light.primary}
           />
-          {required && (
+          {required && displayLabelText && (
             <Label text="*" size={size} color={colors.light.danger} />
           )}
         </View>
@@ -66,10 +70,14 @@ export default function InputText({
             ...styles.input,
             ...(error && styles.inputError),
             fontSize: sizes.font[size],
+            ...(textArea && {height: 100}),
+            ...(disabled && styles.inputDisabled),
           }}
           value={text}
           onChangeText={onChangeTextHandler}
-          placeholder={label}
+          placeholder={label + (required ? ' *' : '')}
+          multiline={textArea}
+          editable={!disabled}
           {...props}
         />
         <View style={styles.bottomContainer}>
@@ -140,6 +148,11 @@ const styles = StyleSheet.create({
   },
   inputError: {
     borderColor: colors.light.danger,
+  },
+  inputDisabled: {
+    backgroundColor: colors.light.disabled,
+    borderColor: colors.light.disabled,
+    color: colors.light.textDisabled,
   },
   bottomContainer: {
     display: 'flex',

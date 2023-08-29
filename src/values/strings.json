@@ -53,5 +53,40 @@
         "en": "Sunday",
         "es": "Domingo",
         "pt": "Domingo"
+    },
+    "save": {
+        "en": "Save",
+        "es": "Guardar",
+        "pt": "Salvar"
+    },
+    "routine_new": {
+        "en": "New Routine",
+        "es": "Nueva Rutina",
+        "pt": "Nova Rotina"
+    },
+    "routine_name": {
+        "en": "Routine Name",
+        "es": "Nombre de la Rutina",
+        "pt": "Nome da Rotina"
+    },
+    "routine_description": {
+        "en": "Routine Description",
+        "es": "Descripción de la Rutina",
+        "pt": "Descrição da Rotina"
+    },
+    "routine_days_select": {
+        "en": "On which days do you want to do this routine?",
+        "es": "¿En qué días quieres hacer esta rutina?",
+        "pt": "Em quais dias você quer fazer esta rotina?"
+    },
+    "routine_start_time": {
+        "en": "When it will start?",
+        "es": "¿Cuándo va a empezar?",
+        "pt": "Quando vai começar?"
+    },
+    "routine_end_time": {
+        "en": "When it will end?",
+        "es": "¿Cuándo va a terminar?",
+        "pt": "Quando vai terminar?"
     }
 }
