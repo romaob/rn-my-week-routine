@@ -28,8 +28,19 @@ export default function useEvents(): useEventsReturn {
   }, []);
 
   const updateEventsData = async (data: Event[]) => {
-    await AsyncStorage.setItem(APP_KEYS.EVENTS, JSON.stringify(data));
-    setEvents(data);
+    return new Promise<void>(async (resolve, reject) => {
+      try {
+        setLoading(true);
+        await AsyncStorage.setItem(APP_KEYS.EVENTS, JSON.stringify(data));
+        setEvents(data);
+        resolve();
+      } catch (error: any) {
+        setError(error);
+        reject(error);
+      } finally {
+        setLoading(false);
+      }
+    });
   };
 
   useEffect(() => {

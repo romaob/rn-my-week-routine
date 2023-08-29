@@ -22,7 +22,7 @@ export default function useSetup(): useSetupReturn {
       try {
         setLoading(true);
 
-        await AsyncStorage.clear();
+        //await AsyncStorage.clear();
 
         const onboarding = await AsyncStorage.getItem(APP_KEYS.ONBOARDING);
         if (!onboarding) {

@@ -8,12 +8,14 @@ import {colors} from '../values/colors';
 
 export interface WeekDaysMenuProps {
   selectedIndexes: number[];
+  disabled?: boolean;
   onPress?: (day: string, index: number) => void;
   highlightToday?: boolean;
 }
 
 export default function WeekDaysMenu({
   selectedIndexes = [],
+  disabled,
   onPress,
   highlightToday = false,
 }: WeekDaysMenuProps) {
@@ -48,6 +50,7 @@ export default function WeekDaysMenu({
           flex
           rounded
           onPress={() => handleOnPress(day, index)}
+          disabled={disabled}
         />
       ))}
     </View>

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {View, StyleSheet, ScrollView, Text} from 'react-native';
 import useEvents from '../hooks/useEvents';
 import RoutineList from '../components/RoutineList';
@@ -9,14 +9,14 @@ import {colors} from '../values/colors';
 import {Event} from '../values/appDefaults';
 import Button, {ButtonColorType} from '../components/Button';
 import {useCurrentSlot} from '../hooks/currentSlotContext';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 export default function Home(): JSX.Element {
   //Get current time slot from the context
   const navigation = useNavigation();
   const {currentIndex} = useCurrentSlot();
   const [initialScroll, setInitialScroll] = useState(false);
-  const {events} = useEvents();
+  const {events, refresh} = useEvents();
   const [currentSelectedDay, setCurrentSelectedDay] = useState<number[]>([
     new Date().getDay(),
   ]);
@@ -37,17 +37,20 @@ export default function Home(): JSX.Element {
     navigation.navigate('Routine');
   }
 
+  const scrollToCurrentTime = useCallback(() => {
+    scrollRef?.current?.scrollTo({
+      x: 0,
+      y: currentIndex * 20,
+      animated: true,
+    });
+  }, [currentIndex]);
+
   useEffect(() => {
     if (!initialScroll && scrollRef.current) {
-      scrollRef?.current?.scrollTo({
-        x: 0,
-        y: currentIndex * 20,
-        animated: true,
-      });
-      console.log('scrolling to: ', currentIndex * 20);
+      scrollToCurrentTime();
       setInitialScroll(true);
     }
-  }, [currentIndex, scrollRef, initialScroll]);
+  }, [currentIndex, scrollRef, initialScroll, scrollToCurrentTime]);
 
   useEffect(() => {
     if (events.length > 0) {
@@ -58,6 +61,14 @@ export default function Home(): JSX.Element {
     }
   }, [events, currentSelectedDay]);
 
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      scrollToCurrentTime();
+      refresh();
+    });
+    return unsubscribe;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [navigation]);
   return (
     <View style={styles.container}>
       <WeekDaysMenu
