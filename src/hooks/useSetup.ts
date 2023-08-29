@@ -47,8 +47,8 @@ export default function useSetup(): useSetupReturn {
             "updated": "2015-01-01T00:00:00.000Z"
 
           */
+         /*
           const events = [];
-
           events.push(
             {
               id: 'A',
@@ -308,7 +308,7 @@ export default function useSetup(): useSetupReturn {
             });
           }
           */
-          await AsyncStorage.setItem(APP_KEYS.EVENTS, JSON.stringify(events));
+          //await AsyncStorage.setItem(APP_KEYS.EVENTS, JSON.stringify(events));
         }
       } catch (error) {
         console.log(error);

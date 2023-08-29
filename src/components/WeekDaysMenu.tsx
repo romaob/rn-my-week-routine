@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 import {WEEK_DAYS, getWeekDays} from '../utils/dateUtils';
 import Button, {ButtonColorType, ButtonSize} from './Button';
@@ -7,13 +7,17 @@ import useString from '../hooks/useString';
 import { colors } from '../values/colors';
 
 export interface WeekDaysMenuProps {
+  selectedIndex: number;
   onPress?: (day: string, index: number) => void;
 }
 
-export default function WeekDaysMenu({onPress}: WeekDaysMenuProps) {
+export default function WeekDaysMenu({
+  selectedIndex,
+  onPress,
+}: WeekDaysMenuProps) {
   const {language} = useString();
   const weekDays = getWeekDays(language);
-  const [selected, setSelected] = useState(weekDays[new Date().getDay()]);
+  const [selected, setSelected] = useState(weekDays[selectedIndex]);
   function isToday(index: number): boolean {
     return new Date().getDay() === index;
   }
@@ -29,9 +33,12 @@ export default function WeekDaysMenu({onPress}: WeekDaysMenuProps) {
   }
 
   function handleOnPress(day: string, index: number) {
-    setSelected(day);
     onPress && onPress(day, index);
-}
+  }
+
+  useEffect(() => {
+    setSelected(weekDays[selectedIndex]);
+  }, [selectedIndex, weekDays]);
 
   return (
     <View testID="weekdays-menu" style={styles.container}>

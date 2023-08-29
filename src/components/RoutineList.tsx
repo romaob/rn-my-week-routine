@@ -1,10 +1,4 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  TouchableHighlight,
-} from 'react-native';
+import {View, StyleSheet, TouchableOpacity} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {Event, ITEM_MINUTES} from '../values/appDefaults';
 import Label, {FontSize} from './Label';
@@ -16,10 +10,17 @@ import routineListBuilder, {
   TimeBlock,
 } from '../utils/routineListBuilder';
 import {getDayTimesForMinutes, getSlotIndexOfDate} from '../utils/dateUtils';
-import {TEST_INDEX, checkIsActive} from './TimeLabels';
+import {checkIsActive} from './TimeLabels';
+import {useCurrentSlot} from '../hooks/currentSlotContext';
 
-function EventGroup({eventSlot}: {eventSlot: EventSlot}): JSX.Element {
-  const nowIndex = TEST_INDEX; //getSlotIndexOfDate(new Date(), ITEM_MINUTES);
+function EventGroup({
+  eventSlot,
+  onLongPress,
+}: {
+  eventSlot: EventSlot;
+  onLongPress: (event: Event) => void;
+}): JSX.Element {
+  const {currentIndex: nowIndex} = useCurrentSlot();
   const eventStartIndex = getSlotIndexOfDate(
     new Date(eventSlot.event.startAt),
     ITEM_MINUTES,
@@ -28,8 +29,14 @@ function EventGroup({eventSlot}: {eventSlot: EventSlot}): JSX.Element {
     new Date(eventSlot.event.endAt),
     ITEM_MINUTES,
   );
-  const isActive = nowIndex >= eventStartIndex && nowIndex < eventEndIndex;
+  const [isActive, setIsActive] = useState(
+    nowIndex >= eventStartIndex && nowIndex < eventEndIndex,
+  );
   const isEmpty = !eventSlot.event.id;
+
+  useEffect(() => {
+    setIsActive(nowIndex >= eventStartIndex && nowIndex < eventEndIndex);
+  }, [eventEndIndex, eventStartIndex, nowIndex]);
 
   return (
     <View
@@ -37,7 +44,8 @@ function EventGroup({eventSlot}: {eventSlot: EventSlot}): JSX.Element {
         ...styles.eventGroup,
         ...(isEmpty ? styles.eventGroupEmpty : {}),
       }}>
-      <TouchableOpacity>
+      <TouchableOpacity
+        onLongPress={() => onLongPress && onLongPress(eventSlot.event)}>
         {eventSlot.timeSlots.map((timeSlot, index) => {
           const isTop = index === 0;
           const isBottom = index === eventSlot.timeSlots.length - 1;
@@ -53,7 +61,7 @@ function EventGroup({eventSlot}: {eventSlot: EventSlot}): JSX.Element {
                 ...(!isEmpty && isActive ? styles.eventSlotActive : {}),
               }}>
               {index === 0 && (
-                <Label style={styles.eventLabel} text={eventSlot.event.name} size={FontSize.SMALL} />
+                <Label text={eventSlot.event.name} size={FontSize.SMALL} />
               )}
             </View>
           );
@@ -63,21 +71,41 @@ function EventGroup({eventSlot}: {eventSlot: EventSlot}): JSX.Element {
   );
 }
 
-function BlockColumn(column: ColumnEventSlot): JSX.Element {
+function BlockColumn({
+  column,
+  onEventSelected,
+}: {
+  column: ColumnEventSlot;
+  onEventSelected: (event: Event) => void;
+}): JSX.Element {
   return (
     <View style={styles.routineBlockColumn}>
       {column.eventSlots.map((eventSlot, index) => (
-        <EventGroup key={index} eventSlot={eventSlot} />
+        <EventGroup
+          key={index}
+          eventSlot={eventSlot}
+          onLongPress={onEventSelected}
+        />
       ))}
     </View>
   );
 }
 
-function RoutineListBlock(routineBlock: TimeBlock): JSX.Element {
+function RoutineListBlock({
+  routineBlock,
+  onEventSelected,
+}: {
+  routineBlock: TimeBlock;
+  onEventSelected: (event: Event) => void;
+}): JSX.Element {
   return (
     <View style={styles.routineBlock}>
       {routineBlock.columns.map((column, index) => (
-        <BlockColumn key={index} {...column} />
+        <BlockColumn
+          key={index}
+          column={column}
+          onEventSelected={onEventSelected}
+        />
       ))}
     </View>
   );
@@ -85,14 +113,19 @@ function RoutineListBlock(routineBlock: TimeBlock): JSX.Element {
 
 export interface RoutineListProps {
   events: Event[];
+  onEventSelected: (event: Event) => void;
 }
 
-export default function RoutineList({events}: RoutineListProps) {
+export default function RoutineList({
+  events,
+  onEventSelected,
+}: RoutineListProps) {
   const [timeBlocks, setTimeBlocks] = useState<TimeBlock[]>([]);
   const slots = getDayTimesForMinutes(ITEM_MINUTES);
+  const {currentIndex} = useCurrentSlot();
 
   function handleOnPress(event: Event) {
-    console.log(event);
+    onEventSelected && onEventSelected(event);
   }
   useEffect(() => {
     const res = routineListBuilder(events);
@@ -104,7 +137,8 @@ export default function RoutineList({events}: RoutineListProps) {
       <View style={styles.fixedContainerBackground}>
         {slots.map((slot, index) => {
           const contrast = index % 2 === 0;
-          const active = checkIsActive(slot);
+          const active =
+            getSlotIndexOfDate(slot, ITEM_MINUTES) === currentIndex;
           return (
             <View
               key={index}
@@ -117,17 +151,15 @@ export default function RoutineList({events}: RoutineListProps) {
           );
         })}
       </View>
-      {events.length > 0 ? (
-        <View style={styles.itemsContainer}>
-          {timeBlocks.map((routineBlock, index) => (
-            <RoutineListBlock key={index} {...routineBlock} />
-          ))}
-        </View>
-      ) : (
-        <View style={styles.emptyContainer}>
-          <Label text="No events" />
-        </View>
-      )}
+      <View style={styles.itemsContainer}>
+        {timeBlocks.map((routineBlock, index) => (
+          <RoutineListBlock
+            key={index}
+            routineBlock={routineBlock}
+            onEventSelected={handleOnPress}
+          />
+        ))}
+      </View>
     </View>
   );
 }
@@ -155,9 +187,6 @@ const styles = StyleSheet.create({
   },
   itemsContainer: {
     flex: 1,
-    //backgroundColor: colors.light.cardBackground + 90,
-    // borderTopColor: colors.light.textSecondary,
-    // borderTopWidth: 2,
   },
   emptyContainer: {
     flex: 1,
@@ -203,8 +232,5 @@ const styles = StyleSheet.create({
   eventSlotBottom: {
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
-  },
-  eventLabel: {
-    overflow: 'hidden',
   },
 });

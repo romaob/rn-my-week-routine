@@ -3,14 +3,14 @@ import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 
 import Home from './src/screens/Home';
-import Profile from './src/screens/Profile';
 import {NavigationContainer} from '@react-navigation/native';
-import Splash from './src/screens/Splash';
+import CurrentSlotProvider from './src/hooks/currentSlotContext';
+import Routine from './src/screens/Routine';
 
 export type RootStackParamList = {
   Splash: {} | undefined;
   Home: {} | undefined;
-  Profile: {} | undefined;
+  Routine: {} | undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -19,12 +19,14 @@ function App(): JSX.Element {
   //const isDarkMode = useColorScheme() === 'dark';
   return (
     <SafeAreaView style={styles.appContainer}>
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="Profile" component={Profile} />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <CurrentSlotProvider>
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="Routine" component={Routine} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </CurrentSlotProvider>
     </SafeAreaView>
   );
 }

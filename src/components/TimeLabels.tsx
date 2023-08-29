@@ -1,22 +1,21 @@
 import {View, Text, StyleSheet} from 'react-native';
 import React, {useState} from 'react';
 import {getDayTimesForMinutes, getSlotIndexOfDate} from '../utils/dateUtils';
-import Label, { ColorType } from './Label';
+import Label, {ColorType} from './Label';
 import {sizes} from '../values/sizes';
 import {colors} from '../values/colors';
 import {ITEM_MINUTES} from '../values/appDefaults';
+import { useCurrentSlot } from '../hooks/currentSlotContext';
 
 export interface TimeLabelItemProps {
   date: Date;
   active?: boolean;
 }
 
-export const TEST_INDEX = 16;
-
 export function checkIsActive(date: Date): boolean {
   const now = getSlotIndexOfDate(new Date(), ITEM_MINUTES);
   const dateIx = getSlotIndexOfDate(date, ITEM_MINUTES);
-  return TEST_INDEX === dateIx;
+  return now === dateIx;
 }
 
 export function TimeLabelItem({date, active}: TimeLabelItemProps): JSX.Element {
@@ -50,10 +49,15 @@ export function TimeLabelItem({date, active}: TimeLabelItemProps): JSX.Element {
 }
 
 export default function TimeLabels(): JSX.Element {
+  const {currentIndex} = useCurrentSlot();
   return (
     <View testID="time-labels" style={styles.container}>
       {getDayTimesForMinutes(ITEM_MINUTES).map((date, index) => (
-        <TimeLabelItem key={index} date={date} active={checkIsActive(date)} />
+        <TimeLabelItem
+          key={index}
+          date={date}
+          active={getSlotIndexOfDate(date, ITEM_MINUTES) === currentIndex}
+        />
       ))}
     </View>
   );
