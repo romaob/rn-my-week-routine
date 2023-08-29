@@ -17,16 +17,16 @@ export default function Home(): JSX.Element {
   const {currentIndex} = useCurrentSlot();
   const [initialScroll, setInitialScroll] = useState(false);
   const {events} = useEvents();
-  const [currentSelectedDay, setCurrentSelectedDay] = useState<number>(
+  const [currentSelectedDay, setCurrentSelectedDay] = useState<number[]>([
     new Date().getDay(),
-  );
+  ]);
   const [renderEvents, setRenderEvents] = useState<Event[]>([]);
   const {loading: setupLoading} = useSetup();
 
   const scrollRef = React.useRef<ScrollView>(null);
 
   function handleOnMenuPress(day: string, index: number) {
-    setCurrentSelectedDay(index);
+    setCurrentSelectedDay([index]);
   }
 
   function handleOnEventSelected(event: Event) {
@@ -52,7 +52,7 @@ export default function Home(): JSX.Element {
   useEffect(() => {
     if (events.length > 0) {
       const res = events.filter(event => {
-        return event.indexes.includes(currentSelectedDay);
+        return event.indexes.includes(currentSelectedDay[0]);
       });
       setRenderEvents(res);
     }
@@ -62,7 +62,8 @@ export default function Home(): JSX.Element {
     <View style={styles.container}>
       <WeekDaysMenu
         onPress={handleOnMenuPress}
-        selectedIndex={currentSelectedDay}
+        selectedIndexes={currentSelectedDay}
+        highlightToday
       />
       <ScrollView style={styles.timesScrollContainer} ref={scrollRef}>
         <View style={styles.timeContainer}>

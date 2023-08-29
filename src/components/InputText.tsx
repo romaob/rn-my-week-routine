@@ -12,6 +12,7 @@ export interface InputTextProps {
   info?: string;
   error?: string;
   limit?: number;
+  textArea?: boolean;
   required?: boolean;
   childrenBefore?: boolean;
   childrenAfter?: boolean;
@@ -27,6 +28,7 @@ export default function InputText({
   info = '',
   error = '',
   limit,
+  textArea,
   required,
   childrenBefore,
   childrenAfter,
@@ -57,7 +59,7 @@ export default function InputText({
             size={size}
             color={colors.light.primary}
           />
-          {required && (
+          {required && displayLabelText && (
             <Label text="*" size={size} color={colors.light.danger} />
           )}
         </View>
@@ -66,10 +68,12 @@ export default function InputText({
             ...styles.input,
             ...(error && styles.inputError),
             fontSize: sizes.font[size],
+            ...(textArea && {height: 100}),
           }}
           value={text}
           onChangeText={onChangeTextHandler}
-          placeholder={label}
+          placeholder={label + (required ? ' *' : '')}
+          multiline={textArea}
           {...props}
         />
         <View style={styles.bottomContainer}>
