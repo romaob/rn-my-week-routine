@@ -9,9 +9,11 @@ import {colors} from '../values/colors';
 import {Event} from '../values/appDefaults';
 import Button, {ButtonColorType} from '../components/Button';
 import {useCurrentSlot} from '../hooks/currentSlotContext';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Home(): JSX.Element {
   //Get current time slot from the context
+  const navigation = useNavigation();
   const {currentIndex} = useCurrentSlot();
   const [initialScroll, setInitialScroll] = useState(false);
   const {events} = useEvents();
@@ -28,7 +30,11 @@ export default function Home(): JSX.Element {
   }
 
   function handleOnEventSelected(event: Event) {
-    console.log('event selected: ', event);
+    navigation.navigate('Routine', {event});
+  }
+
+  function handleAddPress() {
+    navigation.navigate('Routine');
   }
 
   useEffect(() => {
@@ -71,7 +77,7 @@ export default function Home(): JSX.Element {
         <Button
           rounded
           colorType={ButtonColorType.ACCENT}
-          onPress={() => console.log('add')}>
+          onPress={handleAddPress}>
           <Text style={styles.addButtonlabel}>+</Text>
         </Button>
       </View>

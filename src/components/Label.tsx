@@ -10,10 +10,6 @@ export enum FontSize {
   EXTRA_LARGE = 'xl',
 }
 
-export enum ColorType {
-  PRIMARY = 'text',
-  SECONDARY = 'textSecondary',
-}
 export interface LabelProps {
   text: string;
   size?: FontSize;
@@ -21,7 +17,8 @@ export interface LabelProps {
   childrenBefore?: boolean;
   childrenAfter?: boolean;
   testID?: string;
-  colorType?: ColorType;
+  color?: string;
+  style?: any;
 }
 
 export default function Label({
@@ -31,14 +28,14 @@ export default function Label({
   childrenBefore = true,
   childrenAfter,
   testID,
-  colorType = ColorType.PRIMARY,
+  color = colors.light.text,
 }: LabelProps) {
   return (
     <Text
       testID={testID || 'label'}
       style={{
         ...styles.container,
-        ...{fontSize: sizes.font[size], color: colors.light[colorType]},
+        ...{fontSize: sizes.font[size], color: color},
       }}>
       {childrenBefore && children}
       {text}

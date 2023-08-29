@@ -3,7 +3,7 @@ export const colors = {
   light: {
     primary: '#3a59db',
     secondary: '#4791cb',
-    accent: '#f75747',
+    accent: '#d81e8b',
     danger: '#f44336',
     warning: '#ff9800',
     success: '#4caf50',
@@ -14,7 +14,7 @@ export const colors = {
     text: '#000000',
     textContrast: '#ffffff',
     textSecondary: '#757575',
-    textDisabled: '#bdbdbd',
+    textDisabled: '#868e9e',
     grey: '#9e9e9e',
   },
 };

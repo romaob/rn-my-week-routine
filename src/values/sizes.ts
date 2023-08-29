@@ -4,8 +4,8 @@ export const sizes = {
   font: {
     sm: 12,
     md: 14,
-    lg: 16,
-    xl: 20,
+    lg: 24,
+    xl: 32,
   },
   // Padding sizes
   padding: {

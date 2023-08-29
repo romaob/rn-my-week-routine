@@ -6,11 +6,12 @@ import Home from './src/screens/Home';
 import {NavigationContainer} from '@react-navigation/native';
 import CurrentSlotProvider from './src/hooks/currentSlotContext';
 import Routine from './src/screens/Routine';
+import {Event} from './src/values/appDefaults';
 
 export type RootStackParamList = {
   Splash: {} | undefined;
   Home: {} | undefined;
-  Routine: {} | undefined;
+  Routine: {event: Event} | undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
