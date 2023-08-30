@@ -4,6 +4,7 @@ export const sizes = {
   font: {
     sm: 12,
     md: 14,
+    md2: 18,
     lg: 24,
     xl: 32,
   },

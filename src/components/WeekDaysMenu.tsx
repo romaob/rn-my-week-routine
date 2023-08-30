@@ -45,7 +45,7 @@ export default function WeekDaysMenu({
         <Button
           key={index}
           colorType={getColorType(day, index)}
-          size={ButtonSize.LARGE}
+          size={ButtonSize.MEDIUM_2}
           label={day.slice(0, 1)}
           flex
           rounded
