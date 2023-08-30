@@ -222,7 +222,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 0,
   },
   eventSlotActive: {
-    backgroundColor: colors.light.secondary,
+    backgroundColor: colors.light.accent,
   },
   eventSlotTop: {
     borderTopLeftRadius: 10,
