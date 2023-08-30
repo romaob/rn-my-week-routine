@@ -6,10 +6,11 @@ import useSetup from '../hooks/useSetup';
 import WeekDaysMenu from '../components/WeekDaysMenu';
 import TimeLabels from '../components/TimeLabels';
 import {colors} from '../values/colors';
-import {Event} from '../values/appDefaults';
+import {Event, ITEM_MINUTES, getEmptyEvent} from '../values/appDefaults';
 import Button, {ButtonColorType} from '../components/Button';
 import {useCurrentSlot} from '../hooks/currentSlotContext';
 import {useNavigation} from '@react-navigation/native';
+import {getTimeFilteredByMinutes} from '../utils/dateUtils';
 
 export default function Home(): JSX.Element {
   //Get current time slot from the context
@@ -30,11 +31,27 @@ export default function Home(): JSX.Element {
   }
 
   function handleOnEventSelected(event: Event) {
+    if (!event?.id) {
+      //Add the current day to the event
+      event.indexes = currentSelectedDay;
+    }
     navigation.navigate('Routine', {event});
   }
 
   function handleAddPress() {
-    navigation.navigate('Routine');
+    const emptyEvent = getEmptyEvent();
+    //Set current time as start time and add 1 hour
+    emptyEvent.startAt = getTimeFilteredByMinutes(
+      new Date(),
+      ITEM_MINUTES,
+    ).toISOString();
+    emptyEvent.endAt = new Date(
+      getTimeFilteredByMinutes(new Date(), ITEM_MINUTES).getTime() +
+        ITEM_MINUTES * 60 * 1000,
+    ).toISOString();
+    emptyEvent.indexes = currentSelectedDay;
+
+    navigation.navigate('Routine', {event: emptyEvent});
   }
 
   const scrollToCurrentTime = useCallback(() => {

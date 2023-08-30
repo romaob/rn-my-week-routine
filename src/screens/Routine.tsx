@@ -1,5 +1,5 @@
 import {View, Text, StyleSheet, Platform, TouchableOpacity} from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {sizes} from '../values/sizes';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import Label, {FontSize} from '../components/Label';
@@ -32,7 +32,7 @@ export default function Routine() {
     event?.description || '',
   );
   const [selectedDays, setSelectedDays] = useState<number[]>(
-    event?.indexes || [new Date().getDay()],
+    event?.indexes.length > 0 ? event?.indexes : [new Date().getDay()],
   );
   const [startDateTime, setStartDateTime] = useState<Date>(
     new Date(
@@ -75,7 +75,7 @@ export default function Routine() {
     };
 
     const newEvents = [...events];
-    if (event) {
+    if (event?.id) {
       const eventIndex = newEvents.findIndex(e => e.id === event.id);
       newEvents[eventIndex] = newEvent;
     } else {
@@ -133,12 +133,13 @@ export default function Routine() {
           {(!IS_ANDROID || showStart) && (
             <RNDateTimePicker
               mode="time"
+              display="spinner"
               disabled={loading}
               value={startDateTime}
               onChange={(event, selectedDate) => {
+                setShowStart(!IS_ANDROID);
                 const currentDate = selectedDate || startDateTime;
                 setStartDateTime(currentDate);
-                setShowStart(false);
               }}
               minuteInterval={ITEM_MINUTES}
             />
@@ -159,12 +160,13 @@ export default function Routine() {
           {(!IS_ANDROID || showEnd) && (
             <RNDateTimePicker
               mode="time"
+              display="spinner"
               disabled={loading}
               value={endDateTime}
               onChange={(event, selectedDate) => {
+                setShowEnd(!IS_ANDROID);
                 const currentDate = selectedDate || endDateTime;
                 setEndDateTime(currentDate);
-                setShowEnd(false);
               }}
               minuteInterval={ITEM_MINUTES}
             />
