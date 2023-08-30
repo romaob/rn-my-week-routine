@@ -190,6 +190,7 @@ export default function routineListBuilder(events: Event[]): RoutineList {
 
   // Create the routine list
   // Create a block for every matrix
+  let currentSlotIndex = 0;
   for (let matrix of generatedMatrixes) {
     const timeBlock: TimeBlock = {
       columns: [],
@@ -206,8 +207,16 @@ export default function routineListBuilder(events: Event[]): RoutineList {
         const eventId = matrix.matrix?.[i]?.[j];
         //If there is no event on the slot, add an empty event
         if (!eventId) {
+          const emptyEvent = getEmptyEvent();
+          //Add the right startAt and endAt to the event
+          const slot = timeSlots[currentSlotIndex + j];
+          emptyEvent.startAt =
+            slot?.date?.toISOString() || new Date().toISOString();
+          emptyEvent.endAt = new Date(
+            (slot?.date?.getTime() || 0) + ITEM_MINUTES * 60 * 1000,
+          ).toISOString();
           columnEventSlot.eventSlots.push({
-            event: getEmptyEvent(),
+            event: emptyEvent,
             timeSlots: [0],
           });
           continue;
@@ -234,7 +243,7 @@ export default function routineListBuilder(events: Event[]): RoutineList {
           event: event,
           timeSlots: [],
         };
-
+        //Fillin the time slots
         for (let k = 0; k < eventSlots; k++) {
           eventSlot.timeSlots.push(eventStartIndex + k);
         }
@@ -245,6 +254,7 @@ export default function routineListBuilder(events: Event[]): RoutineList {
       }
       timeBlock.columns.push(columnEventSlot);
     }
+    currentSlotIndex += matrix.ySize;
 
     routineList.timeBlocks.push(timeBlock);
   }
