@@ -32,7 +32,7 @@ export default function Routine() {
     event?.description || '',
   );
   const [selectedDays, setSelectedDays] = useState<number[]>(
-    event?.indexes || [new Date().getDay()],
+    event?.indexes.length > 0 ? event?.indexes : [new Date().getDay()],
   );
   const [startDateTime, setStartDateTime] = useState<Date>(
     new Date(
@@ -75,7 +75,7 @@ export default function Routine() {
     };
 
     const newEvents = [...events];
-    if (event) {
+    if (event?.id) {
       const eventIndex = newEvents.findIndex(e => e.id === event.id);
       newEvents[eventIndex] = newEvent;
     } else {
