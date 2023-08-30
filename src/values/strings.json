@@ -59,6 +59,16 @@
         "es": "Guardar",
         "pt": "Salvar"
     },
+    "delete": {
+        "en": "Delete",
+        "es": "Eliminar",
+        "pt": "Excluir"
+    },
+    "cancel": {
+        "en": "Cancel",
+        "es": "Cancelar",
+        "pt": "Cancelar"
+    },
     "routine_new": {
         "en": "New Routine",
         "es": "Nueva Rutina",
@@ -88,5 +98,15 @@
         "en": "When it will end?",
         "es": "¿Cuándo va a terminar?",
         "pt": "Quando vai terminar?"
+    },
+    "routine_delete_title": {
+        "en": "Delete Routine",
+        "es": "Eliminar Rutina",
+        "pt": "Excluir Rotina"
+    },
+    "routine_delete_message": {
+        "en": "Are you sure you want to delete this routine?",
+        "es": "¿Estás seguro de que quieres eliminar esta rutina?",
+        "pt": "Tem certeza que deseja excluir esta rotina?"
     }
 }

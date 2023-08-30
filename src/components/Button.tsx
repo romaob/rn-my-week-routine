@@ -16,6 +16,7 @@ export enum ButtonColorType {
 export enum ButtonSize {
   SMALL = 'sm',
   MEDIUM = 'md',
+  MEDIUM_2 = 'md2',
   LARGE = 'lg',
   EXTRA_LARGE = 'xl',
 }
@@ -97,7 +98,6 @@ export default function Button({
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    alignSelf: 'flex-start',
     padding: sizes.padding.sm,
     borderRadius: 5,
     justifyContent: 'center',
@@ -120,6 +120,9 @@ const styles = StyleSheet.create({
   },
   'text-md': {
     fontSize: sizes.font.md,
+  },
+  'text-md2': {
+    fontSize: sizes.font.md2,
   },
   'text-lg': {
     fontSize: sizes.font.lg,

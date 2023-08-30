@@ -15,7 +15,10 @@ export function getWeekDays(language: string = 'en'): string[] {
 }
 
 export function getTimeStringFromDate(date: Date): string {
-  return `${date.getHours()}:${date.getMinutes()}`;
+  return date.toLocaleTimeString('default', {
+    hour: '2-digit',
+    minute: '2-digit',
+  });
 }
 
 export function getDateIncreasedByMinutes(date: Date, minutes: number): Date {
@@ -36,4 +39,13 @@ export function getSlotIndexOfDate(date: Date, minutes: number): number {
     new Date(date).getHours() * 2 +
     (new Date(date).getMinutes() >= minutes ? 1 : 0)
   );
+}
+
+export function getTimeFilteredByMinutes(
+  date = new Date(),
+  minutes: number,
+): Date {
+  const result = new Date(date);
+  result.setMinutes(Math.floor(date.getMinutes() / minutes) * minutes);
+  return result;
 }
