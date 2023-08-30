@@ -90,15 +90,7 @@ export default function Routine() {
     await updateEventsData(newEvents);
     navigation.goBack();
   }
-/*
-  useEffect(() => {
-    setShowEnd(false);
-  }, [endDateTime]);
 
-  useEffect(() => {
-    setShowStart(false);
-  }, [startDateTime]);
-*/
   return (
     <View style={styles.container}>
       <View style={styles.topContainer}>
