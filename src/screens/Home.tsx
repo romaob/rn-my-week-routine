@@ -8,7 +8,7 @@ import TimeLabels from '../components/TimeLabels';
 import {colors} from '../values/colors';
 import {Event, ITEM_MINUTES, getEmptyEvent} from '../values/appDefaults';
 import Button, {ButtonColorType} from '../components/Button';
-import {useCurrentSlot} from '../hooks/currentSlotContext';
+import {useCurrentSlot} from '../context/currentSlotContext';
 import {useNavigation} from '@react-navigation/native';
 import {getTimeFilteredByMinutes} from '../utils/dateUtils';
 

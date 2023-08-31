@@ -1,15 +1,7 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  Image,
-  StyleSheet,
-  Modal,
-} from 'react-native';
+import {View, Image, StyleSheet, Modal} from 'react-native';
 import Label, {FontSize} from './Label';
 import Button, {ButtonColorType, ButtonSize} from './Button';
-import ButtonCancel from './ButtonCancel';
 import {colors} from '../values/colors';
 import {sizes} from '../values/sizes';
 import useString from '../hooks/useString';
@@ -29,10 +21,10 @@ const DialogAlert = ({
   onCancel,
   onConfirm,
 }: DialogAlertProps): JSX.Element | null => {
+  const {getString} = useString();
   if (!show) {
     return null;
   } else {
-    const {getString} = useString();
     return (
       <View style={styles.backdrop}>
         <Modal visible={show} animationType="fade" transparent>

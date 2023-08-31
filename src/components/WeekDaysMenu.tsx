@@ -7,7 +7,7 @@ import useString from '../hooks/useString';
 import {colors} from '../values/colors';
 
 export interface WeekDaysMenuProps {
-  selectedIndexes: number[];
+  selectedIndexes?: number[];
   disabled?: boolean;
   onPress?: (day: string, index: number) => void;
   highlightToday?: boolean;
