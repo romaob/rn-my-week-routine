@@ -5,15 +5,15 @@ import Label, {ColorType} from './Label';
 import {sizes} from '../values/sizes';
 import {colors} from '../values/colors';
 import {ITEM_MINUTES} from '../values/appDefaults';
-import { useCurrentSlot } from '../hooks/currentSlotContext';
+import {useCurrentSlot} from '../context/currentSlotContext';
 
 export interface TimeLabelItemProps {
   date: Date;
   active?: boolean;
 }
 
-export function checkIsActive(date: Date): boolean {
-  const now = getSlotIndexOfDate(new Date(), ITEM_MINUTES);
+export function checkIsActive(date: Date, dateNow?: Date): boolean {
+  const now = getSlotIndexOfDate(dateNow || new Date(), ITEM_MINUTES);
   const dateIx = getSlotIndexOfDate(date, ITEM_MINUTES);
   return now === dateIx;
 }

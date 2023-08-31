@@ -10,12 +10,55 @@ describe('WeekDaysMenu render and behavior tests', () => {
     expect(result.getByTestId('weekdays-menu').children.length).toBe(7);
     const qtd = result.getAllByTestId('button').length;
     expect(qtd).toBe(7);
+    for (let i = 0; i < qtd; i++) {
+      expect(
+        result.getAllByTestId('button')[i].props.style.backgroundColor,
+      ).toBe(colors.light.secondary);
+    }
+  });
+
+  it('should highlight the current day when provided highlightToday with the right color', async () => {
+    const result = render(<WeekDaysMenu highlightToday />);
+    expect(result.getByTestId('weekdays-menu')).toBeDefined();
+    expect(result.getByTestId('weekdays-menu').children.length).toBe(7);
+    const qtd = result.getAllByTestId('button').length;
+    expect(qtd).toBe(7);
     const todayIndex = new Date().getDay();
     expect(
       result.getAllByTestId('button')[todayIndex].props.style.backgroundColor,
-    ).toBe(colors.light.accent);
+    ).toBe(colors.light.primary);
     for (let i = 0; i < qtd; i++) {
       if (i === todayIndex) {
+        continue;
+      }
+      expect(
+        result.getAllByTestId('button')[i].props.style.backgroundColor,
+      ).toBe(colors.light.secondary);
+    }
+  });
+
+  it('should render with the selected days in the right color', async () => {
+    const selected = [0, 1, 3];
+    const result = render(
+      <WeekDaysMenu highlightToday selectedIndexes={selected} />,
+    );
+    expect(result.getByTestId('weekdays-menu')).toBeDefined();
+    expect(result.getByTestId('weekdays-menu').children.length).toBe(7);
+    const qtd = result.getAllByTestId('button').length;
+    expect(qtd).toBe(7);
+    const todayIndex = new Date().getDay();
+    for (let i = 0; i < qtd; i++) {
+      const isSelected = selected.includes(i);
+      if (i === todayIndex && !isSelected) {
+        expect(
+          result.getAllByTestId('button')[i].props.style.backgroundColor,
+        ).toBe(colors.light.primary);
+        continue;
+      }
+      if (isSelected) {
+        expect(
+          result.getAllByTestId('button')[i].props.style.backgroundColor,
+        ).toBe(colors.light.accent);
         continue;
       }
       expect(
@@ -43,9 +86,9 @@ describe('WeekDaysMenu render and behavior tests', () => {
     const btn = result.getAllByTestId('button')[btnIndex];
     expect(btn.props.style.backgroundColor).toBe(colors.light.secondary);
     fireEvent.press(btn);
-    expect(btn.props.style.backgroundColor).toBe(colors.light.accent);
+    expect(btn.props.style.backgroundColor).toBe(colors.light.secondary);
     expect(onPress).toHaveBeenCalled();
     const todayBtn = result.getAllByTestId('button')[new Date().getDay()];
-    expect(todayBtn.props.style.backgroundColor).toBe(colors.light.primary);
+    expect(todayBtn.props.style.backgroundColor).toBe(colors.light.secondary);
   });
 });
