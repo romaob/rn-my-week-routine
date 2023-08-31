@@ -19,6 +19,11 @@
         "es": "Português",
         "pt": "Português"
     },
+    "test": {
+        "en": "Testing the app strings",
+        "es": "Probando las cadenas de la aplicación",
+        "pt": "Testando as strings do app"
+    },
     "week_day_mon": {
         "en": "Monday",
         "es": "Lunes",

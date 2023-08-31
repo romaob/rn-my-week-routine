@@ -1,11 +1,11 @@
 import {renderHook, waitFor} from '@testing-library/react';
-import useEvents from '../src/hooks/useEvents';
+import useEvents from '../../src/hooks/useEvents';
 
-import '../__mocks__/async-storage';
+import '../../__mocks__/async-storage';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {APP_KEYS, Event} from '../src/values/appDefaults';
+import {APP_KEYS, Event} from '../../src/values/appDefaults';
 
-import dbTest from '../src/values/dbTest.json';
+import dbTest from '../../src/values/dbTest.json';
 import {act} from 'react-dom/test-utils';
 
 const testEvents = dbTest.events as unknown as Event[];

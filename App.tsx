@@ -4,7 +4,7 @@ import {SafeAreaView, StyleSheet} from 'react-native';
 
 import Home from './src/screens/Home';
 import {NavigationContainer} from '@react-navigation/native';
-import CurrentSlotProvider from './src/hooks/currentSlotContext';
+import CurrentSlotProvider from './src/context/currentSlotContext';
 import Routine from './src/screens/Routine';
 import {Event} from './src/values/appDefaults';
 

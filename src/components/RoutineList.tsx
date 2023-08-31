@@ -10,7 +10,7 @@ import routineListBuilder, {
   TimeBlock,
 } from '../utils/routineListBuilder';
 import {getDayTimesForMinutes, getSlotIndexOfDate} from '../utils/dateUtils';
-import {useCurrentSlot} from '../hooks/currentSlotContext';
+import {useCurrentSlot} from '../context/currentSlotContext';
 
 function EventGroup({
   eventSlot,
