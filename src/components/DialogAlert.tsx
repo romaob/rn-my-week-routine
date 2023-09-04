@@ -27,7 +27,11 @@ const DialogAlert = ({
   } else {
     return (
       <View style={styles.backdrop}>
-        <Modal visible={show} animationType="fade" transparent>
+        <Modal
+          visible={show}
+          animationType="fade"
+          transparent
+          testID="dialogAlert">
           <View style={styles.centeredView}>
             <View style={styles.container}>
               <View style={styles.topRow}>
@@ -35,28 +39,32 @@ const DialogAlert = ({
                   <Image
                     style={styles.icon}
                     source={require('../assets/images/cancel.png')}
+                    testID="dialogAlertIcon"
                   />
                 </View>
                 <Label
                   text={title}
                   size={FontSize.LARGE}
                   color={colors.light.danger}
+                  testID="dialogAlertTitle"
                 />
               </View>
               <View style={styles.body}>
-                <Label text={message} />
+                <Label text={message} testID="dialogAlertMessage" />
               </View>
               <View style={styles.bottomRow}>
                 <Button
                   label={getString('cancel')}
                   size={ButtonSize.LARGE}
                   onPress={onCancel}
+                  testID="dialogAlertCancelButton"
                 />
                 <Button
                   label={getString('delete').toUpperCase()}
                   size={ButtonSize.LARGE}
                   onPress={onConfirm}
                   colorType={ButtonColorType.DANGER}
+                  testID="dialogAlertConfirmButton"
                 />
               </View>
             </View>

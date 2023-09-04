@@ -18,6 +18,7 @@ export interface InputTextProps {
   childrenBefore?: boolean;
   childrenAfter?: boolean;
   children?: React.ReactNode;
+  testID?: string;
   props?: TextInputProps;
 }
 
@@ -35,6 +36,7 @@ export default function InputText({
   childrenBefore,
   childrenAfter,
   children,
+  testID,
   ...props
 }: InputTextProps): JSX.Element {
   const [displayLabelText, setDisplayLabelText] = useState<string>(
@@ -52,20 +54,29 @@ export default function InputText({
   }, [label, text]);
 
   return (
-    <View testID="input-text" style={styles.container}>
-      <View style={styles.childrenContainer}>{childrenBefore && children}</View>
+    <View testID={testID || 'inputText'} style={styles.container}>
+      <View style={styles.childrenContainer} testID="inputTextChildBefore">
+        {childrenBefore && children}
+      </View>
       <View style={styles.inputContainer}>
         <View style={styles.topContainer}>
           <Label
             text={displayLabelText}
             size={size}
             color={colors.light.primary}
+            testID="inputTextLabelTop"
           />
           {required && displayLabelText && (
-            <Label text="*" size={size} color={colors.light.danger} />
+            <Label
+              text="*"
+              size={size}
+              color={colors.light.danger}
+              testID="inputTextRequired"
+            />
           )}
         </View>
         <TextInput
+          testID="inputTextTextInput"
           style={{
             ...styles.input,
             ...(error && styles.inputError),
@@ -85,12 +96,14 @@ export default function InputText({
             text={error}
             size={FontSize.SMALL}
             color={colors.light.danger}
+            testID="inputTextErrorText"
           />
           {!error && (
             <Label
               text={info}
               size={FontSize.SMALL}
               color={colors.light.textDisabled}
+              testID="inputTextInfoText"
             />
           )}
           {limit && (
@@ -99,12 +112,15 @@ export default function InputText({
                 text={`${text.length}/${limit}`}
                 size={FontSize.SMALL}
                 color={colors.light.textDisabled}
+                testID="inputTextLimitText"
               />
             </View>
           )}
         </View>
       </View>
-      <View style={styles.childrenContainer}>{childrenAfter && children}</View>
+      <View style={styles.childrenContainer} testID="inputTextChildAfter">
+        {childrenAfter && children}
+      </View>
     </View>
   );
 }

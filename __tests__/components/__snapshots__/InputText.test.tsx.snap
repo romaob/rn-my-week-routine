@@ -1,0 +1,2319 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputText functionality tests should call the onTextChange function when the text is changed 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "display": "flex",
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "padding": 8,
+      "width": "100%",
+    }
+  }
+  testID="inputText"
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildBefore"
+  />
+  <View
+    style={
+      {
+        "alignItems": "flex-start",
+        "display": "flex",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#3a59db",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 14,
+          }
+        }
+        testID="inputTextLabelTop"
+      />
+    </View>
+    <TextInput
+      editable={true}
+      onChangeText={[Function]}
+      placeholder=""
+      style={
+        {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#3a59db",
+          "borderRadius": 10,
+          "borderWidth": 1,
+          "fontSize": 14,
+          "paddingHorizontal": 8,
+          "paddingVertical": 16,
+          "width": "100%",
+        }
+      }
+      testID="inputTextTextInput"
+      value=""
+    />
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#f44336",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextErrorText"
+      />
+      <Text
+        style={
+          {
+            "color": "#868e9e",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextInfoText"
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildAfter"
+  />
+</View>
+`;
+
+exports[`InputText functionality tests should not be possible to change the text when disabled 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "display": "flex",
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "padding": 8,
+      "width": "100%",
+    }
+  }
+  testID="inputText"
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildBefore"
+  />
+  <View
+    style={
+      {
+        "alignItems": "flex-start",
+        "display": "flex",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#3a59db",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 14,
+          }
+        }
+        testID="inputTextLabelTop"
+      />
+    </View>
+    <TextInput
+      editable={false}
+      onChangeText={[Function]}
+      placeholder=""
+      style={
+        {
+          "backgroundColor": "#bdbdbd",
+          "borderColor": "#bdbdbd",
+          "borderRadius": 10,
+          "borderWidth": 1,
+          "color": "#868e9e",
+          "fontSize": 14,
+          "paddingHorizontal": 8,
+          "paddingVertical": 16,
+          "width": "100%",
+        }
+      }
+      testID="inputTextTextInput"
+      value=""
+    />
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#f44336",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextErrorText"
+      />
+      <Text
+        style={
+          {
+            "color": "#868e9e",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextInfoText"
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildAfter"
+  />
+</View>
+`;
+
+exports[`InputText functionality tests should not call the onTextChange function when the text is changed and the limit is reached 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "display": "flex",
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "padding": 8,
+      "width": "100%",
+    }
+  }
+  testID="inputText"
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildBefore"
+  />
+  <View
+    style={
+      {
+        "alignItems": "flex-start",
+        "display": "flex",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#3a59db",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 14,
+          }
+        }
+        testID="inputTextLabelTop"
+      />
+    </View>
+    <TextInput
+      editable={true}
+      onChangeText={[Function]}
+      placeholder=""
+      style={
+        {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#3a59db",
+          "borderRadius": 10,
+          "borderWidth": 1,
+          "fontSize": 14,
+          "paddingHorizontal": 8,
+          "paddingVertical": 16,
+          "width": "100%",
+        }
+      }
+      testID="inputTextTextInput"
+      value=""
+    />
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#f44336",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextErrorText"
+      />
+      <Text
+        style={
+          {
+            "color": "#868e9e",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextInfoText"
+      />
+      <View
+        style={
+          {
+            "alignItems": "flex-end",
+            "flex": 1,
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "color": "#868e9e",
+              "display": "flex",
+              "flexDirection": "row",
+              "fontSize": 12,
+            }
+          }
+          testID="inputTextLimitText"
+        >
+          0/10
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildAfter"
+  />
+</View>
+`;
+
+exports[`InputText render tests should render correctly 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "display": "flex",
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "padding": 8,
+      "width": "100%",
+    }
+  }
+  testID="inputText"
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildBefore"
+  />
+  <View
+    style={
+      {
+        "alignItems": "flex-start",
+        "display": "flex",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#3a59db",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 14,
+          }
+        }
+        testID="inputTextLabelTop"
+      />
+    </View>
+    <TextInput
+      editable={true}
+      onChangeText={[Function]}
+      placeholder=""
+      style={
+        {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#3a59db",
+          "borderRadius": 10,
+          "borderWidth": 1,
+          "fontSize": 14,
+          "paddingHorizontal": 8,
+          "paddingVertical": 16,
+          "width": "100%",
+        }
+      }
+      testID="inputTextTextInput"
+      value=""
+    />
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#f44336",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextErrorText"
+      />
+      <Text
+        style={
+          {
+            "color": "#868e9e",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextInfoText"
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildAfter"
+  />
+</View>
+`;
+
+exports[`InputText render tests should render with a disabled style 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "display": "flex",
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "padding": 8,
+      "width": "100%",
+    }
+  }
+  testID="inputText"
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildBefore"
+  />
+  <View
+    style={
+      {
+        "alignItems": "flex-start",
+        "display": "flex",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#3a59db",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 14,
+          }
+        }
+        testID="inputTextLabelTop"
+      />
+    </View>
+    <TextInput
+      editable={false}
+      onChangeText={[Function]}
+      placeholder=""
+      style={
+        {
+          "backgroundColor": "#bdbdbd",
+          "borderColor": "#bdbdbd",
+          "borderRadius": 10,
+          "borderWidth": 1,
+          "color": "#868e9e",
+          "fontSize": 14,
+          "paddingHorizontal": 8,
+          "paddingVertical": 16,
+          "width": "100%",
+        }
+      }
+      testID="inputTextTextInput"
+      value=""
+    />
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#f44336",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextErrorText"
+      />
+      <Text
+        style={
+          {
+            "color": "#868e9e",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextInfoText"
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildAfter"
+  />
+</View>
+`;
+
+exports[`InputText render tests should render with the provided children after 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "display": "flex",
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "padding": 8,
+      "width": "100%",
+    }
+  }
+  testID="inputText"
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildBefore"
+  />
+  <View
+    style={
+      {
+        "alignItems": "flex-start",
+        "display": "flex",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#3a59db",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 14,
+          }
+        }
+        testID="inputTextLabelTop"
+      />
+    </View>
+    <TextInput
+      editable={true}
+      onChangeText={[Function]}
+      placeholder=""
+      style={
+        {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#3a59db",
+          "borderRadius": 10,
+          "borderWidth": 1,
+          "fontSize": 14,
+          "paddingHorizontal": 8,
+          "paddingVertical": 16,
+          "width": "100%",
+        }
+      }
+      testID="inputTextTextInput"
+      value=""
+    />
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#f44336",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextErrorText"
+      />
+      <Text
+        style={
+          {
+            "color": "#868e9e",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextInfoText"
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildAfter"
+  >
+    <Text
+      testID="testChildView"
+    >
+      Test Child
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`InputText render tests should render with the provided children before 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "display": "flex",
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "padding": 8,
+      "width": "100%",
+    }
+  }
+  testID="inputText"
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildBefore"
+  >
+    <Text
+      testID="testChildView"
+    >
+      Test Child
+    </Text>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "flex-start",
+        "display": "flex",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#3a59db",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 14,
+          }
+        }
+        testID="inputTextLabelTop"
+      />
+    </View>
+    <TextInput
+      editable={true}
+      onChangeText={[Function]}
+      placeholder=""
+      style={
+        {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#3a59db",
+          "borderRadius": 10,
+          "borderWidth": 1,
+          "fontSize": 14,
+          "paddingHorizontal": 8,
+          "paddingVertical": 16,
+          "width": "100%",
+        }
+      }
+      testID="inputTextTextInput"
+      value=""
+    />
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#f44336",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextErrorText"
+      />
+      <Text
+        style={
+          {
+            "color": "#868e9e",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextInfoText"
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildAfter"
+  />
+</View>
+`;
+
+exports[`InputText render tests should render with the provided error 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "display": "flex",
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "padding": 8,
+      "width": "100%",
+    }
+  }
+  testID="inputText"
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildBefore"
+  />
+  <View
+    style={
+      {
+        "alignItems": "flex-start",
+        "display": "flex",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#3a59db",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 14,
+          }
+        }
+        testID="inputTextLabelTop"
+      />
+    </View>
+    <TextInput
+      editable={true}
+      onChangeText={[Function]}
+      placeholder=""
+      style={
+        {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#3a59db",
+          "borderRadius": 10,
+          "borderWidth": 1,
+          "fontSize": 14,
+          "paddingHorizontal": 8,
+          "paddingVertical": 16,
+          "width": "100%",
+        }
+      }
+      testID="inputTextTextInput"
+      value=""
+    />
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#f44336",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextErrorText"
+      />
+      <Text
+        style={
+          {
+            "color": "#868e9e",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextInfoText"
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildAfter"
+  />
+</View>
+`;
+
+exports[`InputText render tests should render with the provided error 2`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "display": "flex",
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "padding": 8,
+      "width": "100%",
+    }
+  }
+  testID="inputText"
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildBefore"
+  />
+  <View
+    style={
+      {
+        "alignItems": "flex-start",
+        "display": "flex",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#3a59db",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 14,
+          }
+        }
+        testID="inputTextLabelTop"
+      />
+    </View>
+    <TextInput
+      editable={true}
+      onChangeText={[Function]}
+      placeholder=""
+      style={
+        {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#f44336",
+          "borderRadius": 10,
+          "borderWidth": 1,
+          "fontSize": 14,
+          "paddingHorizontal": 8,
+          "paddingVertical": 16,
+          "width": "100%",
+        }
+      }
+      testID="inputTextTextInput"
+      value=""
+    />
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#f44336",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextErrorText"
+      >
+        Test error
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildAfter"
+  />
+</View>
+`;
+
+exports[`InputText render tests should render with the provided info 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "display": "flex",
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "padding": 8,
+      "width": "100%",
+    }
+  }
+  testID="inputText"
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildBefore"
+  />
+  <View
+    style={
+      {
+        "alignItems": "flex-start",
+        "display": "flex",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#3a59db",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 14,
+          }
+        }
+        testID="inputTextLabelTop"
+      />
+    </View>
+    <TextInput
+      editable={true}
+      onChangeText={[Function]}
+      placeholder=""
+      style={
+        {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#3a59db",
+          "borderRadius": 10,
+          "borderWidth": 1,
+          "fontSize": 14,
+          "paddingHorizontal": 8,
+          "paddingVertical": 16,
+          "width": "100%",
+        }
+      }
+      testID="inputTextTextInput"
+      value=""
+    />
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#f44336",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextErrorText"
+      />
+      <Text
+        style={
+          {
+            "color": "#868e9e",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextInfoText"
+      >
+        Test info
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildAfter"
+  />
+</View>
+`;
+
+exports[`InputText render tests should render with the provided info 2`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "display": "flex",
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "padding": 8,
+      "width": "100%",
+    }
+  }
+  testID="inputText"
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildBefore"
+  />
+  <View
+    style={
+      {
+        "alignItems": "flex-start",
+        "display": "flex",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#3a59db",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 14,
+          }
+        }
+        testID="inputTextLabelTop"
+      />
+    </View>
+    <TextInput
+      editable={true}
+      onChangeText={[Function]}
+      placeholder=""
+      style={
+        {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#f44336",
+          "borderRadius": 10,
+          "borderWidth": 1,
+          "fontSize": 14,
+          "paddingHorizontal": 8,
+          "paddingVertical": 16,
+          "width": "100%",
+        }
+      }
+      testID="inputTextTextInput"
+      value=""
+    />
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#f44336",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextErrorText"
+      >
+        Test error
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildAfter"
+  />
+</View>
+`;
+
+exports[`InputText render tests should render with the provided label 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "display": "flex",
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "padding": 8,
+      "width": "100%",
+    }
+  }
+  testID="inputText"
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildBefore"
+  />
+  <View
+    style={
+      {
+        "alignItems": "flex-start",
+        "display": "flex",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#3a59db",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 14,
+          }
+        }
+        testID="inputTextLabelTop"
+      />
+    </View>
+    <TextInput
+      editable={true}
+      onChangeText={[Function]}
+      placeholder="Test Label"
+      style={
+        {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#3a59db",
+          "borderRadius": 10,
+          "borderWidth": 1,
+          "fontSize": 14,
+          "paddingHorizontal": 8,
+          "paddingVertical": 16,
+          "width": "100%",
+        }
+      }
+      testID="inputTextTextInput"
+      value=""
+    />
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#f44336",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextErrorText"
+      />
+      <Text
+        style={
+          {
+            "color": "#868e9e",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextInfoText"
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildAfter"
+  />
+</View>
+`;
+
+exports[`InputText render tests should render with the provided label 2`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "display": "flex",
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "padding": 8,
+      "width": "100%",
+    }
+  }
+  testID="inputText"
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildBefore"
+  />
+  <View
+    style={
+      {
+        "alignItems": "flex-start",
+        "display": "flex",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#3a59db",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 14,
+          }
+        }
+        testID="inputTextLabelTop"
+      >
+        Test Label
+      </Text>
+    </View>
+    <TextInput
+      editable={true}
+      onChangeText={[Function]}
+      placeholder="Test Label"
+      style={
+        {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#3a59db",
+          "borderRadius": 10,
+          "borderWidth": 1,
+          "fontSize": 14,
+          "paddingHorizontal": 8,
+          "paddingVertical": 16,
+          "width": "100%",
+        }
+      }
+      testID="inputTextTextInput"
+      value="Test text"
+    />
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#f44336",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextErrorText"
+      />
+      <Text
+        style={
+          {
+            "color": "#868e9e",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextInfoText"
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildAfter"
+  />
+</View>
+`;
+
+exports[`InputText render tests should render with the provided limit 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "display": "flex",
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "padding": 8,
+      "width": "100%",
+    }
+  }
+  testID="inputText"
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildBefore"
+  />
+  <View
+    style={
+      {
+        "alignItems": "flex-start",
+        "display": "flex",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#3a59db",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 14,
+          }
+        }
+        testID="inputTextLabelTop"
+      />
+    </View>
+    <TextInput
+      editable={true}
+      onChangeText={[Function]}
+      placeholder=""
+      style={
+        {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#3a59db",
+          "borderRadius": 10,
+          "borderWidth": 1,
+          "fontSize": 14,
+          "paddingHorizontal": 8,
+          "paddingVertical": 16,
+          "width": "100%",
+        }
+      }
+      testID="inputTextTextInput"
+      value=""
+    />
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#f44336",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextErrorText"
+      />
+      <Text
+        style={
+          {
+            "color": "#868e9e",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextInfoText"
+      />
+      <View
+        style={
+          {
+            "alignItems": "flex-end",
+            "flex": 1,
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "color": "#868e9e",
+              "display": "flex",
+              "flexDirection": "row",
+              "fontSize": 12,
+            }
+          }
+          testID="inputTextLimitText"
+        >
+          0/10
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildAfter"
+  />
+</View>
+`;
+
+exports[`InputText render tests should render with the provided limit 2`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "display": "flex",
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "padding": 8,
+      "width": "100%",
+    }
+  }
+  testID="inputText"
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildBefore"
+  />
+  <View
+    style={
+      {
+        "alignItems": "flex-start",
+        "display": "flex",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#3a59db",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 14,
+          }
+        }
+        testID="inputTextLabelTop"
+      />
+    </View>
+    <TextInput
+      editable={true}
+      onChangeText={[Function]}
+      placeholder=""
+      style={
+        {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#3a59db",
+          "borderRadius": 10,
+          "borderWidth": 1,
+          "fontSize": 14,
+          "paddingHorizontal": 8,
+          "paddingVertical": 16,
+          "width": "100%",
+        }
+      }
+      testID="inputTextTextInput"
+      value="Test text"
+    />
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#f44336",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextErrorText"
+      />
+      <Text
+        style={
+          {
+            "color": "#868e9e",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextInfoText"
+      />
+      <View
+        style={
+          {
+            "alignItems": "flex-end",
+            "flex": 1,
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "color": "#868e9e",
+              "display": "flex",
+              "flexDirection": "row",
+              "fontSize": 12,
+            }
+          }
+          testID="inputTextLimitText"
+        >
+          9/10
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildAfter"
+  />
+</View>
+`;
+
+exports[`InputText render tests should render with the provided size 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "display": "flex",
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "padding": 8,
+      "width": "100%",
+    }
+  }
+  testID="inputText"
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildBefore"
+  />
+  <View
+    style={
+      {
+        "alignItems": "flex-start",
+        "display": "flex",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#3a59db",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 14,
+          }
+        }
+        testID="inputTextLabelTop"
+      />
+    </View>
+    <TextInput
+      editable={true}
+      onChangeText={[Function]}
+      placeholder=""
+      style={
+        {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#3a59db",
+          "borderRadius": 10,
+          "borderWidth": 1,
+          "fontSize": 14,
+          "paddingHorizontal": 8,
+          "paddingVertical": 16,
+          "width": "100%",
+        }
+      }
+      testID="inputTextTextInput"
+      value=""
+    />
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#f44336",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextErrorText"
+      />
+      <Text
+        style={
+          {
+            "color": "#868e9e",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextInfoText"
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildAfter"
+  />
+</View>
+`;
+
+exports[`InputText render tests should render with the provided text 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "display": "flex",
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "padding": 8,
+      "width": "100%",
+    }
+  }
+  testID="inputText"
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildBefore"
+  />
+  <View
+    style={
+      {
+        "alignItems": "flex-start",
+        "display": "flex",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#3a59db",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 14,
+          }
+        }
+        testID="inputTextLabelTop"
+      />
+    </View>
+    <TextInput
+      editable={true}
+      onChangeText={[Function]}
+      placeholder=""
+      style={
+        {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#3a59db",
+          "borderRadius": 10,
+          "borderWidth": 1,
+          "fontSize": 14,
+          "paddingHorizontal": 8,
+          "paddingVertical": 16,
+          "width": "100%",
+        }
+      }
+      testID="inputTextTextInput"
+      value="Test text"
+    />
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#f44336",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextErrorText"
+      />
+      <Text
+        style={
+          {
+            "color": "#868e9e",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextInfoText"
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildAfter"
+  />
+</View>
+`;
+
+exports[`InputText render tests should render with the text area style 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "display": "flex",
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "padding": 8,
+      "width": "100%",
+    }
+  }
+  testID="inputText"
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildBefore"
+  />
+  <View
+    style={
+      {
+        "alignItems": "flex-start",
+        "display": "flex",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "center",
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#3a59db",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 14,
+          }
+        }
+        testID="inputTextLabelTop"
+      />
+    </View>
+    <TextInput
+      editable={true}
+      multiline={true}
+      onChangeText={[Function]}
+      placeholder=""
+      style={
+        {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#3a59db",
+          "borderRadius": 10,
+          "borderWidth": 1,
+          "fontSize": 14,
+          "height": 100,
+          "paddingHorizontal": 8,
+          "paddingVertical": 16,
+          "width": "100%",
+        }
+      }
+      testID="inputTextTextInput"
+      value=""
+    />
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#f44336",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextErrorText"
+      />
+      <Text
+        style={
+          {
+            "color": "#868e9e",
+            "display": "flex",
+            "flexDirection": "row",
+            "fontSize": 12,
+          }
+        }
+        testID="inputTextInfoText"
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "justifyContent": "center",
+      }
+    }
+    testID="inputTextChildAfter"
+  />
+</View>
+`;
