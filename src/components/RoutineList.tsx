@@ -1,4 +1,4 @@
-import {View, StyleSheet, TouchableOpacity, Text} from 'react-native';
+import {View, StyleSheet, TouchableOpacity} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {Event, ITEM_MINUTES} from '../values/appDefaults';
 import Label, {FontSize} from './Label';
