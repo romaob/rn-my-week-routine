@@ -16,8 +16,8 @@ import {
   getTimeStringFromDate,
 } from '../utils/dateUtils';
 import Space from '../components/Space';
-import ButtonCancel from '../components/ButtonCancel';
 import DialogAlert from '../components/DialogAlert';
+import ButtonDelete from '../components/ButtonDelete';
 
 const NAME_LIMIT = 50;
 const DESCRIPTION_LIMIT = 200;
@@ -113,7 +113,7 @@ export default function Routine() {
         />
         <Space />
         {event?.id && (
-          <ButtonCancel onPress={() => setShowDeleteDialog(true)} />
+          <ButtonDelete onPress={() => setShowDeleteDialog(true)} />
         )}
       </View>
       <InputText

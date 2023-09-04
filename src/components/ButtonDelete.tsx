@@ -2,20 +2,20 @@ import React from 'react';
 import {Image, StyleSheet} from 'react-native';
 import Button, {ButtonColorType} from './Button';
 
-export interface ButtonCancelProps {
+export interface ButtonDeleteProps {
   onPress: () => void;
   colorType?: ButtonColorType;
 }
 
-export default function ButtonCancel({
+export default function ButtonDelete({
   onPress,
   colorType = ButtonColorType.DANGER,
-}: ButtonCancelProps) {
+}: ButtonDeleteProps) {
   return (
     <Button onPress={onPress} colorType={colorType} rounded>
       <Image
         style={styles.image}
-        source={require('../assets/images/cancel.png')}
+        source={require('../assets/images/trash.png')}
       />
     </Button>
   );
