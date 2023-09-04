@@ -19,6 +19,9 @@ import Space from '../components/Space';
 import ButtonCancel from '../components/ButtonCancel';
 import DialogAlert from '../components/DialogAlert';
 
+const NAME_LIMIT = 50;
+const DESCRIPTION_LIMIT = 200;
+
 export default function Routine() {
   const {getString} = useString();
   const route = useRoute();
@@ -28,9 +31,11 @@ export default function Routine() {
   const {loading, events, updateEventsData} = useEvents();
 
   const [name, setName] = useState<string>(event?.name || '');
+  const [nameError, setNameError] = useState<string | null>(null);
   const [description, setDescription] = useState<string>(
     event?.description || '',
   );
+  const [descriptionError, setDescriptionError] = useState<string | null>(null);
   const [selectedDays, setSelectedDays] = useState<number[]>(
     event?.indexes.length > 0 ? event?.indexes : [new Date().getDay()],
   );
@@ -60,6 +65,11 @@ export default function Routine() {
   }
 
   async function handleOnSave() {
+    if (!name) {
+      setNameError(getString('routine_name_error'));
+      return;
+    }
+
     const newEvent: Event = {
       id: event?.id || Date.now().toString(),
       name,
@@ -82,6 +92,8 @@ export default function Routine() {
       newEvents.push(newEvent);
     }
     await updateEventsData(newEvents);
+    setNameError(nameError);
+    setDescriptionError(descriptionError);
     navigation.goBack();
   }
 
@@ -110,6 +122,8 @@ export default function Routine() {
         label={getString('routine_name')}
         required
         disabled={loading}
+        error={nameError || undefined}
+        limit={NAME_LIMIT}
       />
       <Label text={getString('routine_days_select')} size={FontSize.SMALL} />
       <WeekDaysMenu
@@ -179,6 +193,8 @@ export default function Routine() {
         onTextChange={setDescription}
         label={getString('routine_description')}
         textArea
+        limit={DESCRIPTION_LIMIT}
+        error={descriptionError || undefined}
       />
       <View style={styles.bottomContainer}>
         <Button
