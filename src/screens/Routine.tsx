@@ -1,5 +1,5 @@
-import {View, Text, StyleSheet, Platform, TouchableOpacity} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import {View, StyleSheet, Platform, TouchableOpacity} from 'react-native';
+import React, {useState} from 'react';
 import {sizes} from '../values/sizes';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import Label, {FontSize} from '../components/Label';
