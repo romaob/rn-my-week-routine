@@ -113,5 +113,10 @@
         "en": "Are you sure you want to delete this routine?",
         "es": "¿Estás seguro de que quieres eliminar esta rutina?",
         "pt": "Tem certeza que deseja excluir esta rotina?"
+    },
+    "routine_name_error": {
+        "en": "Routine name is required",
+        "es": "El nombre de la rutina es obligatorio",
+        "pt": "O nome da rotina é obrigatório"
     }
 }

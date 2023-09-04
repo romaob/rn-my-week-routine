@@ -34,6 +34,7 @@ export interface ButtonProps {
   flex?: boolean;
   onPress: () => void;
   children?: React.ReactNode;
+  testID?: string;
 }
 
 const pallete = colors.light;
@@ -49,6 +50,7 @@ export default function Button({
   flex,
   onPress,
   children,
+  testID,
   ...props
 }: ButtonProps): JSX.Element {
   function getProps() {
@@ -82,13 +84,16 @@ export default function Button({
 
   if (inactive || disabled) {
     return (
-      <View testID="buttonInactive" {...getProps()}>
+      <View testID={testID || 'buttonInactive'} {...getProps()}>
         {getChildren()}
       </View>
     );
   } else {
     return (
-      <TouchableOpacity testID="button" {...getProps()} onPress={onPress}>
+      <TouchableOpacity
+        testID={testID || 'button'}
+        {...getProps()}
+        onPress={onPress}>
         {getChildren()}
       </TouchableOpacity>
     );

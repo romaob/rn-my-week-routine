@@ -73,10 +73,10 @@ export default function routineListBuilder(events: Event[]): RoutineList {
       new Date(event.startAt),
       ITEM_MINUTES,
     );
-    const eventEndIndex = getSlotIndexOfDate(
-      new Date(event.endAt),
-      ITEM_MINUTES,
-    );
+    let eventEndIndex = getSlotIndexOfDate(new Date(event.endAt), ITEM_MINUTES);
+    if (eventEndIndex === 0) {
+      eventEndIndex = 48;
+    }
     for (let i = eventStartIndex; i < eventEndIndex; i++) {
       const slot = timeSlotsMap.get(i);
       if (slot) {
@@ -84,6 +84,7 @@ export default function routineListBuilder(events: Event[]): RoutineList {
       }
     }
   }
+
   //Process the data creating matrix, going over every time slot
   const generatedMatrixes: BlockMatrix[] = [];
   const timeSlots = Array.from(timeSlotsMap.values());
@@ -159,9 +160,12 @@ export default function routineListBuilder(events: Event[]): RoutineList {
         const eventStartIndex =
           new Date(event.startAt).getHours() * 2 +
           (new Date(event.startAt).getMinutes() >= 30 ? 1 : 0);
-        const eventEndIndex =
+        let eventEndIndex =
           new Date(event.endAt).getHours() * 2 +
           (new Date(event.endAt).getMinutes() >= 30 ? 1 : 0);
+        if (eventEndIndex === 0) {
+          eventEndIndex = 48;
+        }
         const eventSlots = eventEndIndex - eventStartIndex;
         //Adding the event to the matrix
         for (let i = 0; i < eventSlots; i++) {
@@ -234,9 +238,12 @@ export default function routineListBuilder(events: Event[]): RoutineList {
         const eventStartIndex =
           new Date(event.startAt).getHours() * 2 +
           (new Date(event.startAt).getMinutes() >= 30 ? 1 : 0);
-        const eventEndIndex =
+        let eventEndIndex =
           new Date(event.endAt).getHours() * 2 +
           (new Date(event.endAt).getMinutes() >= 30 ? 1 : 0);
+        if (eventEndIndex === 0) {
+          eventEndIndex = 48;
+        }
         const eventSlots = eventEndIndex - eventStartIndex;
 
         const eventSlot: EventSlot = {

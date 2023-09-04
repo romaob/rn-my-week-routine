@@ -14,9 +14,11 @@ import {useCurrentSlot} from '../context/currentSlotContext';
 
 function EventGroup({
   eventSlot,
+  showHighlight,
   onLongPress,
 }: {
   eventSlot: EventSlot;
+  showHighlight?: boolean;
   onLongPress: (event: Event) => void;
 }): JSX.Element {
   const {currentIndex: nowIndex} = useCurrentSlot();
@@ -29,13 +31,15 @@ function EventGroup({
     ITEM_MINUTES,
   );
   const [isActive, setIsActive] = useState(
-    nowIndex >= eventStartIndex && nowIndex < eventEndIndex,
+    nowIndex >= eventStartIndex && nowIndex < eventEndIndex && showHighlight,
   );
   const isEmpty = !eventSlot.event.id;
 
   useEffect(() => {
-    setIsActive(nowIndex >= eventStartIndex && nowIndex < eventEndIndex);
-  }, [eventEndIndex, eventStartIndex, nowIndex]);
+    setIsActive(
+      nowIndex >= eventStartIndex && nowIndex < eventEndIndex && showHighlight,
+    );
+  }, [eventEndIndex, eventStartIndex, nowIndex, showHighlight]);
 
   return (
     <View
@@ -72,9 +76,11 @@ function EventGroup({
 
 function BlockColumn({
   column,
+  showHighlight,
   onEventSelected,
 }: {
   column: ColumnEventSlot;
+  showHighlight?: boolean;
   onEventSelected: (event: Event) => void;
 }): JSX.Element {
   return (
@@ -84,6 +90,7 @@ function BlockColumn({
           key={index}
           eventSlot={eventSlot}
           onLongPress={onEventSelected}
+          showHighlight={showHighlight}
         />
       ))}
     </View>
@@ -92,9 +99,11 @@ function BlockColumn({
 
 function RoutineListBlock({
   routineBlock,
+  showHighlight,
   onEventSelected,
 }: {
   routineBlock: TimeBlock;
+  showHighlight?: boolean;
   onEventSelected: (event: Event) => void;
 }): JSX.Element {
   return (
@@ -104,6 +113,7 @@ function RoutineListBlock({
           key={index}
           column={column}
           onEventSelected={onEventSelected}
+          showHighlight={showHighlight}
         />
       ))}
     </View>
@@ -112,11 +122,13 @@ function RoutineListBlock({
 
 export interface RoutineListProps {
   events: Event[];
+  showHighlight?: boolean;
   onEventSelected: (event: Event) => void;
 }
 
 export default function RoutineList({
   events,
+  showHighlight,
   onEventSelected,
 }: RoutineListProps) {
   const [timeBlocks, setTimeBlocks] = useState<TimeBlock[]>([]);
@@ -137,6 +149,7 @@ export default function RoutineList({
         {slots.map((slot, index) => {
           const contrast = index % 2 === 0;
           const active =
+            showHighlight &&
             getSlotIndexOfDate(slot, ITEM_MINUTES) === currentIndex;
           return (
             <View
@@ -156,6 +169,7 @@ export default function RoutineList({
             key={index}
             routineBlock={routineBlock}
             onEventSelected={handleOnPress}
+            showHighlight={showHighlight}
           />
         ))}
       </View>
