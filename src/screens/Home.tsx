@@ -95,10 +95,13 @@ export default function Home(): JSX.Element {
       />
       <ScrollView style={styles.timesScrollContainer} ref={scrollRef}>
         <View style={styles.timeContainer}>
-          <TimeLabels />
+          <TimeLabels
+            showHighlight={currentSelectedDay[0] === new Date().getDay()}
+          />
           <RoutineList
             events={renderEvents}
             onEventSelected={handleOnEventSelected}
+            showHighlight={currentSelectedDay[0] === new Date().getDay()}
           />
         </View>
       </ScrollView>
