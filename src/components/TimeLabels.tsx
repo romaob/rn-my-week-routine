@@ -48,7 +48,11 @@ export function TimeLabelItem({date, active}: TimeLabelItemProps): JSX.Element {
   }
 }
 
-export default function TimeLabels(): JSX.Element {
+export interface TimeLabelsProps {
+  showHighlight?: boolean;
+}
+
+export default function TimeLabels({showHighlight = true}): JSX.Element {
   const {currentIndex} = useCurrentSlot();
   return (
     <View testID="time-labels" style={styles.container}>
@@ -56,7 +60,10 @@ export default function TimeLabels(): JSX.Element {
         <TimeLabelItem
           key={index}
           date={date}
-          active={getSlotIndexOfDate(date, ITEM_MINUTES) === currentIndex}
+          active={
+            getSlotIndexOfDate(date, ITEM_MINUTES) === currentIndex &&
+            showHighlight
+          }
         />
       ))}
     </View>
