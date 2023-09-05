@@ -25,6 +25,7 @@ export interface ButtonProps {
   label?: string;
   rounded?: true;
   colorType?: ButtonColorType;
+  transparent?: boolean;
   prefixIcon?: string;
   suffixIcon?: string;
   disabled?: boolean;
@@ -43,6 +44,7 @@ export default function Button({
   label,
   rounded,
   colorType,
+  transparent,
   disabled,
   inactive,
   contentVertical,
@@ -59,6 +61,7 @@ export default function Button({
       style: {
         ...styles.container,
         ...styles[colorType || ButtonColorType.PRIMARY],
+        ...(transparent ? {backgroundColor: 'transparent'} : {}),
         ...(rounded ? styles.rounded : {}),
         ...(disabled ? styles.disabled : {}),
         ...(contentVertical ? styles.contentVertical : {}),
