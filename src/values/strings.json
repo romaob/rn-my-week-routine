@@ -94,6 +94,11 @@
         "es": "Cancelar",
         "pt": "Cancelar"
     },
+    "ok": {
+        "en": "OK",
+        "es": "OK",
+        "pt": "OK"
+    },
     "routine_new": {
         "en": "New Routine",
         "es": "Nueva Rutina",

@@ -5,6 +5,7 @@ import {sizes} from '../values/sizes';
 import {colors} from '../values/colors';
 import Label, {FontSize} from '../components/Label';
 import useString from '../hooks/useString';
+import DialogCustom from '../components/DialogCustom';
 
 interface SettingsItemProps {
   title: string;
@@ -59,6 +60,10 @@ export default function Settings(): JSX.Element {
         title={getString('screen_settings_clear_events')}
         onPress={handleItemLanguagePress}
       />
+
+      <DialogCustom show={true} title="Test">
+        <Label text="Hello" />
+      </DialogCustom>
     </View>
   );
 }
