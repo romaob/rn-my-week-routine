@@ -1,5 +1,4 @@
 import 'react-native-gesture-handler';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
@@ -10,19 +9,17 @@ import CurrentSlotProvider from './src/context/currentSlotContext';
 import Routine from './src/screens/Routine';
 import {Event} from './src/values/appDefaults';
 import Routines from './src/screens/Routines';
-import Button from './src/components/Button';
 import ButtonBack from './src/components/ButtonBack';
 import {colors} from './src/values/colors';
 import Settings from './src/screens/Settings';
 import About from './src/screens/About';
+import useString from './src/hooks/useString';
 
 export type RootStackParamList = {
   Splash: {} | undefined;
   Home: {} | undefined;
   Routine: {event: Event} | undefined;
 };
-
-const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const Drawer = createDrawerNavigator();
 
@@ -32,11 +29,15 @@ function DrawerHeaderBackButton() {
 
 function App(): JSX.Element {
   //const isDarkMode = useColorScheme() === 'dark';
+
+  const {getString} = useString();
+
   return (
     <SafeAreaView style={styles.appContainer}>
       <CurrentSlotProvider>
         <NavigationContainer>
           <Drawer.Navigator
+            backBehavior="history"
             screenOptions={{
               headerStyle: {
                 backgroundColor: colors.light.secondary,
@@ -50,7 +51,7 @@ function App(): JSX.Element {
             }}>
             {/* Home should not appear on the drawer*/}
             <Drawer.Screen
-              name="Home"
+              name={getString('app_name')}
               component={Home}
               options={{
                 drawerItemStyle: {display: 'none'},
@@ -58,7 +59,7 @@ function App(): JSX.Element {
             />
             {/* Routine should not appear on the drawer, and should have the back button */}
             <Drawer.Screen
-              name="Routine"
+              name={getString('screen_routine')}
               component={Routine}
               options={{
                 drawerItemStyle: {display: 'none'},
@@ -66,21 +67,21 @@ function App(): JSX.Element {
               }}
             />
             <Drawer.Screen
-              name="My Events"
+              name={getString('screen_events')}
               component={Routines}
               options={{
                 headerLeft: DrawerHeaderBackButton,
               }}
             />
             <Drawer.Screen
-              name="Settings"
+              name={getString('screen_settings')}
               component={Settings}
               options={{
                 headerLeft: DrawerHeaderBackButton,
               }}
             />
             <Drawer.Screen
-              name="About"
+              name={getString('screen_about')}
               component={About}
               options={{
                 headerLeft: DrawerHeaderBackButton,
