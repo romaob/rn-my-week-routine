@@ -148,5 +148,20 @@
         "en": "End at",
         "es": "Termina a las",
         "pt": "Termina às"
+    },
+    "screen_settings_language": {
+        "en": "Language",
+        "es": "Idioma",
+        "pt": "Idioma"
+    },
+    "screen_settings_about": {
+        "en": "About",
+        "es": "Acerca de",
+        "pt": "Sobre"
+    },
+    "screen_settings_clear_events": {
+        "en": "Clear Events",
+        "es": "Limpiar Eventos",
+        "pt": "Limpar Eventos"
     }
 }
