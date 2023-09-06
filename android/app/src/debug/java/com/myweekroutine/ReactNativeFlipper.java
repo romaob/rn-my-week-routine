@@ -23,6 +23,10 @@ import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.modules.network.NetworkingModule;
 import okhttp3.OkHttpClient;
+// RN perf monitor plugin - - -
+import tech.bam.rnperformance.flipper.RNPerfMonitorPlugin;
+// - - -
+
 
 /**
  * Class responsible of loading Flipper inside your React Native application. This is the debug
@@ -47,6 +51,9 @@ public class ReactNativeFlipper {
             }
           });
       client.addPlugin(networkFlipperPlugin);
+      // RN perf monitor plugin - - -
+      client.addPlugin(new RNPerfMonitorPlugin(reactInstanceManager));
+      // - - - 
       client.start();
 
       // Fresco Plugin needs to ensure that ImagePipelineFactory is initialized
