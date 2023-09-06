@@ -37,6 +37,7 @@ function App(): JSX.Element {
       <CurrentSlotProvider>
         <NavigationContainer>
           <Drawer.Navigator
+            backBehavior="history"
             screenOptions={{
               headerStyle: {
                 backgroundColor: colors.light.secondary,
