@@ -37,4 +37,18 @@ describe('Testing Label component rendering', () => {
     );
     expect(result.getByText('Child')).toBeTruthy();
   });
+
+  it('should render the label with a custom style', () => {
+    const result = render(
+      <Label
+        text={testLabelText}
+        style={{
+          fontSize: 30,
+          color: 'red',
+        }}
+      />,
+    );
+    expect(result.getByTestId('label').props.style.fontSize).toBe(30);
+    expect(result.getByTestId('label').props.style.color).toBe('red');
+  });
 });

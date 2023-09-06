@@ -118,5 +118,15 @@
         "en": "Routine name is required",
         "es": "El nombre de la rutina es obligatorio",
         "pt": "O nome da rotina é obrigatório"
+    },
+    "routine_start_at": {
+        "en": "Start at",
+        "es": "Empieza a las",
+        "pt": "Começa às"
+    },
+    "routine_end_at": {
+        "en": "End at",
+        "es": "Termina a las",
+        "pt": "Termina às"
     }
 }

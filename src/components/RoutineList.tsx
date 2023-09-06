@@ -64,7 +64,11 @@ function EventGroup({
                 ...(!isEmpty && isActive ? styles.eventSlotActive : {}),
               }}>
               {index === 0 && (
-                <Label text={eventSlot.event.name} size={FontSize.SMALL} />
+                <Label
+                  text={eventSlot.event.name}
+                  size={FontSize.SMALL}
+                  color={colors.light.textContrast}
+                />
               )}
             </View>
           );
@@ -229,7 +233,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 4,
   },
   eventSlotFilled: {
-    backgroundColor: colors.light.secondary,
+    backgroundColor: colors.light.primary,
   },
   eventSlotEmpty: {
     backgroundColor: colors.light.cardBackground + 90,

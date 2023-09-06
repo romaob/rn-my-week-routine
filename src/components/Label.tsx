@@ -29,6 +29,7 @@ export default function Label({
   childrenAfter,
   testID,
   color = colors.light.text,
+  style,
 }: LabelProps) {
   return (
     <Text
@@ -36,6 +37,7 @@ export default function Label({
       style={{
         ...styles.container,
         ...{fontSize: sizes.font[size], color: color},
+        ...style,
       }}>
       {childrenBefore && children}
       {text}

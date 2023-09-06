@@ -9,6 +9,7 @@ import {colors} from '../values/colors';
 export interface WeekDaysMenuProps {
   selectedIndexes?: number[];
   disabled?: boolean;
+  size?: ButtonSize;
   onPress?: (day: string, index: number) => void;
   highlightToday?: boolean;
 }
@@ -16,6 +17,7 @@ export interface WeekDaysMenuProps {
 export default function WeekDaysMenu({
   selectedIndexes = [],
   disabled,
+  size = ButtonSize.MEDIUM_2,
   onPress,
   highlightToday = false,
 }: WeekDaysMenuProps) {
@@ -45,7 +47,7 @@ export default function WeekDaysMenu({
         <Button
           key={index}
           colorType={getColorType(day, index)}
-          size={ButtonSize.MEDIUM_2}
+          size={size}
           label={day.slice(0, 1)}
           flex
           rounded

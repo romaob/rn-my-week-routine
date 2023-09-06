@@ -11,6 +11,7 @@ import Button, {ButtonColorType} from '../components/Button';
 import {useCurrentSlot} from '../context/currentSlotContext';
 import {useNavigation} from '@react-navigation/native';
 import {getTimeFilteredByMinutes} from '../utils/dateUtils';
+import { sizes } from '../values/sizes';
 
 export default function Home(): JSX.Element {
   //Get current time slot from the context
@@ -131,6 +132,7 @@ const styles = StyleSheet.create({
   timeContainer: {
     display: 'flex',
     flexDirection: 'row',
+    paddingBottom: sizes.padding.lg,
   },
   buttonFloatContainer: {
     position: 'absolute',
