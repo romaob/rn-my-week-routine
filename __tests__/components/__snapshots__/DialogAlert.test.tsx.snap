@@ -160,23 +160,7 @@ exports[`DialogAlert behavior tests should call the onCancel callback when the c
               }
             }
             testID="dialogAlertCancelButton"
-          >
-            <Text
-              style={
-                [
-                  {
-                    "color": "#ffffff",
-                  },
-                  {
-                    "fontSize": 24,
-                  },
-                ]
-              }
-              testID="buttonLabel"
-            >
-              Cancel
-            </Text>
-          </View>
+          />
           <View
             accessibilityState={
               {
@@ -217,23 +201,7 @@ exports[`DialogAlert behavior tests should call the onCancel callback when the c
               }
             }
             testID="dialogAlertConfirmButton"
-          >
-            <Text
-              style={
-                [
-                  {
-                    "color": "#ffffff",
-                  },
-                  {
-                    "fontSize": 24,
-                  },
-                ]
-              }
-              testID="buttonLabel"
-            >
-              DELETE
-            </Text>
-          </View>
+          />
         </View>
       </View>
     </View>
@@ -401,23 +369,7 @@ exports[`DialogAlert behavior tests should call the onConfirm callback when the 
               }
             }
             testID="dialogAlertCancelButton"
-          >
-            <Text
-              style={
-                [
-                  {
-                    "color": "#ffffff",
-                  },
-                  {
-                    "fontSize": 24,
-                  },
-                ]
-              }
-              testID="buttonLabel"
-            >
-              Cancel
-            </Text>
-          </View>
+          />
           <View
             accessibilityState={
               {
@@ -458,23 +410,7 @@ exports[`DialogAlert behavior tests should call the onConfirm callback when the 
               }
             }
             testID="dialogAlertConfirmButton"
-          >
-            <Text
-              style={
-                [
-                  {
-                    "color": "#ffffff",
-                  },
-                  {
-                    "fontSize": 24,
-                  },
-                ]
-              }
-              testID="buttonLabel"
-            >
-              DELETE
-            </Text>
-          </View>
+          />
         </View>
       </View>
     </View>
@@ -642,23 +578,7 @@ exports[`DialogAlert render tests should render correctly 1`] = `
               }
             }
             testID="dialogAlertCancelButton"
-          >
-            <Text
-              style={
-                [
-                  {
-                    "color": "#ffffff",
-                  },
-                  {
-                    "fontSize": 24,
-                  },
-                ]
-              }
-              testID="buttonLabel"
-            >
-              Cancel
-            </Text>
-          </View>
+          />
           <View
             accessibilityState={
               {
@@ -699,23 +619,7 @@ exports[`DialogAlert render tests should render correctly 1`] = `
               }
             }
             testID="dialogAlertConfirmButton"
-          >
-            <Text
-              style={
-                [
-                  {
-                    "color": "#ffffff",
-                  },
-                  {
-                    "fontSize": 24,
-                  },
-                ]
-              }
-              testID="buttonLabel"
-            >
-              DELETE
-            </Text>
-          </View>
+          />
         </View>
       </View>
     </View>
@@ -883,23 +787,7 @@ exports[`DialogAlert render tests should render the provided message 1`] = `
               }
             }
             testID="dialogAlertCancelButton"
-          >
-            <Text
-              style={
-                [
-                  {
-                    "color": "#ffffff",
-                  },
-                  {
-                    "fontSize": 24,
-                  },
-                ]
-              }
-              testID="buttonLabel"
-            >
-              Cancel
-            </Text>
-          </View>
+          />
           <View
             accessibilityState={
               {
@@ -940,23 +828,7 @@ exports[`DialogAlert render tests should render the provided message 1`] = `
               }
             }
             testID="dialogAlertConfirmButton"
-          >
-            <Text
-              style={
-                [
-                  {
-                    "color": "#ffffff",
-                  },
-                  {
-                    "fontSize": 24,
-                  },
-                ]
-              }
-              testID="buttonLabel"
-            >
-              DELETE
-            </Text>
-          </View>
+          />
         </View>
       </View>
     </View>
@@ -1124,23 +996,7 @@ exports[`DialogAlert render tests should render the provided title 1`] = `
               }
             }
             testID="dialogAlertCancelButton"
-          >
-            <Text
-              style={
-                [
-                  {
-                    "color": "#ffffff",
-                  },
-                  {
-                    "fontSize": 24,
-                  },
-                ]
-              }
-              testID="buttonLabel"
-            >
-              Cancel
-            </Text>
-          </View>
+          />
           <View
             accessibilityState={
               {
@@ -1181,23 +1037,7 @@ exports[`DialogAlert render tests should render the provided title 1`] = `
               }
             }
             testID="dialogAlertConfirmButton"
-          >
-            <Text
-              style={
-                [
-                  {
-                    "color": "#ffffff",
-                  },
-                  {
-                    "fontSize": 24,
-                  },
-                ]
-              }
-              testID="buttonLabel"
-            >
-              DELETE
-            </Text>
-          </View>
+          />
         </View>
       </View>
     </View>

@@ -15,7 +15,7 @@ interface Translations {
 
 const translations: Translations = strings;
 
-const defaultLanguage: Language = 'en';
+export const defaultLanguage: Language = 'en';
 
 export interface useStringReturn {
   language: Language;
@@ -62,7 +62,6 @@ export default function StringsProvider({
 
   function getString(key: string): string {
     if (!translations[key]) {
-      console.warn(`Translation key "${key}" not found`);
       return '';
     }
     return translations[key][language];
