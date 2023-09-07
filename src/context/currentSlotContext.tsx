@@ -4,16 +4,16 @@ import React, {createContext, useContext, useEffect, useState} from 'react';
 import {getSlotIndexOfDate} from '../utils/dateUtils';
 import {ITEM_MINUTES} from '../values/appDefaults';
 
-export interface CurrentSlotContextProps {
+export interface CurrentSlotContextReturn {
   currentIndex: number;
   currentDayIndex?: number;
 }
 
-const CurrentSlotContext = createContext<CurrentSlotContextProps>({
+const CurrentSlotContext = createContext<CurrentSlotContextReturn>({
   currentIndex: getSlotIndexOfDate(new Date(), ITEM_MINUTES),
 });
 
-export function useCurrentSlot(): CurrentSlotContextProps {
+export function useCurrentSlot(): CurrentSlotContextReturn {
   return useContext(CurrentSlotContext);
 }
 

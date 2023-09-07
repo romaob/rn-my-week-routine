@@ -4,7 +4,7 @@ import Label, {FontSize} from './Label';
 import Button, {ButtonColorType, ButtonSize} from './Button';
 import {colors} from '../values/colors';
 import {sizes} from '../values/sizes';
-import useString from '../hooks/useString';
+import {useString} from '../context/useStringContext';
 
 interface DialogCustomProps {
   show: boolean;
@@ -54,6 +54,7 @@ const DialogCustom = ({
                       label={cancelLabel || getString('cancel')}
                       size={ButtonSize.LARGE}
                       onPress={onCancel}
+                      colorType={ButtonColorType.SECONDARY}
                       testID="DialogCustomCancelButton"
                     />
                   )}
@@ -62,7 +63,7 @@ const DialogCustom = ({
                       label={confirmLabel || getString('ok')}
                       size={ButtonSize.LARGE}
                       onPress={onConfirm}
-                      colorType={ButtonColorType.DANGER}
+                      colorType={ButtonColorType.ACCENT}
                       testID="DialogCustomConfirmButton"
                     />
                   )}
@@ -96,8 +97,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.light.cardBackground,
     borderRadius: 10,
     padding: sizes.padding.lg,
-    minWidth: '60%',
-    maxWidth: '90%',
+    width: '80%',
   },
   topRow: {
     flexDirection: 'row',

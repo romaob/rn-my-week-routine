@@ -71,7 +71,7 @@ export default function Home(): JSX.Element {
   }, [currentIndex, scrollRef, initialScroll, scrollToCurrentTime]);
 
   useEffect(() => {
-    if (events.length > 0) {
+    if (events) {
       const res = events.filter(event => {
         return event.indexes.includes(currentSelectedDay[0]);
       });
@@ -87,6 +87,7 @@ export default function Home(): JSX.Element {
     return unsubscribe;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [navigation]);
+
   return (
     <View style={styles.container}>
       <WeekDaysMenu

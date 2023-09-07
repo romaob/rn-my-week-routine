@@ -4,7 +4,7 @@ import Label, {FontSize} from './Label';
 import Button, {ButtonColorType, ButtonSize} from './Button';
 import {colors} from '../values/colors';
 import {sizes} from '../values/sizes';
-import useString from '../hooks/useString';
+import {useString} from '../context/useStringContext';
 
 interface DialogAlertProps {
   show: boolean;

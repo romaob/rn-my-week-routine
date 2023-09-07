@@ -1,7 +1,7 @@
 //Tests for the useString hook
 
 import {renderHook} from '@testing-library/react';
-import useString from '../../src/hooks/useString';
+import {useString} from '../../src/context/useStringContext';
 import strings = require('../../src/values/strings.json');
 import {act} from '@testing-library/react-native';
 

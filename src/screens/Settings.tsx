@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {View, StyleSheet, TouchableOpacity} from 'react-native';
 import Button, {ButtonColorType} from '../components/Button';
 import {sizes} from '../values/sizes';
 import {colors} from '../values/colors';
 import Label, {FontSize} from '../components/Label';
-import useString from '../hooks/useString';
+import {useString} from '../context/useStringContext';
 import DialogCustom from '../components/DialogCustom';
+import RadioButton from '../components/RadioButton';
+import RadioGroup from '../components/RadioGroup';
+import DialogAlert from '../components/DialogAlert';
+import useEvents from '../hooks/useEvents';
 
 interface SettingsItemProps {
   title: string;
@@ -39,14 +43,30 @@ function SettingsItem({title, info, onPress}: SettingsItemProps): JSX.Element {
 }
 
 export default function Settings(): JSX.Element {
-  const {language, getString} = useString();
+  const {language, getString, setLanguage} = useString();
+  const {updateEventsData} = useEvents();
+
+  const [showLanguageDialog, setShowLanguageDialog] = useState(false);
+  const [languageSelected, setLanguageSelected] = useState<string>(language);
+
+  const [showClearEventsDialog, setShowClearEventsDialog] = useState(false);
+
+  function handleClearEventsPress() {
+    setShowClearEventsDialog(true);
+  }
 
   function clearEvents() {
-    console.log('clear events');
+    updateEventsData([]);
+    setShowClearEventsDialog(false);
   }
 
   function handleItemLanguagePress() {
-    console.log('language');
+    setShowLanguageDialog(true);
+  }
+
+  function handleChangeLanguage(language: string) {
+    setLanguage(language as 'en' | 'es' | 'pt');
+    setShowLanguageDialog(false);
   }
 
   return (
@@ -58,12 +78,31 @@ export default function Settings(): JSX.Element {
       />
       <SettingsItem
         title={getString('screen_settings_clear_events')}
-        onPress={handleItemLanguagePress}
+        onPress={handleClearEventsPress}
       />
 
-      <DialogCustom show={true} title="Test">
-        <Label text="Hello" />
+      <DialogCustom
+        show={showLanguageDialog}
+        title={getString('screen_settings_language')}
+        onCancel={() => setShowLanguageDialog(false)}
+        onConfirm={() => handleChangeLanguage(languageSelected)}
+        confirmLabel={getString('confirm')}>
+        <RadioGroup
+          size={sizes.font.md}
+          itemSelected={languageSelected}
+          items={['en', 'es', 'pt']}
+          labels={['English', 'Español', 'Português']}
+          onPress={item => setLanguageSelected(item as 'en' | 'es' | 'pt')}
+        />
       </DialogCustom>
+
+      <DialogAlert
+        title={getString('screen_settings_clear_events')} 
+        message={getString('screen_settings_clear_events_message')}
+        show={showClearEventsDialog}
+        onCancel={() => setShowClearEventsDialog(false)}
+        onConfirm={clearEvents}
+      />
     </View>
   );
 }

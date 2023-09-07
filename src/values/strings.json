@@ -99,6 +99,11 @@
         "es": "OK",
         "pt": "OK"
     },
+    "confirm": {
+        "en": "Confirm",
+        "es": "Confirmar",
+        "pt": "Confirmar"
+    },
     "routine_new": {
         "en": "New Routine",
         "es": "Nueva Rutina",
@@ -168,5 +173,10 @@
         "en": "Clear Events",
         "es": "Limpiar Eventos",
         "pt": "Limpar Eventos"
+    },
+    "screen_settings_clear_events_message": {
+        "en": "Are you sure you want to delete all events?",
+        "es": "¿Estás seguro de que quieres eliminar todos los eventos?",
+        "pt": "Tem certeza que deseja excluir todos os eventos?"
     }
 }
