@@ -10,7 +10,7 @@ import Settings from './screens/Settings';
 import About from './screens/About';
 import {useString} from './context/useStringContext';
 
-export enum SCEENS {
+export enum SCREENS {
   HOME = 'Home',
   ROUTINE = 'Routine',
   ROUTINES = 'Routines',
