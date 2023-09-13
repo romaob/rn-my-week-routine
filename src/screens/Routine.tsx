@@ -1,5 +1,5 @@
 import {View, StyleSheet, Platform, TouchableOpacity} from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {sizes} from '../values/sizes';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import Label, {FontSize} from '../components/Label';
@@ -103,6 +103,25 @@ export default function Routine() {
     navigation.goBack();
   }
 
+  useEffect(() => {
+    setName(event?.name || '');
+    setDescription(event?.description || '');
+    setSelectedDays(event?.indexes || [new Date().getDay()]);
+    setStartDateTime(
+      new Date(
+        event?.startAt ||
+          getTimeFilteredByMinutes(new Date(), ITEM_MINUTES).getTime(),
+      ),
+    );
+    setEndDateTime(
+      new Date(
+        event?.endAt ||
+          getTimeFilteredByMinutes(new Date(), ITEM_MINUTES).getTime() +
+            60 * 60 * 1000,
+      ),
+    );
+  }, [event]);
+
   return (
     <View style={styles.container}>
       <View style={styles.topContainer}>
@@ -159,6 +178,7 @@ export default function Routine() {
             />
           )}
         </View>
+        {!IS_ANDROID && <Space />}
         <View style={styles.timeSelection}>
           <Label text={getString('routine_end_time')} size={FontSize.SMALL} />
           {IS_ANDROID && (
