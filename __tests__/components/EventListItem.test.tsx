@@ -12,8 +12,8 @@ const testEvent: Event = {
   id: '1234',
   name: 'Test Name',
   description: 'Test Description',
-  startAt: new Date().toISOString(),
-  endAt: new Date().toISOString(),
+  startAt: '2023-09-13T12:00:00.000',
+  endAt: '2023-09-13T12:30:00.000',
   indexes: [2, 3, 4],
   alertEnabled: false,
   alertSent: false,
@@ -72,7 +72,7 @@ describe('EventListItem render tests', () => {
             child ===
             strings.routine_start_at.en +
               ' ' +
-              getTimeStringFromDate(new Date(testEvent.endAt)),
+              getTimeStringFromDate(new Date(testEvent.startAt)),
         ),
     ).toBeTruthy();
     expect(

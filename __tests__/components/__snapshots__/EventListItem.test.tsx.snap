@@ -82,7 +82,7 @@ exports[`EventListItem action tests should call the provided funcion on the long
         }
         testID="eventListItemStart"
       >
-        Start at 01:52 PM
+        Start at 12:00 PM
       </Text>
       <Text
         style={
@@ -97,7 +97,7 @@ exports[`EventListItem action tests should call the provided funcion on the long
         }
         testID="eventListItemEnd"
       >
-        End at 01:52 PM
+        End at 12:30 PM
       </Text>
     </View>
     <View
@@ -420,7 +420,7 @@ exports[`EventListItem render tests should render a Event item correctly 1`] = `
         }
         testID="eventListItemStart"
       >
-        Start at 01:52 PM
+        Start at 12:00 PM
       </Text>
       <Text
         style={
@@ -435,7 +435,7 @@ exports[`EventListItem render tests should render a Event item correctly 1`] = `
         }
         testID="eventListItemEnd"
       >
-        End at 01:52 PM
+        End at 12:30 PM
       </Text>
     </View>
     <View

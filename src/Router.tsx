@@ -33,10 +33,6 @@ function DrawerHeaderBackButton() {
 export default function Router() {
   const {language, getString} = useString();
 
-  useEffect(() => {
-    console.log('language changed APP LEVEL');
-  }, [language]);
-
   return (
     <NavigationContainer>
       <Drawer.Navigator
@@ -54,7 +50,7 @@ export default function Router() {
         }}>
         {/* Home should not appear on the drawer*/}
         <Drawer.Screen
-          name={SCEENS.HOME}
+          name={SCREENS.HOME}
           component={Home}
           options={{
             drawerItemStyle: {display: 'none'},
@@ -63,7 +59,7 @@ export default function Router() {
         />
         {/* Routine should not appear on the drawer, and should have the back button */}
         <Drawer.Screen
-          name={SCEENS.ROUTINE}
+          name={SCREENS.ROUTINE}
           component={Routine}
           options={{
             drawerItemStyle: {display: 'none'},
@@ -72,7 +68,7 @@ export default function Router() {
           }}
         />
         <Drawer.Screen
-          name={SCEENS.ROUTINES}
+          name={SCREENS.ROUTINES}
           component={Routines}
           options={{
             headerLeft: DrawerHeaderBackButton,

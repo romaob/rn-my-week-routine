@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import {sizes} from '../values/sizes';
 import Label from './Label';
 import RadioButton from './RadioButton';
@@ -22,8 +22,8 @@ export default function RadioGroup({
   onPress,
 }: RadioGroupProps): JSX.Element {
   return (
-    <View style={styles.container}>
-      {label && <Label text={label} />}
+    <View style={styles.container} testID="radioGroup">
+      {label && <Label text={label} testID="radioGroupLabel" />}
       {items.map((item, index) => (
         <RadioButton
           key={item}

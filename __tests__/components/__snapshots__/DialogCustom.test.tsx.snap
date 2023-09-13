@@ -1,0 +1,1123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DialogCustom behavior tests should call onCancel when cancel button is pressed 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": "rgba(0,0,0,0.5)",
+      "display": "flex",
+      "height": "120%",
+      "justifyContent": "center",
+      "position": "absolute",
+      "width": "120%",
+    }
+  }
+>
+  <Modal
+    animationType="fade"
+    hardwareAccelerated={false}
+    testID="DialogCustom"
+    transparent={true}
+    visible={true}
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "display": "flex",
+          "flex": 1,
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "backgroundColor": "#ffffff",
+            "borderRadius": 10,
+            "padding": 24,
+            "width": "80%",
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Text
+            style={
+              {
+                "color": "#3a59db",
+                "display": "flex",
+                "flexDirection": "row",
+                "fontSize": 24,
+              }
+            }
+            testID="DialogCustomTitle"
+          >
+            title
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "marginBottom": 20,
+              "marginTop": 20,
+            }
+          }
+        >
+          <Text
+            testID="children"
+          >
+            children
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "alignItems": "center",
+                "backgroundColor": "#4791cb",
+                "borderRadius": 5,
+                "display": "flex",
+                "justifyContent": "center",
+                "opacity": 1,
+                "padding": 8,
+              }
+            }
+            testID="DialogCustomCancelButton"
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#ffffff",
+                  },
+                  {
+                    "fontSize": 24,
+                  },
+                ]
+              }
+              testID="buttonLabel"
+            >
+              cancelLabel
+            </Text>
+          </View>
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "alignItems": "center",
+                "backgroundColor": "#d81e8b",
+                "borderRadius": 5,
+                "display": "flex",
+                "justifyContent": "center",
+                "opacity": 1,
+                "padding": 8,
+              }
+            }
+            testID="DialogCustomConfirmButton"
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#ffffff",
+                  },
+                  {
+                    "fontSize": 24,
+                  },
+                ]
+              }
+              testID="buttonLabel"
+            >
+              confirmLabel
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </Modal>
+</View>
+`;
+
+exports[`DialogCustom behavior tests should call onConfirm when confirm button is pressed 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": "rgba(0,0,0,0.5)",
+      "display": "flex",
+      "height": "120%",
+      "justifyContent": "center",
+      "position": "absolute",
+      "width": "120%",
+    }
+  }
+>
+  <Modal
+    animationType="fade"
+    hardwareAccelerated={false}
+    testID="DialogCustom"
+    transparent={true}
+    visible={true}
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "display": "flex",
+          "flex": 1,
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "backgroundColor": "#ffffff",
+            "borderRadius": 10,
+            "padding": 24,
+            "width": "80%",
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Text
+            style={
+              {
+                "color": "#3a59db",
+                "display": "flex",
+                "flexDirection": "row",
+                "fontSize": 24,
+              }
+            }
+            testID="DialogCustomTitle"
+          >
+            title
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "marginBottom": 20,
+              "marginTop": 20,
+            }
+          }
+        >
+          <Text
+            testID="children"
+          >
+            children
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "alignItems": "center",
+                "backgroundColor": "#4791cb",
+                "borderRadius": 5,
+                "display": "flex",
+                "justifyContent": "center",
+                "opacity": 1,
+                "padding": 8,
+              }
+            }
+            testID="DialogCustomCancelButton"
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#ffffff",
+                  },
+                  {
+                    "fontSize": 24,
+                  },
+                ]
+              }
+              testID="buttonLabel"
+            >
+              cancelLabel
+            </Text>
+          </View>
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "alignItems": "center",
+                "backgroundColor": "#d81e8b",
+                "borderRadius": 5,
+                "display": "flex",
+                "justifyContent": "center",
+                "opacity": 1,
+                "padding": 8,
+              }
+            }
+            testID="DialogCustomConfirmButton"
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#ffffff",
+                  },
+                  {
+                    "fontSize": 24,
+                  },
+                ]
+              }
+              testID="buttonLabel"
+            >
+              confirmLabel
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </Modal>
+</View>
+`;
+
+exports[`DialogCustom render tests should not render the cancel button when onCancel is not provided 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": "rgba(0,0,0,0.5)",
+      "display": "flex",
+      "height": "120%",
+      "justifyContent": "center",
+      "position": "absolute",
+      "width": "120%",
+    }
+  }
+>
+  <Modal
+    animationType="fade"
+    hardwareAccelerated={false}
+    testID="DialogCustom"
+    transparent={true}
+    visible={true}
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "display": "flex",
+          "flex": 1,
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "backgroundColor": "#ffffff",
+            "borderRadius": 10,
+            "padding": 24,
+            "width": "80%",
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Text
+            style={
+              {
+                "color": "#3a59db",
+                "display": "flex",
+                "flexDirection": "row",
+                "fontSize": 24,
+              }
+            }
+            testID="DialogCustomTitle"
+          >
+            title
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "marginBottom": 20,
+              "marginTop": 20,
+            }
+          }
+        >
+          <Text
+            testID="children"
+          >
+            children
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "alignItems": "center",
+                "backgroundColor": "#d81e8b",
+                "borderRadius": 5,
+                "display": "flex",
+                "justifyContent": "center",
+                "opacity": 1,
+                "padding": 8,
+              }
+            }
+            testID="DialogCustomConfirmButton"
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#ffffff",
+                  },
+                  {
+                    "fontSize": 24,
+                  },
+                ]
+              }
+              testID="buttonLabel"
+            >
+              confirmLabel
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </Modal>
+</View>
+`;
+
+exports[`DialogCustom render tests should not render the confirm button when onConfirm is not provided 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": "rgba(0,0,0,0.5)",
+      "display": "flex",
+      "height": "120%",
+      "justifyContent": "center",
+      "position": "absolute",
+      "width": "120%",
+    }
+  }
+>
+  <Modal
+    animationType="fade"
+    hardwareAccelerated={false}
+    testID="DialogCustom"
+    transparent={true}
+    visible={true}
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "display": "flex",
+          "flex": 1,
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "backgroundColor": "#ffffff",
+            "borderRadius": 10,
+            "padding": 24,
+            "width": "80%",
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Text
+            style={
+              {
+                "color": "#3a59db",
+                "display": "flex",
+                "flexDirection": "row",
+                "fontSize": 24,
+              }
+            }
+            testID="DialogCustomTitle"
+          >
+            title
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "marginBottom": 20,
+              "marginTop": 20,
+            }
+          }
+        >
+          <Text
+            testID="children"
+          >
+            children
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "alignItems": "center",
+                "backgroundColor": "#4791cb",
+                "borderRadius": 5,
+                "display": "flex",
+                "justifyContent": "center",
+                "opacity": 1,
+                "padding": 8,
+              }
+            }
+            testID="DialogCustomCancelButton"
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#ffffff",
+                  },
+                  {
+                    "fontSize": 24,
+                  },
+                ]
+              }
+              testID="buttonLabel"
+            >
+              cancelLabel
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </Modal>
+</View>
+`;
+
+exports[`DialogCustom render tests should render the dialog correctly when show is true 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": "rgba(0,0,0,0.5)",
+      "display": "flex",
+      "height": "120%",
+      "justifyContent": "center",
+      "position": "absolute",
+      "width": "120%",
+    }
+  }
+>
+  <Modal
+    animationType="fade"
+    hardwareAccelerated={false}
+    testID="DialogCustom"
+    transparent={true}
+    visible={true}
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "display": "flex",
+          "flex": 1,
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "backgroundColor": "#ffffff",
+            "borderRadius": 10,
+            "padding": 24,
+            "width": "80%",
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Text
+            style={
+              {
+                "color": "#3a59db",
+                "display": "flex",
+                "flexDirection": "row",
+                "fontSize": 24,
+              }
+            }
+            testID="DialogCustomTitle"
+          >
+            title
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "marginBottom": 20,
+              "marginTop": 20,
+            }
+          }
+        >
+          <Text
+            testID="children"
+          >
+            children
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "alignItems": "center",
+                "backgroundColor": "#4791cb",
+                "borderRadius": 5,
+                "display": "flex",
+                "justifyContent": "center",
+                "opacity": 1,
+                "padding": 8,
+              }
+            }
+            testID="DialogCustomCancelButton"
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#ffffff",
+                  },
+                  {
+                    "fontSize": 24,
+                  },
+                ]
+              }
+              testID="buttonLabel"
+            >
+              cancelLabel
+            </Text>
+          </View>
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "alignItems": "center",
+                "backgroundColor": "#d81e8b",
+                "borderRadius": 5,
+                "display": "flex",
+                "justifyContent": "center",
+                "opacity": 1,
+                "padding": 8,
+              }
+            }
+            testID="DialogCustomConfirmButton"
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#ffffff",
+                  },
+                  {
+                    "fontSize": 24,
+                  },
+                ]
+              }
+              testID="buttonLabel"
+            >
+              confirmLabel
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </Modal>
+</View>
+`;
+
+exports[`DialogCustom render tests should render the dialog with default buttons labels when not providing 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": "rgba(0,0,0,0.5)",
+      "display": "flex",
+      "height": "120%",
+      "justifyContent": "center",
+      "position": "absolute",
+      "width": "120%",
+    }
+  }
+>
+  <Modal
+    animationType="fade"
+    hardwareAccelerated={false}
+    testID="DialogCustom"
+    transparent={true}
+    visible={true}
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "display": "flex",
+          "flex": 1,
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "backgroundColor": "#ffffff",
+            "borderRadius": 10,
+            "padding": 24,
+            "width": "80%",
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Text
+            style={
+              {
+                "color": "#3a59db",
+                "display": "flex",
+                "flexDirection": "row",
+                "fontSize": 24,
+              }
+            }
+            testID="DialogCustomTitle"
+          >
+            title
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "marginBottom": 20,
+              "marginTop": 20,
+            }
+          }
+        >
+          <Text
+            testID="children"
+          >
+            children
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "alignItems": "center",
+                "backgroundColor": "#4791cb",
+                "borderRadius": 5,
+                "display": "flex",
+                "justifyContent": "center",
+                "opacity": 1,
+                "padding": 8,
+              }
+            }
+            testID="DialogCustomCancelButton"
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#ffffff",
+                  },
+                  {
+                    "fontSize": 24,
+                  },
+                ]
+              }
+              testID="buttonLabel"
+            >
+              Cancel
+            </Text>
+          </View>
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "alignItems": "center",
+                "backgroundColor": "#d81e8b",
+                "borderRadius": 5,
+                "display": "flex",
+                "justifyContent": "center",
+                "opacity": 1,
+                "padding": 8,
+              }
+            }
+            testID="DialogCustomConfirmButton"
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#ffffff",
+                  },
+                  {
+                    "fontSize": 24,
+                  },
+                ]
+              }
+              testID="buttonLabel"
+            >
+              OK
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </Modal>
+</View>
+`;

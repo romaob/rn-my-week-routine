@@ -19,13 +19,18 @@ export default function RadioButton({
   onPress,
 }: RadioButtonProps): JSX.Element {
   return (
-    <TouchableOpacity style={styles.container} onPress={onPress}>
+    <TouchableOpacity
+      testID="radioButton"
+      style={styles.container}
+      onPress={onPress}>
       <View
+        testID="radioButtonCircle"
         style={{
           ...styles.radio,
           ...{padding: size / 4},
         }}>
         <View
+          testID="radioButtonCircleInner"
           style={{
             ...styles.radioInner,
             ...(selected ? styles.radioSelected : {}),
@@ -36,7 +41,8 @@ export default function RadioButton({
         />
       </View>
       <Label
-        text={label}
+        testID="radioButtonLabel"
+        text={label || ''}
         style={{
           ...styles.label,
           ...{fontSize: size},
