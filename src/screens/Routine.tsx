@@ -6,7 +6,7 @@ import Label, {FontSize} from '../components/Label';
 import {Event, ITEM_MINUTES} from '../values/appDefaults';
 import InputText from '../components/InputText';
 import {colors} from '../values/colors';
-import useString from '../hooks/useString';
+import {useString} from '../context/useStringContext';
 import WeekDaysMenu from '../components/WeekDaysMenu';
 import RNDateTimePicker from '@react-native-community/datetimepicker';
 import Button, {ButtonColorType, ButtonSize} from '../components/Button';

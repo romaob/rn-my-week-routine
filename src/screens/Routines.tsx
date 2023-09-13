@@ -4,7 +4,7 @@ import useEvents from '../hooks/useEvents';
 import {Event} from '../values/appDefaults';
 import {colors} from '../values/colors';
 import {sizes} from '../values/sizes';
-import useString from '../hooks/useString';
+import {useString} from '../context/useStringContext';
 import {useNavigation} from '@react-navigation/native';
 import EventListItem from '../components/EventListItem';
 

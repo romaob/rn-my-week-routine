@@ -6,13 +6,14 @@ import {getTimeStringFromDate, getWeekDays} from '../../src/utils/dateUtils';
 import {colors} from '../../src/values/colors';
 
 import strings from '../../src/values/strings.json';
+import StringsProvider from '../../src/context/useStringContext';
 
 const testEvent: Event = {
   id: '1234',
   name: 'Test Name',
   description: 'Test Description',
-  startAt: new Date().toISOString(),
-  endAt: new Date().toISOString(),
+  startAt: '2023-09-13T12:00:00.000',
+  endAt: '2023-09-13T12:30:00.000',
   indexes: [2, 3, 4],
   alertEnabled: false,
   alertSent: false,
@@ -22,8 +23,12 @@ const testEvent: Event = {
 };
 
 describe('EventListItem render tests', () => {
-  it('Should render a Event item correctly', () => {
-    const result = render(<EventListItem item={testEvent} />);
+  it('should render a Event item correctly', () => {
+    const result = render(
+      <StringsProvider>
+        <EventListItem item={testEvent} />
+      </StringsProvider>,
+    );
     expect(result).toBeDefined();
     expect(result).toMatchSnapshot();
     expect(result.getByTestId('eventListItem')).toBeDefined();
@@ -67,7 +72,7 @@ describe('EventListItem render tests', () => {
             child ===
             strings.routine_start_at.en +
               ' ' +
-              getTimeStringFromDate(new Date(testEvent.endAt)),
+              getTimeStringFromDate(new Date(testEvent.startAt)),
         ),
     ).toBeTruthy();
     expect(
@@ -119,10 +124,12 @@ describe('EventListItem render tests', () => {
 });
 
 describe('EventListItem action tests', () => {
-  it('Should call the provided funcion on the long press', () => {
+  it('should call the provided funcion on the long press', () => {
     const onLongPress = jest.fn();
     const result = render(
-      <EventListItem item={testEvent} onLongPress={onLongPress} />,
+      <StringsProvider>
+        <EventListItem item={testEvent} onLongPress={onLongPress} />
+      </StringsProvider>,
     );
 
     expect(result).toBeDefined();

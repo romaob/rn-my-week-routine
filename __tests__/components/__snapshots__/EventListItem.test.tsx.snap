@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EventListItem action tests Should call the provided funcion on the long press 1`] = `
+exports[`EventListItem action tests should call the provided funcion on the long press 1`] = `
 <RNGestureHandlerButton
   collapsable={false}
   delayLongPress={600}
@@ -82,7 +82,7 @@ exports[`EventListItem action tests Should call the provided funcion on the long
         }
         testID="eventListItemStart"
       >
-        Start at 11:09 AM
+        Start at 12:00 PM
       </Text>
       <Text
         style={
@@ -97,7 +97,7 @@ exports[`EventListItem action tests Should call the provided funcion on the long
         }
         testID="eventListItemEnd"
       >
-        End at 11:09 AM
+        End at 12:30 PM
       </Text>
     </View>
     <View
@@ -338,7 +338,7 @@ exports[`EventListItem action tests Should call the provided funcion on the long
 </RNGestureHandlerButton>
 `;
 
-exports[`EventListItem render tests Should render a Event item correctly 1`] = `
+exports[`EventListItem render tests should render a Event item correctly 1`] = `
 <RNGestureHandlerButton
   collapsable={false}
   delayLongPress={600}
@@ -420,7 +420,7 @@ exports[`EventListItem render tests Should render a Event item correctly 1`] = `
         }
         testID="eventListItemStart"
       >
-        Start at 11:09 AM
+        Start at 12:00 PM
       </Text>
       <Text
         style={
@@ -435,7 +435,7 @@ exports[`EventListItem render tests Should render a Event item correctly 1`] = `
         }
         testID="eventListItemEnd"
       >
-        End at 11:09 AM
+        End at 12:30 PM
       </Text>
     </View>
     <View
