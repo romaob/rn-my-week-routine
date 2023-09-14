@@ -2,13 +2,14 @@
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useEffect, useState} from 'react';
-import {APP_KEYS} from '../values/appDefaults';
+import {APP_KEYS, Event, getEmptyEvent} from '../values/appDefaults';
 
 import testData from '../values/dbTest.json';
 import {
   getDateIncreasedByMinutes,
   getTimeStringFromDate,
 } from '../utils/dateUtils';
+import { ScheduleNotifications } from '../notifications/NotificationCenter';
 
 export interface useSetupReturn {
   loading: boolean;
@@ -32,6 +33,45 @@ export default function useSetup(): useSetupReturn {
           await AsyncStorage.setItem(APP_KEYS.ONBOARDING, 'true');
           //await AsyncStorage.setItem(APP_KEYS.EVENTS, JSON.stringify([]));
           //Seting fake data
+
+          const events = [];
+          for (let i = 0; i < 48; i++) {
+            const event: Event = getEmptyEvent();
+
+            const startAt = new Date();
+            startAt.setHours(Math.floor(i / 2));
+            startAt.setMinutes(i % 2 === 0 ? 0 : 30);
+            startAt.setSeconds(0);
+            startAt.setMilliseconds(0);
+            const endAt = new Date();
+            endAt.setHours(Math.floor((i + 1) / 2));
+            endAt.setMinutes((i + 1) % 2 === 0 ? 0 : 30);
+            endAt.setSeconds(0);
+            endAt.setMilliseconds(0);
+
+            event.id = i + 1 + '';
+            event.name = `Event ${i + 1}`;
+            event.description = `Description ${i + 1}`;
+            event.startAt = startAt.toISOString();
+            event.endAt = endAt.toISOString();
+            event.alertEnabled = true;
+            event.alertSent = false;
+            event.alertConfirmed = false;
+            event.added = new Date().toISOString();
+            event.updated = new Date().toISOString();
+            event.indexes = [0, 1, 2, 3, 4, 5, 6];
+/*
+            const ids = await ScheduleNotifications(
+              'Testing schedule',
+              'Running task: ' + event.name,
+              event,
+            );
+*/
+            event.notificationIds = ids;
+
+            events.push(event);
+          }
+
           /*
 
             "id": 5,
@@ -47,7 +87,7 @@ export default function useSetup(): useSetupReturn {
             "updated": "2015-01-01T00:00:00.000Z"
 
           */
-         /*
+          /*
           const events = [];
           events.push(
             {
@@ -308,7 +348,7 @@ export default function useSetup(): useSetupReturn {
             });
           }
           */
-          //await AsyncStorage.setItem(APP_KEYS.EVENTS, JSON.stringify(events));
+          await AsyncStorage.setItem(APP_KEYS.EVENTS, JSON.stringify(events));
         }
       } catch (error) {
         console.log(error);

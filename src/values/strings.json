@@ -178,5 +178,15 @@
         "en": "Are you sure you want to delete all events?",
         "es": "¿Estás seguro de que quieres eliminar todos los eventos?",
         "pt": "Tem certeza que deseja excluir todos os eventos?"
+    },
+    "notification_title": {
+        "en": "My Week Routine, event started",
+        "es": "Mi Rutina Semanal, evento iniciado",
+        "pt": "Minha Rotina Semanal, evento iniciado"
+    },
+    "notification_body": {
+        "en": "It's time to",
+        "es": "Es hora de",
+        "pt": "É hora de"
     }
 }
