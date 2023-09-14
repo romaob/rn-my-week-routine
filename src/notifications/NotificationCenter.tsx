@@ -54,12 +54,12 @@ export async function ScheduleNotifications(
     date.setDate(date.getDate() + ((index + 7 - date.getDay()) % 7));
     date.setHours(new Date(event.startAt).getHours());
     date.setMinutes(new Date(event.startAt).getMinutes());
+    date.setSeconds(0);
+    date.setMilliseconds(0);
 
     if (date.getTime() < new Date().getTime()) {
       date.setDate(date.getDate() + 7);
     }
-
-    console.log('Creating notification for: ' + date);
 
     const trigger: TimestampTrigger = {
       type: TriggerType.TIMESTAMP,

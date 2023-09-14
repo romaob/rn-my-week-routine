@@ -33,7 +33,7 @@ export default function useSetup(): useSetupReturn {
           await AsyncStorage.setItem(APP_KEYS.ONBOARDING, 'true');
           //await AsyncStorage.setItem(APP_KEYS.EVENTS, JSON.stringify([]));
           //Seting fake data
-
+/*
           const events = [];
           for (let i = 0; i < 48; i++) {
             const event: Event = getEmptyEvent();
@@ -60,13 +60,11 @@ export default function useSetup(): useSetupReturn {
             event.added = new Date().toISOString();
             event.updated = new Date().toISOString();
             event.indexes = [0, 1, 2, 3, 4, 5, 6];
-/*
             const ids = await ScheduleNotifications(
               'Testing schedule',
               'Running task: ' + event.name,
               event,
             );
-*/
             event.notificationIds = ids;
 
             events.push(event);
@@ -348,7 +346,7 @@ export default function useSetup(): useSetupReturn {
             });
           }
           */
-          await AsyncStorage.setItem(APP_KEYS.EVENTS, JSON.stringify(events));
+          //await AsyncStorage.setItem(APP_KEYS.EVENTS, JSON.stringify(events));
         }
       } catch (error) {
         console.log(error);
