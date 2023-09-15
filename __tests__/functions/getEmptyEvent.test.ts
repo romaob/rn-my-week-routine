@@ -5,6 +5,7 @@ const emptyEventTest: Event = {
   name: '',
   indexes: [],
   description: '',
+  notificationIds: [],
   startAt: '',
   endAt: '',
   alertEnabled: false,
