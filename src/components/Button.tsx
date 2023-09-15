@@ -11,6 +11,7 @@ export enum ButtonColorType {
   DANGER = 'danger',
   WARNING = 'warning',
   INFO = 'info',
+  GREY = 'grey',
 }
 
 export enum ButtonSize {
@@ -123,6 +124,7 @@ const styles = StyleSheet.create({
   danger: {backgroundColor: pallete.danger},
   warning: {backgroundColor: pallete.warning},
   info: {backgroundColor: pallete.info},
+  grey: {backgroundColor: pallete.grey},
   'text-sm': {
     fontSize: sizes.font.sm,
   },

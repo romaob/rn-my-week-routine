@@ -96,7 +96,7 @@ export default function Routine() {
     };
 
     //If the event already has notifications, cancel them
-    if (!event?.notificationIds && event.notificationIds.length > 0) {
+    if (!event?.notificationIds && event?.notificationIds?.length > 0) {
       await notifee.cancelTriggerNotifications(event.notificationIds);
       newEvent.notificationIds = [];
     }
@@ -160,7 +160,9 @@ export default function Routine() {
         <Space />
         <Button
           rounded
-          colorType={ButtonColorType.PRIMARY}
+          colorType={
+            alertsEnabled ? ButtonColorType.PRIMARY : ButtonColorType.GREY
+          }
           onPress={() => setAlertsEnabled(!alertsEnabled)}>
           <Image
             style={{
