@@ -147,6 +147,7 @@ export default function Routine() {
             60 * 60 * 1000,
       ),
     );
+    setAlertsEnabled(event?.alertEnabled || false);
   }, [event]);
 
   return (
