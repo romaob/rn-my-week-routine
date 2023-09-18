@@ -62,13 +62,11 @@ export default function CurrentSlotProvider({
   }, []);
 
   useEffect(() => {
-    console.log('Current index changed from ' + currentIndex);
     refresh();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex]);
 
   useEffect(() => {
-    console.log('Events changed', !!events, events?.length);
     if (events && events.length > 0) {
       checkNotifications(currentIndex);
     }
