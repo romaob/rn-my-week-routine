@@ -73,6 +73,10 @@ export async function ScheduleNotifications(
       body: body,
       android: {
         channelId: channelId,
+        smallIcon: 'ic_icon',
+        pressAction: {
+          id: 'default',
+        },
       },
     };
 
