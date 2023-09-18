@@ -1,12 +1,18 @@
-import {View, StyleSheet, Platform, TouchableOpacity} from 'react-native';
-import React, {useState} from 'react';
+import {
+  View,
+  StyleSheet,
+  Platform,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
+import React, {useEffect, useState} from 'react';
 import {sizes} from '../values/sizes';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import Label, {FontSize} from '../components/Label';
 import {Event, ITEM_MINUTES} from '../values/appDefaults';
 import InputText from '../components/InputText';
 import {colors} from '../values/colors';
-import useString from '../hooks/useString';
+import {useString} from '../context/useStringContext';
 import WeekDaysMenu from '../components/WeekDaysMenu';
 import RNDateTimePicker from '@react-native-community/datetimepicker';
 import Button, {ButtonColorType, ButtonSize} from '../components/Button';
@@ -18,6 +24,8 @@ import {
 import Space from '../components/Space';
 import DialogAlert from '../components/DialogAlert';
 import ButtonDelete from '../components/ButtonDelete';
+import {ScheduleNotifications} from '../notifications/NotificationCenter';
+import notifee from '@notifee/react-native';
 
 const NAME_LIMIT = 50;
 const DESCRIPTION_LIMIT = 200;
@@ -55,6 +63,9 @@ export default function Routine() {
   const [showStart, setShowStart] = useState(false);
   const [showEnd, setShowEnd] = useState(false);
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
+  const [alertsEnabled, setAlertsEnabled] = useState(
+    event?.alertEnabled || false,
+  );
 
   function handleOnDaySelected(day: string, index: number) {
     if (selectedDays.includes(index)) {
@@ -77,12 +88,28 @@ export default function Routine() {
       indexes: selectedDays,
       startAt: startDateTime.toISOString(),
       endAt: endDateTime.toISOString(),
-      alertEnabled: false,
+      alertEnabled: alertsEnabled,
       alertSent: false,
       alertConfirmed: false,
       added: event?.added || new Date().toISOString(),
       updated: new Date().toISOString(),
     };
+
+    //If the event already has notifications, cancel them
+    if (!event?.notificationIds && event?.notificationIds?.length > 0) {
+      await notifee.cancelTriggerNotifications(event.notificationIds);
+      newEvent.notificationIds = [];
+    }
+
+    //If the event has alerts enabled, create new notifications
+    if (alertsEnabled) {
+      let ids = await ScheduleNotifications(
+        getString('notification_title'),
+        getString('notification_body') + ': ' + newEvent.name,
+        newEvent,
+      );
+      newEvent.notificationIds = [...ids];
+    }
 
     const newEvents = [...events];
     if (event?.id) {
@@ -103,6 +130,26 @@ export default function Routine() {
     navigation.goBack();
   }
 
+  useEffect(() => {
+    setName(event?.name || '');
+    setDescription(event?.description || '');
+    setSelectedDays(event?.indexes || [new Date().getDay()]);
+    setStartDateTime(
+      new Date(
+        event?.startAt ||
+          getTimeFilteredByMinutes(new Date(), ITEM_MINUTES).getTime(),
+      ),
+    );
+    setEndDateTime(
+      new Date(
+        event?.endAt ||
+          getTimeFilteredByMinutes(new Date(), ITEM_MINUTES).getTime() +
+            60 * 60 * 1000,
+      ),
+    );
+    setAlertsEnabled(event?.alertEnabled || false);
+  }, [event]);
+
   return (
     <View style={styles.container}>
       <View style={styles.topContainer}>
@@ -112,6 +159,20 @@ export default function Routine() {
           color={colors.light.accent}
         />
         <Space />
+        <Button
+          rounded
+          colorType={
+            alertsEnabled ? ButtonColorType.PRIMARY : ButtonColorType.GREY
+          }
+          onPress={() => setAlertsEnabled(!alertsEnabled)}>
+          <Image
+            style={{
+              ...styles.iconButton,
+              ...(!alertsEnabled && styles.iconButtonDisabled),
+            }}
+            source={require('../assets/images/notification_on.png')}
+          />
+        </Button>
         {event?.id && (
           <ButtonDelete onPress={() => setShowDeleteDialog(true)} />
         )}
@@ -159,6 +220,7 @@ export default function Routine() {
             />
           )}
         </View>
+        {!IS_ANDROID && <Space />}
         <View style={styles.timeSelection}>
           <Label text={getString('routine_end_time')} size={FontSize.SMALL} />
           {IS_ANDROID && (
@@ -254,5 +316,13 @@ const styles = StyleSheet.create({
   topContainer: {
     display: 'flex',
     flexDirection: 'row',
+    gap: sizes.margin.md,
+  },
+  iconButton: {
+    width: 20,
+    height: 20,
+  },
+  iconButtonDisabled: {
+    opacity: 0.5,
   },
 });

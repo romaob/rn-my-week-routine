@@ -1,4 +1,4 @@
-import {View, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {Event, ITEM_MINUTES} from '../values/appDefaults';
 import Label, {FontSize} from './Label';
@@ -64,7 +64,17 @@ function EventGroup({
                 ...(!isEmpty && isActive ? styles.eventSlotActive : {}),
               }}>
               {index === 0 && (
-                <Label text={eventSlot.event.name} size={FontSize.SMALL} />
+                <Label
+                  text={eventSlot.event.name}
+                  size={FontSize.SMALL}
+                  color={colors.light.textContrast}
+                />
+              )}
+              {index === 0 && eventSlot.event.alertEnabled && (
+                <Image
+                  style={styles.eventSlotAlertIcon}
+                  source={require('../assets/images/notification_on.png')}
+                />
               )}
             </View>
           );
@@ -225,11 +235,13 @@ const styles = StyleSheet.create({
   eventSlot: {
     height: sizes.appValues.timeSlotHeight,
     display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     padding: sizes.padding.sm,
     marginHorizontal: 4,
   },
   eventSlotFilled: {
-    backgroundColor: colors.light.secondary,
+    backgroundColor: colors.light.primary,
   },
   eventSlotEmpty: {
     backgroundColor: colors.light.cardBackground + 90,
@@ -245,5 +257,9 @@ const styles = StyleSheet.create({
   eventSlotBottom: {
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
+  },
+  eventSlotAlertIcon: {
+    width: 12,
+    height: 12,
   },
 });

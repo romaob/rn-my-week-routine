@@ -1,14 +1,14 @@
-import React, {useEffect, useState} from 'react';
-import {View, StyleSheet, Text} from 'react-native';
-import {WEEK_DAYS, getWeekDays} from '../utils/dateUtils';
+import React from 'react';
+import {View, StyleSheet} from 'react-native';
+import {getWeekDays} from '../utils/dateUtils';
 import Button, {ButtonColorType, ButtonSize} from './Button';
 import {sizes} from '../values/sizes';
-import useString from '../hooks/useString';
-import {colors} from '../values/colors';
+import {useString} from '../context/useStringContext';
 
 export interface WeekDaysMenuProps {
   selectedIndexes?: number[];
   disabled?: boolean;
+  size?: ButtonSize;
   onPress?: (day: string, index: number) => void;
   highlightToday?: boolean;
 }
@@ -16,6 +16,7 @@ export interface WeekDaysMenuProps {
 export default function WeekDaysMenu({
   selectedIndexes = [],
   disabled,
+  size = ButtonSize.MEDIUM_2,
   onPress,
   highlightToday = false,
 }: WeekDaysMenuProps) {
@@ -45,8 +46,8 @@ export default function WeekDaysMenu({
         <Button
           key={index}
           colorType={getColorType(day, index)}
-          size={ButtonSize.MEDIUM_2}
-          label={day.slice(0, 1)}
+          size={size}
+          label={day.slice(0, 2)}
           flex
           rounded
           onPress={() => handleOnPress(day, index)}

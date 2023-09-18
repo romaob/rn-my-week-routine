@@ -13,7 +13,7 @@ export interface useEventsReturn {
 export default function useEvents(): useEventsReturn {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
-  const [events, setEvents] = useState<Event[]>([]);
+  const [events, setEvents] = useState<Event[] | null>(null);
 
   const getData = useCallback(async () => {
     try {

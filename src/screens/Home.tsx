@@ -11,6 +11,7 @@ import Button, {ButtonColorType} from '../components/Button';
 import {useCurrentSlot} from '../context/currentSlotContext';
 import {useNavigation} from '@react-navigation/native';
 import {getTimeFilteredByMinutes} from '../utils/dateUtils';
+import { sizes } from '../values/sizes';
 
 export default function Home(): JSX.Element {
   //Get current time slot from the context
@@ -70,7 +71,7 @@ export default function Home(): JSX.Element {
   }, [currentIndex, scrollRef, initialScroll, scrollToCurrentTime]);
 
   useEffect(() => {
-    if (events.length > 0) {
+    if (events) {
       const res = events.filter(event => {
         return event.indexes.includes(currentSelectedDay[0]);
       });
@@ -86,6 +87,7 @@ export default function Home(): JSX.Element {
     return unsubscribe;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [navigation]);
+
   return (
     <View style={styles.container}>
       <WeekDaysMenu
@@ -131,6 +133,7 @@ const styles = StyleSheet.create({
   timeContainer: {
     display: 'flex',
     flexDirection: 'row',
+    paddingBottom: sizes.padding.lg,
   },
   buttonFloatContainer: {
     position: 'absolute',

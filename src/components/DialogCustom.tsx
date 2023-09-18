@@ -1,26 +1,30 @@
 import React from 'react';
-import {View, Image, StyleSheet, Modal} from 'react-native';
+import {View, StyleSheet, Modal} from 'react-native';
 import Label, {FontSize} from './Label';
 import Button, {ButtonColorType, ButtonSize} from './Button';
 import {colors} from '../values/colors';
 import {sizes} from '../values/sizes';
 import {useString} from '../context/useStringContext';
 
-interface DialogAlertProps {
+interface DialogCustomProps {
   show: boolean;
   title: string;
-  message: string;
-  onCancel: () => void;
-  onConfirm: () => void;
+  children: JSX.Element;
+  cancelLabel?: string;
+  confirmLabel?: string;
+  onCancel?: () => void;
+  onConfirm?: () => void;
 }
 
-const DialogAlert = ({
+const DialogCustom = ({
   show,
   title,
-  message,
+  children,
+  cancelLabel,
+  confirmLabel,
   onCancel,
   onConfirm,
-}: DialogAlertProps): JSX.Element | null => {
+}: DialogCustomProps): JSX.Element | null => {
   const {getString} = useString();
   if (!show) {
     return null;
@@ -31,42 +35,40 @@ const DialogAlert = ({
           visible={show}
           animationType="fade"
           transparent
-          testID="dialogAlert">
+          testID="DialogCustom">
           <View style={styles.centeredView}>
             <View style={styles.container}>
               <View style={styles.topRow}>
-                <View style={styles.cancelIcon}>
-                  <Image
-                    style={styles.icon}
-                    source={require('../assets/images/cancel.png')}
-                    testID="dialogAlertIcon"
-                  />
-                </View>
                 <Label
                   text={title}
                   size={FontSize.LARGE}
-                  color={colors.light.danger}
-                  testID="dialogAlertTitle"
+                  color={colors.light.primary}
+                  testID="DialogCustomTitle"
                 />
               </View>
-              <View style={styles.body}>
-                <Label text={message} testID="dialogAlertMessage" />
-              </View>
-              <View style={styles.bottomRow}>
-                <Button
-                  label={getString('cancel')}
-                  size={ButtonSize.LARGE}
-                  onPress={onCancel}
-                  testID="dialogAlertCancelButton"
-                />
-                <Button
-                  label={getString('delete').toUpperCase()}
-                  size={ButtonSize.LARGE}
-                  onPress={onConfirm}
-                  colorType={ButtonColorType.DANGER}
-                  testID="dialogAlertConfirmButton"
-                />
-              </View>
+              <View style={styles.body}>{children}</View>
+              {(onCancel || onConfirm) && (
+                <View style={styles.bottomRow}>
+                  {onCancel && (
+                    <Button
+                      label={cancelLabel || getString('cancel')}
+                      size={ButtonSize.LARGE}
+                      onPress={onCancel}
+                      colorType={ButtonColorType.SECONDARY}
+                      testID="DialogCustomCancelButton"
+                    />
+                  )}
+                  {onConfirm && (
+                    <Button
+                      label={confirmLabel || getString('ok')}
+                      size={ButtonSize.LARGE}
+                      onPress={onConfirm}
+                      colorType={ButtonColorType.ACCENT}
+                      testID="DialogCustomConfirmButton"
+                    />
+                  )}
+                </View>
+              )}
             </View>
           </View>
         </Modal>
@@ -95,19 +97,11 @@ const styles = StyleSheet.create({
     backgroundColor: colors.light.cardBackground,
     borderRadius: 10,
     padding: sizes.padding.lg,
+    width: '80%',
   },
   topRow: {
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  cancelIcon: {
-    backgroundColor: 'red',
-    width: 30,
-    height: 30,
-    borderRadius: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginRight: 10,
   },
   body: {
     marginTop: 20,
@@ -123,4 +117,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default DialogAlert;
+export default DialogCustom;
