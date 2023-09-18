@@ -2,6 +2,7 @@ import React from 'react';
 import {fireEvent, render} from '@testing-library/react-native';
 import WeekDaysMenu from '../../src/components/WeekDaysMenu';
 import {colors} from '../../src/values/colors';
+import {getWeekDays} from '../../src/utils/dateUtils';
 
 describe('WeekDaysMenu render and behavior tests', () => {
   it('should render correctly', async () => {
@@ -10,10 +11,15 @@ describe('WeekDaysMenu render and behavior tests', () => {
     expect(result.getByTestId('weekdays-menu').children.length).toBe(7);
     const qtd = result.getAllByTestId('button').length;
     expect(qtd).toBe(7);
+    const weekDays = getWeekDays('en');
     for (let i = 0; i < qtd; i++) {
       expect(
         result.getAllByTestId('button')[i].props.style.backgroundColor,
       ).toBe(colors.light.secondary);
+      expect(
+        result.getAllByTestId('buttonLabel')[i].props.children ===
+          weekDays[i].slice(0, 2),
+      ).toBeTruthy();
     }
   });
 

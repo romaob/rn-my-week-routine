@@ -4,6 +4,26 @@
         "es": "Mi Rutina Semanal",
         "pt": "Minha Rotina Semanal"
     },
+    "screen_routine": {
+        "en": "Routine",
+        "es": "Rutina",
+        "pt": "Rotina"
+    },
+    "screen_events": {
+        "en": "My Events",
+        "es": "Mis Eventos",
+        "pt": "Meus Eventos"
+    },
+    "screen_settings": {
+        "en": "Settings",
+        "es": "Ajustes",
+        "pt": "Configurações"
+    },
+    "screen_about": {
+        "en": "About",
+        "es": "Acerca de",
+        "pt": "Sobre"
+    },
     "lang_en": {
         "en": "English",
         "es": "English",
@@ -74,6 +94,16 @@
         "es": "Cancelar",
         "pt": "Cancelar"
     },
+    "ok": {
+        "en": "OK",
+        "es": "OK",
+        "pt": "OK"
+    },
+    "confirm": {
+        "en": "Confirm",
+        "es": "Confirmar",
+        "pt": "Confirmar"
+    },
     "routine_new": {
         "en": "New Routine",
         "es": "Nueva Rutina",
@@ -118,5 +148,45 @@
         "en": "Routine name is required",
         "es": "El nombre de la rutina es obligatorio",
         "pt": "O nome da rotina é obrigatório"
+    },
+    "routine_start_at": {
+        "en": "Start at",
+        "es": "Empieza a las",
+        "pt": "Começa às"
+    },
+    "routine_end_at": {
+        "en": "End at",
+        "es": "Termina a las",
+        "pt": "Termina às"
+    },
+    "screen_settings_language": {
+        "en": "Language",
+        "es": "Idioma",
+        "pt": "Idioma"
+    },
+    "screen_settings_about": {
+        "en": "About",
+        "es": "Acerca de",
+        "pt": "Sobre"
+    },
+    "screen_settings_clear_events": {
+        "en": "Clear Events",
+        "es": "Limpiar Eventos",
+        "pt": "Limpar Eventos"
+    },
+    "screen_settings_clear_events_message": {
+        "en": "Are you sure you want to delete all events?",
+        "es": "¿Estás seguro de que quieres eliminar todos los eventos?",
+        "pt": "Tem certeza que deseja excluir todos os eventos?"
+    },
+    "notification_title": {
+        "en": "My Week Routine, event started",
+        "es": "Mi Rutina Semanal, evento iniciado",
+        "pt": "Minha Rotina Semanal, evento iniciado"
+    },
+    "notification_body": {
+        "en": "It's time to",
+        "es": "Es hora de",
+        "pt": "É hora de"
     }
 }

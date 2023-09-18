@@ -27,6 +27,7 @@ export interface Event {
   alertConfirmed: boolean;
   added: string;
   updated: string;
+  notificationIds?: string[];
 }
 
 export function getEmptyEvent(): Event {
@@ -42,5 +43,6 @@ export function getEmptyEvent(): Event {
     alertConfirmed: false,
     added: '',
     updated: '',
+    notificationIds: [],
   };
 }
