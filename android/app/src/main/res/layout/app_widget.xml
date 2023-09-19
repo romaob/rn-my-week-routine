@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_widget_background"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:theme="@style/AppTheme.AppWidgetContainer">
+
+    <TextView
+        android:id="@+id/appwidget_text_none"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/appwidget_text"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="No events"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/appwidget_text1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="4dp"
+        android:layout_weight="1"
+        android:background="@drawable/app_widget_inner_view_background_accent"
+        android:contentDescription="@string/appwidget_text"
+        android:gravity="center_vertical"
+        android:paddingStart="4dp"
+        android:text="12:00 PM - Event"
+        android:textSize="16sp"
+        android:textStyle="bold|italic"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/appwidget_text2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="4dp"
+        android:layout_weight="1"
+        android:background="@drawable/app_widget_inner_view_background_accent"
+        android:contentDescription="@string/appwidget_text"
+        android:gravity="center_vertical"
+        android:paddingStart="4dp"
+        android:text="12:30 PM - Event"
+        android:textSize="16sp"
+        android:textStyle="bold|italic"
+        android:visibility="gone" />
+
+</LinearLayout>

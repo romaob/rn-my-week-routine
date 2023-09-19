@@ -1,12 +1,17 @@
 // Context to store the current time slot, updating every minute.
 
 import React, {createContext, useContext, useEffect, useState} from 'react';
-import {getSlotIndexOfDate} from '../utils/dateUtils';
+import {getSlotIndexOfDate, getTimeStringFromDate} from '../utils/dateUtils';
 import {Event, ITEM_MINUTES} from '../values/appDefaults';
 import useEvents from '../hooks/useEvents';
 import {NotifyEvent} from '../notifications/NotificationCenter';
 import {useString} from './useStringContext';
+import SharedGroupPreferences from 'react-native-shared-group-preferences';
+import {NativeModules, Platform} from 'react-native';
 
+const group = 'group.myweekroutine';
+
+const SharedStorage = NativeModules.SharedStorage;
 export interface CurrentSlotContextReturn {
   currentIndex: number;
   currentDayIndex?: number;
@@ -36,20 +41,43 @@ export default function CurrentSlotProvider({
     //return Math.floor(Math.random() * 20);
   }
 
-  function checkNotifications(currentIndex: number) {
+  async function saveWidgetSharedData() {
+    const todayEvents = !events
+      ? []
+      : events.filter(
+          (event: Event) => event.indexes.indexOf(new Date().getDay()) !== -1,
+        );
 
-    events?.forEach((event: Event) => {
-      const eventStartIndex = getSlotIndexOfDate(
-        new Date(event.startAt),
-        ITEM_MINUTES,
-      );
-      const hasToday = event.indexes.includes(new Date().getDay());
-      if (event.alertEnabled && hasToday && eventStartIndex === currentIndex) {
-        const title = getString('notification_title');
-        const body = getString('notification_body') + ': ' + event.name;
-        //NotifyEvent(title, body);
+    const todayEventsNames = todayEvents.map(
+      (event: Event) =>
+        getTimeStringFromDate(new Date(event.startAt)) + ' - ' + event.name,
+    );
+    const todayEventsIndex = todayEvents.map((event: Event) =>
+      getSlotIndexOfDate(new Date(event.startAt), ITEM_MINUTES),
+    );
+
+    const dataObj = {
+      currentIndex: currentIndex,
+      eventsNames: todayEventsNames,
+      eventsIndex: todayEventsIndex,
+      textNone: getString('widget_text_none'),
+    };
+
+    if (Platform.OS === 'ios') {
+      try {
+        // iOS
+        await SharedGroupPreferences.setItem(
+          'myweekroutine_widget',
+          dataObj,
+          group,
+        );
+      } catch (error) {
+        console.log({error});
       }
-    });
+    } else if (Platform.OS === 'android') {
+      // Android
+      SharedStorage.set(JSON.stringify(dataObj));
+    }
   }
 
   useEffect(() => {
@@ -58,18 +86,16 @@ export default function CurrentSlotProvider({
       setCurrentIndex(nowIndex);
     }, 60000);
     return () => clearInterval(interval);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     refresh();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex]);
 
   useEffect(() => {
-    if (events && events.length > 0) {
-      checkNotifications(currentIndex);
-    }
+    if (!events) return;
+    saveWidgetSharedData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [events]);
 
