@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* MyWeekRoutineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MyWeekRoutineTests.m */; };
+		0276E6692AB9E992000CA936 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0276E6682AB9E991000CA936 /* WidgetKit.framework */; };
+		0276E66B2AB9E992000CA936 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0276E66A2AB9E992000CA936 /* SwiftUI.framework */; };
+		0276E66E2AB9E992000CA936 /* MyWeekRoutineWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0276E66D2AB9E992000CA936 /* MyWeekRoutineWidget.swift */; };
+		0276E6712AB9E995000CA936 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0276E6702AB9E995000CA936 /* Assets.xcassets */; };
+		0276E6732AB9E995000CA936 /* MyWeekRoutineWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 0276E66F2AB9E992000CA936 /* MyWeekRoutineWidget.intentdefinition */; };
+		0276E6742AB9E995000CA936 /* MyWeekRoutineWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 0276E66F2AB9E992000CA936 /* MyWeekRoutineWidget.intentdefinition */; };
+		0276E6772AB9E995000CA936 /* MyWeekRoutineWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0276E6672AB9E991000CA936 /* MyWeekRoutineWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0276E67E2AB9EC97000CA936 /* widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0276E67D2AB9EC97000CA936 /* widget.swift */; };
+		0276E67F2AB9EC97000CA936 /* widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0276E67D2AB9EC97000CA936 /* widget.swift */; };
 		0C80B921A6F3F58F76C31292 /* libPods-MyWeekRoutine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-MyWeekRoutine.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -24,12 +33,44 @@
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = MyWeekRoutine;
 		};
+		0276E6752AB9E995000CA936 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0276E6662AB9E991000CA936;
+			remoteInfo = MyWeekRoutineWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0276E6782AB9E995000CA936 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0276E6772AB9E995000CA936 /* MyWeekRoutineWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		00E356EE1AD99517003FC87E /* MyWeekRoutineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyWeekRoutineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* MyWeekRoutineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyWeekRoutineTests.m; sourceTree = "<group>"; };
+		0276E6672AB9E991000CA936 /* MyWeekRoutineWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MyWeekRoutineWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		0276E6682AB9E991000CA936 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		0276E66A2AB9E992000CA936 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		0276E66D2AB9E992000CA936 /* MyWeekRoutineWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWeekRoutineWidget.swift; sourceTree = "<group>"; };
+		0276E66F2AB9E992000CA936 /* MyWeekRoutineWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = MyWeekRoutineWidget.intentdefinition; sourceTree = "<group>"; };
+		0276E6702AB9E995000CA936 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0276E6722AB9E995000CA936 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0276E67C2AB9EC96000CA936 /* MyWeekRoutine-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyWeekRoutine-Bridging-Header.h"; sourceTree = "<group>"; };
+		0276E67D2AB9EC97000CA936 /* widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = widget.swift; sourceTree = "<group>"; };
+		0276E6802AB9EEFD000CA936 /* MyWeekRoutine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = MyWeekRoutine.entitlements; path = MyWeekRoutine/MyWeekRoutine.entitlements; sourceTree = "<group>"; };
+		0276E6812AB9EF7D000CA936 /* MyWeekRoutineWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyWeekRoutineWidgetExtension.entitlements; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* MyWeekRoutine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyWeekRoutine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = MyWeekRoutine/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = MyWeekRoutine/AppDelegate.mm; sourceTree = "<group>"; };
@@ -52,6 +93,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				7699B88040F8A987B510C191 /* libPods-MyWeekRoutine-MyWeekRoutineTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0276E6642AB9E991000CA936 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0276E66B2AB9E992000CA936 /* SwiftUI.framework in Frameworks */,
+				0276E6692AB9E992000CA936 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,9 +133,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0276E66C2AB9E992000CA936 /* MyWeekRoutineWidget */ = {
+			isa = PBXGroup;
+			children = (
+				0276E66D2AB9E992000CA936 /* MyWeekRoutineWidget.swift */,
+				0276E66F2AB9E992000CA936 /* MyWeekRoutineWidget.intentdefinition */,
+				0276E6702AB9E995000CA936 /* Assets.xcassets */,
+				0276E6722AB9E995000CA936 /* Info.plist */,
+				0276E67D2AB9EC97000CA936 /* widget.swift */,
+				0276E67C2AB9EC96000CA936 /* MyWeekRoutine-Bridging-Header.h */,
+			);
+			path = MyWeekRoutineWidget;
+			sourceTree = "<group>";
+		};
 		13B07FAE1A68108700A75B9A /* MyWeekRoutine */ = {
 			isa = PBXGroup;
 			children = (
+				0276E6802AB9EEFD000CA936 /* MyWeekRoutine.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -102,6 +166,8 @@
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				5DCACB8F33CDC322A6C60F78 /* libPods-MyWeekRoutine.a */,
 				19F6CBCC0A4E27FBF8BF4A61 /* libPods-MyWeekRoutine-MyWeekRoutineTests.a */,
+				0276E6682AB9E991000CA936 /* WidgetKit.framework */,
+				0276E66A2AB9E992000CA936 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -116,9 +182,11 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				0276E6812AB9EF7D000CA936 /* MyWeekRoutineWidgetExtension.entitlements */,
 				13B07FAE1A68108700A75B9A /* MyWeekRoutine */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* MyWeekRoutineTests */,
+				0276E66C2AB9E992000CA936 /* MyWeekRoutineWidget */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
@@ -133,6 +201,7 @@
 			children = (
 				13B07F961A680F5B00A75B9A /* MyWeekRoutine.app */,
 				00E356EE1AD99517003FC87E /* MyWeekRoutineTests.xctest */,
+				0276E6672AB9E991000CA936 /* MyWeekRoutineWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -172,6 +241,23 @@
 			productReference = 00E356EE1AD99517003FC87E /* MyWeekRoutineTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		0276E6662AB9E991000CA936 /* MyWeekRoutineWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0276E67B2AB9E995000CA936 /* Build configuration list for PBXNativeTarget "MyWeekRoutineWidgetExtension" */;
+			buildPhases = (
+				0276E6632AB9E991000CA936 /* Sources */,
+				0276E6642AB9E991000CA936 /* Frameworks */,
+				0276E6652AB9E991000CA936 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyWeekRoutineWidgetExtension;
+			productName = MyWeekRoutineWidgetExtension;
+			productReference = 0276E6672AB9E991000CA936 /* MyWeekRoutineWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		13B07F861A680F5B00A75B9A /* MyWeekRoutine */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "MyWeekRoutine" */;
@@ -184,10 +270,12 @@
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
 				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
+				0276E6782AB9E995000CA936 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0276E6762AB9E995000CA936 /* PBXTargetDependency */,
 			);
 			name = MyWeekRoutine;
 			productName = MyWeekRoutine;
@@ -200,14 +288,18 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
+					0276E6662AB9E991000CA936 = {
+						CreatedOnToolsVersion = 14.0.1;
+					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1400;
 					};
 				};
 			};
@@ -226,6 +318,7 @@
 			targets = (
 				13B07F861A680F5B00A75B9A /* MyWeekRoutine */,
 				00E356ED1AD99517003FC87E /* MyWeekRoutineTests */,
+				0276E6662AB9E991000CA936 /* MyWeekRoutineWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -235,6 +328,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0276E6652AB9E991000CA936 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0276E6712AB9E995000CA936 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,12 +509,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0276E6632AB9E991000CA936 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0276E67F2AB9EC97000CA936 /* widget.swift in Sources */,
+				0276E66E2AB9E992000CA936 /* MyWeekRoutineWidget.swift in Sources */,
+				0276E6732AB9E995000CA936 /* MyWeekRoutineWidget.intentdefinition in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		13B07F871A680F5B00A75B9A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
+				0276E6742AB9E995000CA936 /* MyWeekRoutineWidget.intentdefinition in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				0276E67E2AB9EC97000CA936 /* widget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +538,11 @@
 			target = 13B07F861A680F5B00A75B9A /* MyWeekRoutine */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
+		0276E6762AB9E995000CA936 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0276E6662AB9E991000CA936 /* MyWeekRoutineWidgetExtension */;
+			targetProxy = 0276E6752AB9E995000CA936 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -432,6 +550,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-MyWeekRoutine-MyWeekRoutineTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -459,6 +578,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-MyWeekRoutine-MyWeekRoutineTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = MyWeekRoutineTests/Info.plist;
@@ -479,13 +599,98 @@
 			};
 			name = Release;
 		};
+		0276E6792AB9E995000CA936 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = MyWeekRoutineWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = JS69D52RT7;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MyWeekRoutineWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MyWeekRoutineWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.MyWeekRoutine.MyWeekRoutineWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0276E67A2AB9E995000CA936 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = MyWeekRoutineWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = JS69D52RT7;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MyWeekRoutineWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MyWeekRoutineWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.MyWeekRoutine.MyWeekRoutineWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-MyWeekRoutine.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = MyWeekRoutine/MyWeekRoutine.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JS69D52RT7;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MyWeekRoutine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -500,6 +705,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = MyWeekRoutine;
+				SWIFT_OBJC_BRIDGING_HEADER = "MyWeekRoutineWidget/MyWeekRoutine-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -510,9 +716,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-MyWeekRoutine.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = MyWeekRoutine/MyWeekRoutine.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JS69D52RT7;
 				INFOPLIST_FILE = MyWeekRoutine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -526,6 +735,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = MyWeekRoutine;
+				SWIFT_OBJC_BRIDGING_HEADER = "MyWeekRoutineWidget/MyWeekRoutine-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -678,6 +888,15 @@
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
 				00E356F71AD99517003FC87E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0276E67B2AB9E995000CA936 /* Build configuration list for PBXNativeTarget "MyWeekRoutineWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0276E6792AB9E995000CA936 /* Debug */,
+				0276E67A2AB9E995000CA936 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
