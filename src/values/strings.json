@@ -188,5 +188,10 @@
         "en": "It's time to",
         "es": "Es hora de",
         "pt": "É hora de"
+    },
+    "widget_text_none": {
+        "en": "No upcoming events",
+        "es": "No hay eventos próximos",
+        "pt": "Nenhum evento próximo"
     }
 }

@@ -1,7 +1,7 @@
 // Context to store the current time slot, updating every minute.
 
 import React, {createContext, useContext, useEffect, useState} from 'react';
-import {getSlotIndexOfDate} from '../utils/dateUtils';
+import {getSlotIndexOfDate, getTimeStringFromDate} from '../utils/dateUtils';
 import {Event, ITEM_MINUTES} from '../values/appDefaults';
 import useEvents from '../hooks/useEvents';
 import {NotifyEvent} from '../notifications/NotificationCenter';
@@ -42,12 +42,33 @@ export default function CurrentSlotProvider({
   }
 
   async function saveWidgetSharedData() {
+    const todayEvents = !events
+      ? []
+      : events.filter(
+          (event: Event) => event.indexes.indexOf(new Date().getDay()) !== -1,
+        );
+
+    const todayEventsNames = todayEvents.map(
+      (event: Event) =>
+        getTimeStringFromDate(new Date(event.startAt)) + ' - ' + event.name,
+    );
+    const todayEventsIndex = todayEvents.map((event: Event) =>
+      getSlotIndexOfDate(new Date(event.startAt), ITEM_MINUTES),
+    );
+
+    const dataObj = {
+      currentIndex: currentIndex,
+      eventsNames: todayEventsNames,
+      eventsIndex: todayEventsIndex,
+      textNone: getString('widget_text_none'),
+    };
+
     if (Platform.OS === 'ios') {
       try {
         // iOS
         await SharedGroupPreferences.setItem(
           'myweekroutine_widget',
-          {text: 'Current key: ' + currentIndex},
+          dataObj,
           group,
         );
       } catch (error) {
@@ -55,7 +76,7 @@ export default function CurrentSlotProvider({
       }
     } else if (Platform.OS === 'android') {
       // Android
-      SharedStorage.set(JSON.stringify({text: 'Current key: ' + currentIndex}));
+      SharedStorage.set(JSON.stringify(dataObj));
     }
   }
 
@@ -69,9 +90,14 @@ export default function CurrentSlotProvider({
 
   useEffect(() => {
     refresh();
-    saveWidgetSharedData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex]);
+
+  useEffect(() => {
+    if (!events) return;
+    saveWidgetSharedData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [events]);
 
   return (
     <CurrentSlotContext.Provider value={{currentIndex}}>
