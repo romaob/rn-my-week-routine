@@ -44,9 +44,15 @@ export default function CurrentSlotProvider({
   async function saveWidgetSharedData() {
     const todayEvents = !events
       ? []
-      : events.filter(
-          (event: Event) => event.indexes.indexOf(new Date().getDay()) !== -1,
-        );
+      : events
+          .sort((a: Event, b: Event) => {
+            return (
+              new Date(a.startAt).getTime() - new Date(b.startAt).getTime()
+            );
+          })
+          .filter(
+            (event: Event) => event.indexes.indexOf(new Date().getDay()) !== -1,
+          );
 
     const todayEventsNames = todayEvents.map(
       (event: Event) =>
@@ -56,10 +62,15 @@ export default function CurrentSlotProvider({
       getSlotIndexOfDate(new Date(event.startAt), ITEM_MINUTES),
     );
 
+    const todayEventsIndexEnd = todayEvents.map((event: Event) =>
+      getSlotIndexOfDate(new Date(event.endAt), ITEM_MINUTES),
+    );
+
     const dataObj = {
       currentIndex: currentIndex,
       eventsNames: todayEventsNames,
-      eventsIndex: todayEventsIndex,
+      eventsIndexStart: todayEventsIndex,
+      eventsIndexEnd: todayEventsIndexEnd,
       textNone: getString('widget_text_none'),
     };
 
@@ -94,7 +105,9 @@ export default function CurrentSlotProvider({
   }, [currentIndex]);
 
   useEffect(() => {
-    if (!events) return;
+    if (!events) {
+      return;
+    }
     saveWidgetSharedData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [events]);

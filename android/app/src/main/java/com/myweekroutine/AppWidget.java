@@ -25,7 +25,7 @@ public class AppWidget extends AppWidgetProvider {
 
         try {
             SharedPreferences sharedPref = context.getSharedPreferences("DATA", Context.MODE_PRIVATE);
-            String appString = sharedPref.getString("appData", "{\"currentIndex\":'0',\"eventsIndex\":[],\"eventsNames\":[],\"textNone\":\"No events\"}");
+            String appString = sharedPref.getString("appData", "{\"currentIndex\":'0',\"eventsIndexStart\":[],\"eventsIndexEnd\":[],\"eventsNames\":[],\"textNone\":\"No events today\"}");
             JSONObject appData = new JSONObject(appString);
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.app_widget);
             views.setTextViewText(R.id.appwidget_text_none, appData.getString("textNone"));
@@ -38,17 +38,17 @@ public class AppWidget extends AppWidgetProvider {
 
             //Current index will be the current hour * 2 + 1 if it is past the half hour
             int currentIndex = Calendar.getInstance().get(Calendar.HOUR_OF_DAY) * 2 + (Calendar.getInstance().get(Calendar.MINUTE) >= 30 ? 1 : 0);
-            System.out.println("MyWeek Routine CurrentIndex " + currentIndex);
-            for (int i = 0; i < appData.getJSONArray("eventsIndex").length(); i++) {
-                if (appData.getJSONArray("eventsIndex").getInt(i) >= currentIndex) {
+            for (int i = 0; i < appData.getJSONArray("eventsIndexStart").length(); i++) {
+                boolean isEventGoing = currentIndex >= appData.getJSONArray("eventsIndexStart").getInt(i) && currentIndex < appData.getJSONArray("eventsIndexEnd").getInt(i);
+                if (appData.getJSONArray("eventsIndexEnd").getInt(i) >= currentIndex) {
                     if (event1 == null) {
                         event1 = appData.getJSONArray("eventsNames").getString(i);
-                        if (appData.getJSONArray("eventsIndex").getInt(i) == currentIndex) {
+                        if (isEventGoing) {
                             event1Now = true;
                         }
                     } else if (event2 == null) {
                         event2 = appData.getJSONArray("eventsNames").getString(i);
-                        if (appData.getJSONArray("eventsIndex").getInt(i) == currentIndex) {
+                        if (isEventGoing) {
                             event2Now = true;
                         }
                         break;
@@ -95,7 +95,7 @@ public class AppWidget extends AppWidgetProvider {
                 Intent intent = new Intent(context, AppWidget.class);
                 intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
                 intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, new int[]{appWidgetId});
-                PendingIntent pendingIntent = PendingIntent.getBroadcast(context, appWidgetId, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                PendingIntent pendingIntent = PendingIntent.getBroadcast(context, appWidgetId, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
                 // Set the update interval using the AlarmManager
                 AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
